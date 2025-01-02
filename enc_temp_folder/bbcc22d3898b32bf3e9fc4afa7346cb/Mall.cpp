@@ -19,9 +19,6 @@ chair()
 	
 }
 
-void Mall::onImguiRender() {
-	ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 0.0f, 360.0f);
-}
 void Mall::draw()
 {
 	setRotation(m_RotationAngle, m_RotationAxis);

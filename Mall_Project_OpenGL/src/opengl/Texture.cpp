@@ -1,6 +1,6 @@
 #include "Texture.h"
 
-Texture::Texture(const std::string& filepath)
+Texture::Texture(const std::string& filepath , bool mirrorX, bool mirrorY)
 	: m_RendererID(0), m_FilePath(filepath), m_LocalBuffer(0), m_Width(0), m_Height(0), m_BPP(0)
 {
 	// loading image :
@@ -15,8 +15,8 @@ Texture::Texture(const std::string& filepath)
 
 	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)); // just do it like this for now , search for it later
 	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)); // just do it like this for now , search for it later
-	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));
-	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)); // wrapS , wrapT , for x and y i guess
+	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,mirrorX ?GL_MIRRORED_REPEAT: GL_REPEAT));
+	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, mirrorY ? GL_MIRRORED_REPEAT : GL_REPEAT)); // wrapS , wrapT , for x and y i guess
 	
 	// send data to opengl
 	// check docs.gl 
@@ -48,3 +48,4 @@ void Texture::Unbind() const
 {
 	GLCall(glBindTexture(GL_TEXTURE_2D, 0));
 }
+

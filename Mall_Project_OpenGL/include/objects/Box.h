@@ -5,8 +5,8 @@
 #include "VAO.h"
 #include "VBO.h"
 enum Face {
-    Front,
     Back,
+    Front,
     Left,
     Right,
     Up,
@@ -14,11 +14,11 @@ enum Face {
 };
 class Box {
 public:
-    Box(float width, float height, float depth, const std::string vertexPath, const std::string fragmentPath, glm::vec3 trans = glm::vec3(0.0f, 0.0f, 0.0f));
+    Box(float width, float height, float depth, const std::string vertexPath, const std::string fragmentPath, int repeatOnX =1, int repeatOnY=1, glm::vec3 trans = glm::vec3(0.0f, 0.0f, 0.0f));
     ~Box();
-    void setFaceTexture(Face face, const std::string& texturePath);
-    void setParentModel(glm::mat4 pModel);
+    void setFaceTexture(Face face, const std::string& texturePath, bool mirrorX=false, bool mirrorY=false);
     void draw();
+    void setParentModel(glm::mat4 pModel);
 
     void setPosition(const glm::vec3& position);
     void setRotation(float angle, const glm::vec3& axis);
@@ -26,17 +26,16 @@ public:
     inline float getWidth() const { return m_Width;}
     inline float getHeight() const { return m_Height;}
     inline float getDepth() const { return m_Depth;}
+    void updateModelMatrix();
 private:
     float m_Width, m_Height, m_Depth;
     glm::mat4 m_Model , m_ParentModel;
-    glm::vec3 m_Position, m_Scale;
+    glm::vec3 m_Position, m_Scale ,m_RotationAxis;
     
     float m_RotationAngle;
-    glm::vec3 m_RotationAxis;
 
     std::unique_ptr<VAO> m_VAO;
     std::unique_ptr<VBO> m_VBO;
     std::vector<std::shared_ptr<Texture>> m_Textures; 
     std::shared_ptr<Shader> m_Shader;
-    void updateModelMatrix();
 };

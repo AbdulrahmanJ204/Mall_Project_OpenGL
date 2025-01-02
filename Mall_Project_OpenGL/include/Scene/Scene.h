@@ -15,7 +15,7 @@ public:
 	void onCursorPositionEvent(double x, double y);
 	void processDiscreteInput(int32_t key, int32_t scancode, int32_t action, int32_t mode, float deltaTime);
 	void processContinuousInput(float& deltaTime);
-
+	void onImguiRender();
 	static Scene* instancePtr;
 	static glm::mat4 s_Proj;
 

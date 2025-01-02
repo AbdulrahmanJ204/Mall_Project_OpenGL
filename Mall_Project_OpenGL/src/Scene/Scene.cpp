@@ -1,11 +1,8 @@
 #include "Scene.h"
 #include "Application.h"
 Scene* Scene::instancePtr = nullptr;
-//glm::mat4 Scene::s_View(glm::mat4(1.0f));
 glm::mat4 Scene::s_Proj(glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f));
 Camera Scene::camera(glm::vec3(0.0f, 0.0f, 0.0f));
-
-
 Scene::Scene() :
 	lastX(0.0f), lastY(0.0f), firstMouse(true)
 {
@@ -13,9 +10,10 @@ Scene::Scene() :
 	lastX = Window::getWidth() / 2.0f;
 	lastY = Window::getHeight() / 2.0f;
 	
+	
 }
 void Scene::draw()
-{
+{	
 	mall.draw();
 }
 
@@ -95,5 +93,10 @@ void Scene::processContinuousInput(float& deltaTime)
 	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
 		getCamera().ProcessKeyboard(DOWN, deltaTime);
 	}
+}
+
+void Scene::onImguiRender()
+{
+	mall.onImguiRender();
 }
 

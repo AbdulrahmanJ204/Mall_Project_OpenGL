@@ -2,66 +2,66 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <Scene.h>
 
-Box::Box(float width, float height, float depth , const std::string vertexPath , const std::string fragmentPath , glm::vec3 trans)
+Box::Box(float width, float height, float depth , const std::string vertexPath , const std::string fragmentPath , int repeatOnX , int repeatOnY, glm::vec3 trans)
 	: m_Width(width), m_Height(height), m_Depth(depth),
-	m_Model(1.0f), m_Position(0.0f), m_Scale(1.0f),
+	m_Model(1.0f),m_ParentModel(1.0f), m_Position(0.0f), m_Scale(1.0f),
 	m_RotationAngle(0.0f), m_RotationAxis(0.0f, 1.0f, 0.0f) {
 
 	float vertices[] = {
-		// Front face
-		-width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  0.0f, 0.0f,
-		 width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  1.0f, 0.0f,
-		 width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  1.0f, 1.0f,
-
-		-width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  0.0f, 0.0f,
-		 width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  1.0f, 1.0f,
-		-width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  0.0f, 1.0f,
-
 		// Back face
-		-width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  0.0f, 0.0f,
-		 width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  1.0f, 0.0f,
-		 width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  1.0f, 1.0f,
+		-width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  repeatOnX * 0.0f, repeatOnY * 0.0f,
+		 width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  repeatOnX * 1.0f, repeatOnY * 0.0f,
+		 width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  repeatOnX * 1.0f, repeatOnY * 1.0f,
 
-		-width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  0.0f, 0.0f,
-		 width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  1.0f, 1.0f,
-		-width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  0.0f, 1.0f,
+		-width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  repeatOnX * 0.0f, repeatOnY * 0.0f,
+		 width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  repeatOnX * 1.0f, repeatOnY * 1.0f,
+		-width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 0.0f, -1.0f,  repeatOnX * 0.0f, repeatOnY * 1.0f,
+
+		// Front face
+		-width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  repeatOnX * 0.0f, repeatOnY * 0.0f,
+		 width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  repeatOnX * 1.0f, repeatOnY * 0.0f,
+		 width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  repeatOnX * 1.0f, repeatOnY * 1.0f,
+
+		-width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  repeatOnX * 0.0f, repeatOnY * 0.0f,
+		 width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  repeatOnX * 1.0f, repeatOnY * 1.0f,
+		-width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 0.0f,  1.0f,  repeatOnX * 0.0f, repeatOnY * 1.0f,
 
 
 		// Left face
-		-width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  1.0f, 0.0f,
-		-width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  1.0f, 1.0f,
-		-width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  0.0f, 1.0f,
+		-width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  repeatOnX * 1.0f, repeatOnY * 0.0f,
+		-width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  repeatOnX * 1.0f, repeatOnY * 1.0f,
+		-width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  repeatOnX * 0.0f, repeatOnY * 1.0f,
 
-		-width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  1.0f, 0.0f,
-		-width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  0.0f, 1.0f,
-		-width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  0.0f, 0.0f,
+		-width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  repeatOnX * 1.0f, repeatOnY * 0.0f,
+		-width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  repeatOnX * 0.0f, repeatOnY * 1.0f,
+		-width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z, -1.0f, 0.0f,  0.0f,  repeatOnX * 0.0f, repeatOnY * 0.0f,
 
 		// Right face
-		 width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  1.0f, 0.0f,
-		 width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  1.0f, 1.0f,
-		 width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  0.0f, 1.0f,
+		 width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  repeatOnX * 1.0f, repeatOnY * 0.0f,
+		 width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  repeatOnX * 1.0f, repeatOnY * 1.0f,
+		 width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  repeatOnX * 0.0f, repeatOnY * 1.0f,
 
-		 width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  1.0f, 0.0f,
-		 width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  0.0f, 1.0f,
-		 width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  0.0f, 0.0f,
+		 width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  repeatOnX * 1.0f, repeatOnY * 0.0f,
+		 width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  repeatOnX * 0.0f, repeatOnY * 1.0f,
+		 width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  1.0f, 0.0f,  0.0f,  repeatOnX * 0.0f, repeatOnY * 0.0f,
 
 		 // Top face
-		 -width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  0.0f, 1.0f,
-		  width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  1.0f, 1.0f,
-		  width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  1.0f, 0.0f,
+		 -width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  repeatOnX * 0.0f, repeatOnY * 1.0f,
+		  width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  repeatOnX * 1.0f, repeatOnY * 1.0f,
+		  width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  repeatOnX * 1.0f, repeatOnY * 0.0f,
 
-		 -width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  0.0f, 1.0f,
-		  width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  1.0f, 0.0f,
-		 -width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  0.0f, 0.0f,
+		 -width / 2 + trans.x,  height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  repeatOnX * 0.0f, repeatOnY * 1.0f,
+		  width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  repeatOnX * 1.0f, repeatOnY * 0.0f,
+		 -width / 2 + trans.x,  height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, 1.0f,  0.0f,  repeatOnX * 0.0f, repeatOnY * 0.0f,
 
 		 // Bottom face
-		 -width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  0.0f, 1.0f,
-		  width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  1.0f, 1.0f,
-		  width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  1.0f, 0.0f,
+		 -width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  repeatOnX * 0.0f, repeatOnY * 1.0f,
+		  width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  repeatOnX * 1.0f, repeatOnY * 1.0f,
+		  width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  repeatOnX * 1.0f, repeatOnY * 0.0f,
 
-		 -width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  0.0f, 1.0f,
-		  width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  1.0f, 0.0f,
-		 -width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  0.0f, 0.0f,
+		 -width / 2 + trans.x, -height / 2 + trans.y, -depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  repeatOnX * 0.0f, repeatOnY * 1.0f,
+		  width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  repeatOnX * 1.0f, repeatOnY * 0.0f,
+		 -width / 2 + trans.x, -height / 2 + trans.y,  depth / 2 + trans.z,  0.0f, -1.0f, 0.0f,  repeatOnX * 0.0f, repeatOnY * 0.0f,
 	};
 
 	m_VAO = std::make_unique<VAO>();
@@ -89,10 +89,10 @@ void Box::setParentModel(glm::mat4 pModel)
 	m_ParentModel = pModel;
 }
 
-void Box::setFaceTexture(Face face, const std::string& texturePath) {
+void Box::setFaceTexture(Face face, const std::string& texturePath , bool mirrorX , bool mirrorY) {
 	int faceIndex = (int)face;
 	if (faceIndex < 0 || faceIndex >= 6) return;
-	m_Textures[faceIndex] = std::make_shared<Texture>(texturePath);
+	m_Textures[faceIndex] = std::make_shared<Texture>(texturePath,mirrorX,mirrorY);
 }
 
 void Box::setPosition(const glm::vec3& position) {

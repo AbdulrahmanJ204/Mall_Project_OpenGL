@@ -5,10 +5,10 @@
 #include "VAO.h"
 #include "VBO.h"
 
-class Cylinder {
+class Cup {
 public:
-    Cylinder(float topRadius, float bottomRadius, float height, int segmentCount, const std::string& vertexPath, const std::string& fragmentPath, glm::vec3 trans = glm::vec3(0.0f));
-    ~Cylinder();
+    Cup(float topRadius, float innerTopRadius, float bottomRadius, float innerBottomRadius, float height, int segmentCount, const std::string& vertexPath, const std::string& fragmentPath, glm::vec3 trans = glm::vec3(0.0f));
+    ~Cup();
 
     void setTopTexture(const std::string& texturePath);
     void setSideTexture(const std::string& texturePath);
@@ -21,7 +21,7 @@ public:
     void setScale(const glm::vec3& scale);
 
 private:
-    float m_TopRadius, m_BottomRadius, m_Height;
+    float m_TopRadius, m_BottomRadius, m_InnerTopRadius, m_InnerBottomRadius, m_Height;
     int m_SegmentCount;
     glm::mat4 m_Model, m_ParentModel;
     glm::vec3 m_Position, m_Scale;

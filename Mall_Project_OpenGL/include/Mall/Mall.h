@@ -2,6 +2,7 @@
 #include "Parent.h"
 #include <chair.h>
 #include <Cylinder.h>
+#include <cup.h>
 class Mall : public Parent
 {
 public:
@@ -9,6 +10,8 @@ public:
 	// Inherited via Parent
 	void draw() override;
 private:
-	Cylinder cl;
+
+	Cup cl;
+	//chair ch;
 };
 

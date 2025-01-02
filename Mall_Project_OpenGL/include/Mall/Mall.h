@@ -9,9 +9,13 @@ public:
 	Mall();
 	// Inherited via Parent
 	void draw() override;
+	void setTex();
 private:
 
-	Cup cl;
+	//Cup cl;
 	//chair ch;
+	Box skybox;
+	Box plan;
+	Box mall;
 };
 

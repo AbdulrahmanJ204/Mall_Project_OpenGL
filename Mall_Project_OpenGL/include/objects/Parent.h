@@ -5,14 +5,23 @@
 class Parent
 {
 public:
-	Parent() :model(1.0f), parentModel(1.0f) {};
+	Parent() :
+		m_Model(1.0f), m_ParentModel(1.0f),
+		m_RotationAngle(0.0f), m_Position(0.0f),
+		m_RotationAxis(0.0f, 1.0f, 0.0f) , m_Scale(1.0f){
+	};
 	~Parent() {};
 	virtual void draw() = 0;
-	void translate(glm::vec3 pos);
-	void rotate(float angle , glm::vec3 axis);
-	void scale(float factor, glm::vec3 axis);
+	virtual void onImguiRender() {}; // For debugging.
 	void setParentModel(glm::mat4 pModel);
+	void setPosition(const glm::vec3& position);
+	void setRotation(float angle, const glm::vec3& axis);
+	void setScale(const glm::vec3& scale);
+	void updateModelMatrix();
 	glm::mat4 getModel();
-	glm::mat4  model, parentModel; ;
+	glm::mat4 m_Model, m_ParentModel;
+	glm::vec3 m_Position, m_Scale, m_RotationAxis;
+	float m_RotationAngle;
+
 };
 

@@ -9,16 +9,14 @@ public:
 	Mall();
 	// Inherited via Parent
 	void draw() override;
-	void onImguiRender() override;
+	void onImguiRender() override {
+		ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 0.0f, 360.0f);
+	};
 private:
 
-	Cup cl;
-	//chair ch;
-	Box skybox;
-	Box plan;
-	Box mall;
 	Cup cup;
 	Cylinder cylinder;
 	Chair chair;
+	//chair ch;
 };
 

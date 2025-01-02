@@ -141,7 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\objects\cup.h" />
+    <ClInclude Include="include\objects\Cup.h" />
     <ClInclude Include="include\objects\Cylinder.h" />
     <ClInclude Include="include\objects\Box.h" />
     <ClInclude Include="include\objects\Circle.h" />
@@ -155,7 +155,7 @@
     <ClInclude Include="include\opengl\VAO.h" />
     <ClInclude Include="include\opengl\VBO.h" />
     <ClInclude Include="include\opengl\VBOLayout.h" />
-    <ClInclude Include="include\Mall\Resturant\chair.h" />
+    <ClInclude Include="include\Mall\Resturant\Chair.h" />
     <ClInclude Include="include\objects\Parent.h" />
     <ClInclude Include="include\Scene\Camera.h" />
     <ClInclude Include="include\Scene\Lights\DirectionalLight.h" />
@@ -184,7 +184,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\objects\cup.cpp" />
+    <ClCompile Include="src\objects\Cup.cpp" />
     <ClCompile Include="src\objects\Cylinder.cpp" />
     <ClCompile Include="src\Mall\Mall.cpp" />
     <ClCompile Include="src\objects\Box.cpp" />
@@ -200,7 +200,7 @@
     <ClCompile Include="src\opengl\VAO.cpp" />
     <ClCompile Include="src\opengl\VBO.cpp" />
     <ClCompile Include="src\objects\Parent.cpp" />
-    <ClCompile Include="src\Mall\Resturant\chair.cpp" />
+    <ClCompile Include="src\Mall\Resturant\Chair.cpp" />
     <ClCompile Include="src\Scene\Camera.cpp" />
     <ClCompile Include="src\Scene\Lights\LightHelper.cpp" />
     <ClCompile Include="src\Scene\Model\ModelObject.cpp" />

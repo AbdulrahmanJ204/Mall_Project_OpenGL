@@ -28,7 +28,7 @@ void Application::run() {
 		processContinuousInput();
 		scene.draw();
 		glfwPollEvents();
-		//LoadImGui();
+		LoadImGui();
 		window.swapBuffers();
 	}
 
@@ -59,6 +59,7 @@ void Application::LoadImGui()
 
 	glfwMakeContextCurrent(glfwGetCurrentContext());
 	myImGui.BeginFrame();
+	scene.onImguiRender();
 	//ImGui::SliderFloat("Cube Rotation ", &scene.getRotation(), 0.0f, 360.0f);
 	myImGui.EndFrame();
 }

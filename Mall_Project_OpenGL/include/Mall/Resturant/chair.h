@@ -1,11 +1,13 @@
 #pragma once
 #include "Parent.h"
 
-class chair : public Parent { // Use public inheritance
+class Chair : public Parent { // Use public inheritance
 public:
-    chair();
+    Chair();
     void draw() override;
+    void onImguiRender() override {};
     void setTex();
+
 private:
     Box rjl;
     Box seat;

@@ -1,16 +1,20 @@
-#include "chair.h"
+#include "Chair.h"
 
-chair::chair() : 
+Chair::Chair() : 
     Parent(),
-    rjl(20.0f , 60.0f , 20.0f , "assets/shaders/vertexSh.vert" , "assets/shaders/fragSh.frag"),
+    rjl(20.0f , 60.0f , 20.0f , "assets/shaders/vertexSh.vert" , "assets/shaders/fragSh.frag",3,2),
     seat(80.0f , 20.0f , 80.0f , "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 {
     setTex();
-    rjl.setParentModel(model);
-    seat.setParentModel(model);
+    rjl.setParentModel(getModel());
+    seat.setParentModel(getModel());
 }
 
-void chair::draw() {
+void Chair::draw() {
+    //rjl.setRotation(30.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+        
+rjl.setParentModel(getModel());
+    seat.setParentModel(getModel());
         glm::vec3 positions[4] = {
         glm::vec3(30.0f , - seat.getHeight()/2 - rjl.getHeight() /2 , 30.0f),
         glm::vec3(30.0f , -seat.getHeight()/2 - rjl.getHeight() /2, -30.0f),
@@ -26,14 +30,14 @@ void chair::draw() {
     seat.draw();
 }
 
-void chair::setTex()
+void Chair::setTex()
 {
-    rjl.setFaceTexture(Face::Up , "assets/textures/container.jpg");
-    rjl.setFaceTexture(Face::Down , "assets/textures/container.jpg");
-    rjl.setFaceTexture(Face::Left , "assets/textures/container.jpg");
-    rjl.setFaceTexture(Face::Right , "assets/textures/container.jpg");
-    rjl.setFaceTexture(Face::Back , "assets/textures/container.jpg");
-    rjl.setFaceTexture(Face::Front , "assets/textures/container.jpg");
+    rjl.setFaceTexture(Face::Up ,    "assets/textures/arrows.png");
+    rjl.setFaceTexture(Face::Down ,  "assets/textures/arrows.png");
+    rjl.setFaceTexture(Face::Left ,  "assets/textures/arrows.png");
+    rjl.setFaceTexture(Face::Right , "assets/textures/arrows.png",false , true);
+    rjl.setFaceTexture(Face::Back ,  "assets/textures/arrows.png",true);
+    rjl.setFaceTexture(Face::Front , "assets/textures/awesomeface.png", true , true);
 
 
     seat.setFaceTexture(Face::Up , "assets/textures/oh.png");

@@ -39,7 +39,7 @@
     <ClInclude Include="include\opengl\VBOLayout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Mall\Resturant\chair.h">
+    <ClInclude Include="include\Mall\Resturant\Chair.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\objects\Parent.h">
@@ -135,7 +135,7 @@
     <ClInclude Include="include\objects\Cylinder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\objects\cup.h">
+    <ClInclude Include="include\objects\Cup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -161,7 +161,7 @@
     <ClCompile Include="src\opengl\VBO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mall\Resturant\chair.cpp">
+    <ClCompile Include="src\Mall\Resturant\Chair.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Scene\Lights\LightHelper.cpp">
@@ -233,7 +233,7 @@
     <ClCompile Include="src\objects\Cylinder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\cup.cpp">
+    <ClCompile Include="src\objects\Cup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

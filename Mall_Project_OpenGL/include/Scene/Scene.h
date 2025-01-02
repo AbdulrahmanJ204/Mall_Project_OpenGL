@@ -16,15 +16,16 @@ public:
 	void processDiscreteInput(int32_t key, int32_t scancode, int32_t action, int32_t mode, float deltaTime);
 	void processContinuousInput(float& deltaTime);
 
-
-
 	static Scene* instancePtr;
+	static glm::mat4 s_Proj;
+
+	static glm::mat4 getView() { return camera.GetViewMatrix(); };
+	static glm::mat4 getProjection() { return s_Proj; };
+	static Camera camera;
 private:
 	
-	Camera camera;
 	float lastX, lastY;
 	bool firstMouse;
-	glm::mat4 m_Proj, m_View;
 	Mall mall;
 	// Could be a skyBox also  here.
 };

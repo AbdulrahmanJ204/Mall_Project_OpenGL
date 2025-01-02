@@ -2,28 +2,14 @@
 #include "Scene.h"
 
 Circle::Circle() :
-	m_FScale(1.0f),
-	m_Degree(0.0f),
-	m_Axis(glm::vec3(1.0f, 1.0f, 1.0f)),
-	m_Translate(glm::vec3(1.0f, 1.0f, 1.0f)),
-	m_Scale(glm::vec3(1.0f, 1.0f, 1.0f)),
-	m_CircleColor(glm::vec3(1.0f, 0.5f, 0.31f)),
-	m_Model(glm::mat4(1.0f)),
-	m_View(glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0.0f)))
+	m_Model(glm::mat4(1.0f))
 {
 
 }
 
 Circle::Circle(float radius, int segments, const std::string& vertexPath, const std::string& fragPath, glm::vec3 trans) :
-	m_FScale(1.0f),
-	m_Degree(0.0f),
 	m_Position(trans), m_Radius(radius), m_Segments(segments),
-	m_Axis(glm::vec3(1.0f, 1.0f, 1.0f)),
-	m_Translate(glm::vec3(0.0f, 0.0f, 0.0f)),
-	m_Scale(glm::vec3(1.0f, 1.0f, 1.0f)),
-	m_CircleColor(glm::vec3(1.0f, 0.5f, 0.31f)),
-	m_Model(glm::mat4(1.0f)),
-	m_View(glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0.0f)))
+	m_Model(glm::mat4(1.0f))
 {
 	// Center of the circle
 	glm::vec3 m_Position = trans;
@@ -40,7 +26,7 @@ Circle::Circle(float radius, int segments, const std::string& vertexPath, const 
 	m_Shader = std::make_unique<Shader>(vertexPath, fragPath);
 	m_Texture->Bind();
 	m_Shader->Bind();
-	updateUniforms();
+	m_Shader->setUniformMat4f("projection", Scene::getProjection());
 	m_VAO->Unbind();
 	m_Shader->Unbind();
 }
@@ -54,58 +40,47 @@ void Circle::draw()
 	m_VAO->Bind();
 	m_Texture->Bind();
 	m_Shader->Bind();
-	m_Axis = glm::vec3(0.0f, 1.0f, 0.0f);
-	m_Model = glm::rotate(m_Model, 5.0f, m_Axis);
 	updateUniforms();
 	GLCall(glDrawArrays(GL_TRIANGLE_FAN, 0, m_Segments+2));
 }
 void Circle::updateUniforms() {
 	m_Shader->Bind();
-
 	m_Shader->setUniformMat4f("model", m_Model);
-	m_Shader->setUniformMat4f("view", m_View);
-	m_Shader->setUniformMat4f("proj", m_Proj);
+	m_Shader->setUniformMat4f("view", Scene::getView());
 	m_Shader->SetUniform1i("u_Texture", 0);
+}
 
 
+void Circle::setParentModel(glm::mat4 pModel)
+{
+	m_ParentModel = pModel;
+}
 
+
+void Circle::setPosition(const glm::vec3& position) {
+	m_Position = position;
+	updateModelMatrix();
 }
-void Circle::Rotate(float degree, glm::vec3& axis) {
-	m_Model = glm::rotate(m_Model, glm::radians(-m_Degree), m_Axis);
-	m_Degree = degree, m_Axis = axis;
-	m_Model = glm::rotate(m_Model, glm::radians(m_Degree), m_Axis);
+
+void Circle::setRotation(float angle, const glm::vec3& axis) {
+	m_RotationAngle = angle;
+	m_RotationAxis = axis;
+	updateModelMatrix();
 }
-void Circle::Translate(glm::vec3& translate) {
-	m_Model = glm::translate(m_Model, -m_Translate);
-	m_Position -= m_Translate;
-	m_Translate = translate;
-	m_Position += m_Translate;
-	m_Model = glm::translate(m_Model, m_Translate);
-}
-void Circle::Scale(glm::vec3& scale) {
-	m_Model = glm::scale(m_Model, glm::vec3(1.0f, 1.0f, 1.0f) / m_Scale);
+
+void Circle::setScale(const glm::vec3& scale) {
 	m_Scale = scale;
+	updateModelMatrix();
+}
+
+
+void Circle::updateModelMatrix() {
+	m_Model = glm::mat4(1.0f);
+	m_Model = glm::translate(m_Model, m_Position);
+	m_Model = glm::rotate(m_Model, glm::radians(m_RotationAngle), m_RotationAxis);
 	m_Model = glm::scale(m_Model, m_Scale);
+	m_Model = m_Model * m_ParentModel;
 }
-void Circle::Scale(float scale) {
-	m_Model = glm::scale(m_Model, glm::vec3(1.0f / m_FScale, 1.0f / m_FScale, 1.0f / m_FScale));
-	m_FScale = scale;
-	m_Scale = glm::vec3(m_FScale, m_FScale, m_FScale);
-	m_Model = glm::scale(m_Model, m_Scale);
-}
-
-
-
-void Circle::SetView(glm::mat4 view) {
-	m_View = view;
-
-}
-
-void Circle::SetProj(glm::mat4 proj) {
-	m_Proj = proj;
-
-}
-
 
 void Circle::GenerateVertices()
 {

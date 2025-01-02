@@ -21,15 +21,12 @@ public:
 	~Circle();
 	void draw();
 	void updateUniforms();
-	void Rotate(float degree, glm::vec3& axis);
-	void Translate(glm::vec3& translate);
-	void Scale(glm::vec3& scale);
-	void Scale(float scale);
-	void SetView(glm::mat4 view);
-	void SetProj(glm::mat4 proj);
-	inline void setTransform(glm::mat4 transform) {
-		m_Model = transform;
-	}
+	void setParentModel(glm::mat4 pModel);
+	
+	void setPosition(const glm::vec3& position);
+	void setRotation(float angle, const glm::vec3& axis);
+	void setScale(const glm::vec3& scale);
+
 	void GenerateVertices();
 
 private:
@@ -37,15 +34,18 @@ private:
 	std::unique_ptr<VBO>m_VBO;
 	std::unique_ptr<Shader>m_Shader;
 	std::unique_ptr<Texture>m_Texture;
-	float  m_Degree, m_FScale;
-	glm::mat4 m_Proj, m_View, m_Model;
+
+	glm::mat4 m_Model, m_ParentModel;
 	std::vector<float> m_Vertices;
-	glm::vec3 m_Position;
+	glm::vec3 m_Position,m_Scale;
 	float m_Radius;
 	int m_Segments;
 	float M_PI = acos(-1.0f);
-	glm::vec3 m_Axis,m_Translate, m_Scale, m_CircleColor;
 
+	float m_RotationAngle;
+	glm::vec3 m_RotationAxis;
+
+	void updateModelMatrix();
 	
 };
 

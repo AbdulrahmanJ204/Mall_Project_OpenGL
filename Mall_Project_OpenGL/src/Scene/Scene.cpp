@@ -1,22 +1,21 @@
 #include "Scene.h"
 #include "Application.h"
 Scene* Scene::instancePtr = nullptr;
+//glm::mat4 Scene::s_View(glm::mat4(1.0f));
+glm::mat4 Scene::s_Proj(glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f));
+Camera Scene::camera(glm::vec3(0.0f, 0.0f, 0.0f));
+
 
 Scene::Scene() :
-	lastX(0.0f), lastY(0.0f), firstMouse(true),
-	m_Proj(glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f)),
-	m_View(glm::mat4(1.0f)),
-	camera(glm::vec3(0.0f, 0.0f, 0.0f))
+	lastX(0.0f), lastY(0.0f), firstMouse(true)
 {
 	instancePtr = this;
 	lastX = Window::getWidth() / 2.0f;
 	lastY = Window::getHeight() / 2.0f;
-	mall.setProjection(m_Proj);
+	
 }
 void Scene::draw()
 {
-	glm::mat4 m_View= camera.GetViewMatrix();
-	mall.setView(m_View);
 	mall.draw();
 }
 
@@ -76,6 +75,7 @@ void Scene::onCursorPositionEvent(double x, double y)
 
 void Scene::processContinuousInput(float& deltaTime)
 {
+	
 	GLFWwindow* window = Window::instancePtr->getWindow();
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 		getCamera().ProcessKeyboard(FORWARD, deltaTime);

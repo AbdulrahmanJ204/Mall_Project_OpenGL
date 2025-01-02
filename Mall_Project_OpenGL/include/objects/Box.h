@@ -16,9 +16,9 @@ class Box {
 public:
     Box(float width, float height, float depth, const std::string vertexPath, const std::string fragmentPath, glm::vec3 trans = glm::vec3(0.0f, 0.0f, 0.0f));
     ~Box();
-    void setParentModel(glm::mat4 pModel);
     void setFaceTexture(Face face, const std::string& texturePath);
-    void draw(const glm::mat4& view, const glm::mat4& projection);
+    void setParentModel(glm::mat4 pModel);
+    void draw();
 
     void setPosition(const glm::vec3& position);
     void setRotation(float angle, const glm::vec3& axis);
@@ -36,8 +36,7 @@ private:
 
     std::unique_ptr<VAO> m_VAO;
     std::unique_ptr<VBO> m_VBO;
-    std::vector<std::shared_ptr<Texture>> m_Textures; // One texture for each face
+    std::vector<std::shared_ptr<Texture>> m_Textures; 
     std::shared_ptr<Shader> m_Shader;
-
     void updateModelMatrix();
 };

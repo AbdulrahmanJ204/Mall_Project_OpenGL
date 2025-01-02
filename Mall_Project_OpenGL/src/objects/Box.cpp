@@ -1,5 +1,6 @@
 #include "Box.h"
 #include <glm/gtc/matrix_transform.hpp>
+#include <Scene.h>
 
 Box::Box(float width, float height, float depth , const std::string vertexPath , const std::string fragmentPath , glm::vec3 trans)
 	: m_Width(width), m_Height(height), m_Depth(depth),
@@ -73,8 +74,11 @@ Box::Box(float width, float height, float depth , const std::string vertexPath ,
 	m_VAO->AddBuffer(*m_VBO, layout);
 	m_Textures.resize(6); // Allocate space for 6 faces
 	m_Shader = std::make_shared<Shader>(vertexPath, fragmentPath);
+	m_Shader->Bind();
+	m_Shader->setUniformMat4f("projection", Scene::getProjection());
 
-	//m_Textures[6] = std::make_shared<Texture>("assets/textures/bare-wood1_roughness.png");
+	m_Shader->Unbind();
+	m_VAO->Unbind();
 	
 }
 
@@ -107,6 +111,7 @@ void Box::setScale(const glm::vec3& scale) {
 	updateModelMatrix();
 }
 
+
 void Box::updateModelMatrix() {
 	m_Model = glm::mat4(1.0f);
 	m_Model = glm::translate(m_Model, m_Position);
@@ -115,19 +120,15 @@ void Box::updateModelMatrix() {
 	m_Model = m_Model * m_ParentModel;
 }
 
-void Box::draw(const glm::mat4& view, const glm::mat4& projection) {
+void Box::draw() {
 	m_Shader->Bind();
 	m_Shader->setUniformMat4f("model", m_Model);
-	m_Shader->setUniformMat4f("view", view);
-	m_Shader->setUniformMat4f("proj", projection);
+	m_Shader->setUniformMat4f("view", Scene::getView());
 	m_VAO->Bind();
-	//m_Shader->SetUniform1i("u_Texture2", 1);
-	//m_Textures[6]->Bind(1);
 	for (int i = 0; i < 6; ++i) {
 		if (m_Textures[i]) {
 			m_Textures[i]->Bind();
 			unsigned int start = i*6, end = i * 6 + 6;
-			//std::cout << start << " " << end << std::endl;
 			m_Shader->SetUniform1i("u_Texture", 0);
 			GLCall(glDrawArrays(GL_TRIANGLES, i*6,  6));
 		}

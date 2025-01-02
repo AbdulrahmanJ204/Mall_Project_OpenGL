@@ -1,15 +1,11 @@
 #pragma once
 #include "core.h"
 #include "Box.h"
-//class Box;
 
 class Parent
 {
 public:
-	Parent() :m_View(1.0f),
-		m_Projection(1.0f),
-		model(1.0f) {
-	};
+	Parent() :model(1.0f), parentModel(1.0f) {};
 	~Parent() {};
 	virtual void draw() = 0;
 	void translate(glm::vec3 pos) {
@@ -23,15 +19,14 @@ public:
 	void scale(float factor, glm::vec3 axis) {
 		glm::vec3 scale1 = factor * axis;
 		model = glm::scale(model, scale1);
-	}
-	;
-	void setProjection(glm::mat4 proj) {
-		m_Projection = proj;
 	};
-	void setView(glm::mat4 view) {
-		m_View = view;
-
+	void setParentModel(glm::mat4 pModel) {
+		parentModel = pModel;
 	};
-	glm::mat4  model ,m_View , m_Projection;
+	glm::mat4 getModel() {
+		// TODO: Check if order is correct .
+		return model * parentModel;
+	};
+	glm::mat4  model, parentModel; ;
 };
 

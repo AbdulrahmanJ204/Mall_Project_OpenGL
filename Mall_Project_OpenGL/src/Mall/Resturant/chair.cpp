@@ -19,11 +19,11 @@ void chair::draw() {
     };
     for (int i = 0; i < 4; i++) {
     rjl.setPosition(positions[i]);
-    rjl.draw(m_View, m_Projection);
+    rjl.draw();
 
     }
     seat.setPosition(glm::vec3(0.0f , 0.0f , 0.0f));
-    seat.draw(m_View, m_Projection);
+    seat.draw();
 }
 
 void chair::setTex()

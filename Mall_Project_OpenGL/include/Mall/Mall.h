@@ -10,10 +10,8 @@ public:
 	// Inherited via Parent
 	void draw() override;
 	void onImguiRender() override;
+	void setTex();
 private:
-
-	Cup cl;
-	//chair ch;
 	Box skybox;
 	Box plan;
 	Box mall;

@@ -191,21 +191,21 @@ void Cylinder::draw() {
         m_TopTexture->Bind();
         m_Shader->SetUniform1i("u_Texture", 0);
     }
-    glDrawArrays(GL_TRIANGLES, 0, m_SegmentCount * 3);
+    GLCall(glDrawArrays(GL_TRIANGLES, 0, m_SegmentCount * 3));
 
     // Draw bottom
     if (m_BottomTexture) {
         m_BottomTexture->Bind();
         m_Shader->SetUniform1i("u_Texture", 0);
     }
-    glDrawArrays(GL_TRIANGLES, m_SegmentCount * 3, m_SegmentCount * 3);
+    GLCall(glDrawArrays(GL_TRIANGLES, m_SegmentCount * 3, m_SegmentCount * 3));
 
     // Draw sides
     if (m_SideTexture) {
         m_SideTexture->Bind();
         m_Shader->SetUniform1i("u_Texture", 0);
     }
-    glDrawArrays(GL_TRIANGLES, m_SegmentCount * 6, m_SegmentCount * 6);
+    GLCall(glDrawArrays(GL_TRIANGLES, m_SegmentCount * 6, m_SegmentCount * 6));
 
     m_Shader->Unbind();
     m_VAO->Unbind();

@@ -2,7 +2,7 @@
 
 Chair::Chair() : 
     Parent(),
-    rjl(20.0f , 60.0f , 20.0f , "assets/shaders/vertexSh.vert" , "assets/shaders/fragSh.frag",3,2),
+    rjl(20.0f, 60.0f, 20.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Front,{3,2}} }),
     seat(80.0f , 20.0f , 80.0f , "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 {
     setTex();

@@ -1,6 +1,7 @@
 #pragma once
 #include "core.h"
 #include "Box.h"
+#include "Cylinder.h"
 
 class Parent
 {

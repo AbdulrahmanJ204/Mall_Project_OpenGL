@@ -5,7 +5,7 @@
 #include "VAO.h"
 #include "VBO.h"
 
-class Cylinder {
+class Cylinder{
 public:
     Cylinder(float topRadius, float bottomRadius, float height, int segmentCount, const std::string& vertexPath, const std::string& fragmentPath, glm::vec3 trans = glm::vec3(0.0f));
     ~Cylinder();

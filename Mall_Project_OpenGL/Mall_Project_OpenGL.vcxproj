@@ -84,7 +84,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant;include\Mall\Electronic;include\Mall\Caffe;include\Mall\Supermarket;include\Mall\Library</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -115,7 +115,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant;include\Mall\Electronic;include\Mall\Caffe;include\Mall\Supermarket;include\Mall\Library</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -141,6 +141,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\Mall\Caffe\caffe_room.h" />
+    <ClInclude Include="include\Mall\Electronic\electronic_room.h" />
+    <ClInclude Include="include\Mall\Library\library_room.h" />
+    <ClInclude Include="include\Mall\Resturant\resturant_room.h" />
+    <ClInclude Include="include\Mall\Supermarket\supermarket_room.h" />
     <ClInclude Include="include\objects\Cup.h" />
     <ClInclude Include="include\objects\Cylinder.h" />
     <ClInclude Include="include\objects\Box.h" />
@@ -184,6 +189,11 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Mall\Caffe\caffe_room.cpp" />
+    <ClCompile Include="src\Mall\Electronic\electronic_room.cpp" />
+    <ClCompile Include="src\Mall\Library\library_room.cpp" />
+    <ClCompile Include="src\Mall\Resturant\resturant_room.cpp" />
+    <ClCompile Include="src\Mall\Supermarket\supermarket_room.cpp" />
     <ClCompile Include="src\objects\Cup.cpp" />
     <ClCompile Include="src\objects\Cylinder.cpp" />
     <ClCompile Include="src\Mall\Mall.cpp" />

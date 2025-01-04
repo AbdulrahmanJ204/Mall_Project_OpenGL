@@ -138,6 +138,21 @@
     <ClInclude Include="include\objects\Cup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Mall\Electronic\electronic_room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\Resturant\resturant_room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\Caffe\caffe_room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\Library\library_room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\Supermarket\supermarket_room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\Application.cpp">
@@ -234,6 +249,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\objects\Cup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Electronic\electronic_room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Resturant\resturant_room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Caffe\caffe_room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Library\library_room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Supermarket\supermarket_room.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

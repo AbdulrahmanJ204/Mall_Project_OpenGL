@@ -98,6 +98,13 @@ m_Shader->setUniformMat4f("projection", Scene::getProjection());
 
 m_Shader->Unbind();
 m_VAO->Unbind();
+
+setFaceTexture(Face::Down, "assets/textures/defaultTex.jpg", 0, 0);
+setFaceTexture(Face::Up, "assets/textures/defaultTex.jpg", 1, 1);
+setFaceTexture(Face::Left, "assets/textures/defaultTex.jpg", 0, 0);
+setFaceTexture(Face::Right, "assets/textures/defaultTex.jpg", 0, 0);
+setFaceTexture(Face::Back, "assets/textures/defaultTex.jpg", 0, 0);
+setFaceTexture(Face::Front, "assets/textures/defaultTex.jpg", 0, 0);
 }
 
 Box::~Box() {}

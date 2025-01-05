@@ -31,15 +31,15 @@ Cylinder::Cylinder(float topRadius, float bottomRadius, float height, int segmen
 
 Cylinder::~Cylinder() {}
 
-void Cylinder::setTopTexture(const std::string& texturePath) {
+void Cylinder::setTopTexture(const std::string& texturePath, bool mirrorX, bool mirrorY) {
     m_TopTexture = std::make_shared<Texture>(texturePath);
 }
 
-void Cylinder::setSideTexture(const std::string& texturePath) {
+void Cylinder::setSideTexture(const std::string& texturePath, bool mirrorX, bool mirrorY) {
     m_SideTexture = std::make_shared<Texture>(texturePath);
 }
 
-void Cylinder::setBottomTexture(const std::string& texturePath) {
+void Cylinder::setBottomTexture(const std::string& texturePath, bool mirrorX, bool mirrorY) {
     m_BottomTexture = std::make_shared<Texture>(texturePath);
 }
 
@@ -71,6 +71,8 @@ void Cylinder::updateModelMatrix() {
     m_Model = glm::rotate(m_Model, glm::radians(m_RotationAngle), m_RotationAxis);
     m_Model = glm::scale(m_Model, m_Scale);
     m_Model = m_ParentModel * m_Model;
+    //m_Model = m_Model * m_ParentModel;
+
 }
 
 
@@ -180,12 +182,13 @@ void Cylinder::generateVertices(float* vertices, int& vertexCount) {
 }
 
 
-void Cylinder::draw() {
+void Cylinder::drawOpaque() {
+    //updateModelMatrix();
+    updateModelMatrix();
     m_Shader->Bind();
     m_Shader->setUniformMat4f("model", m_Model);
     m_Shader->setUniformMat4f("view", Scene::getView());
     m_VAO->Bind();
-
     // Draw top
     if (m_TopTexture) {
         m_TopTexture->Bind();
@@ -209,4 +212,11 @@ void Cylinder::draw() {
 
     m_Shader->Unbind();
     m_VAO->Unbind();
+}
+
+void Cylinder::onImguiRender(std::string name)
+{
+    std::string pos = name + " Position ";
+    ImGui::SliderFloat3(pos.c_str(), &m_Position.x, -100.0f, 100.0f);
+    
 }

@@ -2,7 +2,8 @@
 #include "core.h"
 #include "Box.h"
 #include "Cylinder.h"
-
+#include "ModelObject.h"
+#include "SkyBox.h"
 class Parent
 {
 public:
@@ -12,7 +13,8 @@ public:
 		m_RotationAxis(0.0f, 1.0f, 0.0f) , m_Scale(1.0f){
 	};
 	~Parent() {};
-	virtual void draw() = 0;
+	virtual void drawOpaque() = 0;
+	virtual void drawTransparent() = 0;
 	virtual void onImguiRender() {}; // For debugging.
 	void setParentModel(glm::mat4 pModel);
 	void setPosition(const glm::vec3& position);

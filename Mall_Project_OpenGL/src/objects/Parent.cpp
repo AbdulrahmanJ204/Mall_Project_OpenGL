@@ -27,7 +27,7 @@ void Parent::updateModelMatrix() {
 	m_Model = glm::translate(m_Model, m_Position);
 	m_Model = glm::rotate(m_Model, glm::radians(m_RotationAngle), m_RotationAxis);
 	m_Model = glm::scale(m_Model, m_Scale);
-	m_Model =  m_Model * m_ParentModel;
+	//m_Model =  m_ParentModel* m_Model;
 }
 
 glm::mat4 Parent::getModel()

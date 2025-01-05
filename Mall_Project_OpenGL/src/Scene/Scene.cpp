@@ -14,7 +14,8 @@ Scene::Scene() :
 }
 void Scene::draw()
 {	
-	mall.draw();
+	mall.drawOpaque();
+	mall.drawTransparent();
 }
 
 Scene::~Scene()
@@ -34,6 +35,7 @@ void Scene::processDiscreteInput(int32_t key, int32_t scancode, int32_t action, 
 	else if (action == GLFW_PRESS) {
 		if (key == GLFW_KEY_F11) {
 			Window::instancePtr->toggleFullscreen();
+			updateProj();
 		}
 		if (key == GLFW_KEY_CAPS_LOCK) {
 		int mode = glfwGetInputMode(Window::instancePtr->getWindow(), GLFW_CURSOR);
@@ -97,6 +99,7 @@ void Scene::processContinuousInput(float& deltaTime)
 
 void Scene::onImguiRender()
 {
+	ImGui::SliderFloat("Camera Speed", &camera.MovementSpeed, 1, 100);
 	mall.onImguiRender();
 }
 

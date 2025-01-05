@@ -93,6 +93,8 @@ layout.Push<float>(2); // Texture coordinates
 m_VAO->AddBuffer(*m_VBO, layout);
 m_Textures.resize(6); // Allocate space for 6 faces
 m_Shader = std::make_shared<Shader>(vertexPath, fragmentPath);
+
+
 m_Shader->Bind();
 m_Shader->setUniformMat4f("projection", Scene::getProjection());
 
@@ -106,9 +108,10 @@ void Box::setParentModel(glm::mat4 pModel) {
 	m_ParentModel = pModel;
 }
 
-void Box::setFaceTexture(Face face, const std::string& texturePath, bool mirrorX, bool mirrorY) {
+void Box::setFaceTexture(Face face, const std::string& texturePath , bool isTransparent, bool mirrorX, bool mirrorY) {
 	int faceIndex = static_cast<int>(face);
 	if (faceIndex < 0 || faceIndex >= 6) return;
+	isTransparentFace[faceIndex] = isTransparent;
 	m_Textures[faceIndex] = std::make_shared<Texture>(texturePath, mirrorX, mirrorY);
 }
 
@@ -136,12 +139,25 @@ void Box::updateModelMatrix() {
 	m_Model = m_ParentModel * m_Model;
 }
 
-void Box::draw() {
+void Box::onImguiRender(std::string name)
+{	
+	const std::string pos = name + " Position";
+	ImGui::SliderFloat3(pos.c_str(), &m_Position.x, -100, 100);
+	//const std::string pos = name + "Rotaion";
+	//ImGui::SliderFloat3(pos.c_str(), &m_Position.x, -100, 100);
+	//const std::string pos = name + "Position";
+	//ImGui::SliderFloat3(pos.c_str(), &m_Position.x, -100, 100);
+}
+
+void Box::drawOpaque() {
+	updateModelMatrix();
 	m_Shader->Bind();
+	m_Shader->setUniformMat4f("projection", Scene::getProjection());
 	m_Shader->setUniformMat4f("model", m_Model);
 	m_Shader->setUniformMat4f("view", Scene::getView());
 	m_VAO->Bind();
 	for (int i = 0; i < 6; ++i) {
+		if (isTransparentFace[i]) continue;
 		if (m_Textures[i]) {
 			m_Textures[i]->Bind();
 			m_Shader->SetUniform1i("u_Texture", 0);
@@ -151,4 +167,27 @@ void Box::draw() {
 
 	m_Shader->Unbind();
 	m_VAO->Unbind();
+}
+
+void Box::drawTransparent()
+{
+	m_Shader->Bind();
+	m_Shader->setUniformMat4f("projection", Scene::getProjection());
+	m_Shader->setUniformMat4f("model", m_Model);
+	m_Shader->setUniformMat4f("view", Scene::getView());
+	m_VAO->Bind();
+	//GLCall(glDisable(GL_DEPTH_TEST));
+	for (int i = 0; i < 6; ++i) {
+		if (!isTransparentFace[i]) continue;
+		if (m_Textures[i]) {
+			m_Textures[i]->Bind();
+			m_Shader->SetUniform1i("u_Texture", 0);
+			GLCall(glDrawArrays(GL_TRIANGLES, i * 6, 6));
+		}
+	}
+
+	//GLCall(glEnable(GL_DEPTH_TEST));
+	m_Shader->Unbind();
+	m_VAO->Unbind();
+
 }

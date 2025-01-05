@@ -4,18 +4,18 @@
 #include "Texture.h"
 #include "VAO.h"
 #include "VBO.h"
-
+// TODO Edit transparent draw.
 class Cylinder {
 public:
     Cylinder(float topRadius, float bottomRadius, float height, int segmentCount, const std::string& vertexPath, const std::string& fragmentPath, glm::vec3 trans = glm::vec3(0.0f));
     ~Cylinder();
 
-    void setTopTexture(const std::string& texturePath);
-    void setSideTexture(const std::string& texturePath);
-    void setBottomTexture(const std::string& texturePath);
+    void setTopTexture(const std::string& texturePath, bool mirrorX = false, bool mirrorY = false);
+    void setSideTexture(const std::string& texturePath, bool mirrorX = false, bool mirrorY = false);
+    void setBottomTexture(const std::string& texturePath, bool mirrorX = false, bool mirrorY = false);
     void setParentModel(glm::mat4 pModel);
-    void draw();
-
+    void drawOpaque();
+    void onImguiRender(std::string name = "Cylinder ");
     void setPosition(const glm::vec3& position);
     void setRotation(float angle, const glm::vec3& axis);
     void setScale(const glm::vec3& scale);
@@ -33,7 +33,7 @@ private:
     std::unique_ptr<VBO> m_VBO;
     std::shared_ptr<Texture> m_TopTexture, m_SideTexture, m_BottomTexture;
     std::shared_ptr<Shader> m_Shader;
-
+    bool isTransparentFace[3];
     void updateModelMatrix();
     void generateVertices(float* vertices, int& vertexCount);
 };

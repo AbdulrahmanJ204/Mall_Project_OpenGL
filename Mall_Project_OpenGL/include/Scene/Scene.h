@@ -2,6 +2,8 @@
 #include "core.h"
 #include "Camera.h"
 #include "Mall.h"
+#include "Library/board.h" 
+#include "Library/book.h" 
 
 class Scene
 {
@@ -27,6 +29,8 @@ private:
 	float lastX, lastY;
 	bool firstMouse;
 	Mall mall;
+	Board board; 
+	Book book;
 	// Could be a skyBox also  here.
 };
 

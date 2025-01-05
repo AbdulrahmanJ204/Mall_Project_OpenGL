@@ -141,6 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\Mall\Library\book.h" />
+    <ClInclude Include="include\Mall\Library\board.h" />
     <ClInclude Include="include\objects\Cup.h" />
     <ClInclude Include="include\objects\Cylinder.h" />
     <ClInclude Include="include\objects\Box.h" />
@@ -184,6 +186,8 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Mall\Library\book.cpp" />
+    <ClCompile Include="src\Mall\Library\board.cpp" />
     <ClCompile Include="src\objects\Cup.cpp" />
     <ClCompile Include="src\objects\Cylinder.cpp" />
     <ClCompile Include="src\Mall\Mall.cpp" />

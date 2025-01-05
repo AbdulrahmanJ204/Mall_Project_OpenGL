@@ -138,6 +138,12 @@
     <ClInclude Include="include\objects\Cup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Mall\Library\board.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\Library\book.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\Application.cpp">
@@ -234,6 +240,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\objects\Cup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Library\board.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Library\book.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

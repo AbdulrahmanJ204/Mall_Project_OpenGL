@@ -2,7 +2,7 @@
 #include "Application.h"
 Scene* Scene::instancePtr = nullptr;
 glm::mat4 Scene::s_Proj(glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f));
-Camera Scene::camera(glm::vec3(0.0f, 0.0f, 0.0f));
+Camera Scene::camera(glm::vec3(10.0f, 0.0f, 10.0f));
 Scene::Scene() :
 	lastX(0.0f), lastY(0.0f), firstMouse(true)
 {
@@ -10,11 +10,13 @@ Scene::Scene() :
 	lastX = Window::getWidth() / 2.0f;
 	lastY = Window::getHeight() / 2.0f;
 	
-	
+
 }
 void Scene::draw()
 {	
-	mall.draw();
+	//mall.draw();
+	board.draw(); 
+	book.draw();
 }
 
 Scene::~Scene()
@@ -97,6 +99,7 @@ void Scene::processContinuousInput(float& deltaTime)
 
 void Scene::onImguiRender()
 {
-	mall.onImguiRender();
+	board.onImguiRender(); 
+	book.onImguiRender(); 
 }
 

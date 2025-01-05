@@ -2,10 +2,10 @@
 
 Mall::Mall():
 skybox(15000.0f, 15000.0f, 15000.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-mall_front(60.9f,20.0f, 60.9f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {50, 50}}, }),
+mall_front(120.9f,40.1f, 120.9f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {50, 50}}, }),
 plan_mall(63.0f, 1.5f, 63.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {50, 50}},{Face::Down, {25, 25}},{Face::Right, {50, 2}},{Face::Left, {50, 2}},{Face::Back, {50, 2}}, { Face::Front, {50, 2} } }),
 floor_1(20.0f, 1.0f, 59.9f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {50, 50}},{Face::Down, {25, 25}},{Face::Right, {50, 2}},{Face::Left, {50, 2}},{Face::Back, {50, 2}}, { Face::Front, {50, 2} } }),
-mall_back(60.0f, 19.0f, 60.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {25, 25}},{Face::Right, {50, 50}},{Face::Left, {50, 50}},{Face::Back, {50, 50}},{Face::Front, {50, 50}} ,{Face::Up, {20, 20}} }),
+mall_back(120.0f, 40.0f, 120.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {25, 25}},{Face::Right, {50, 50}},{Face::Left, {50, 50}},{Face::Back, {50, 50}},{Face::Front, {50, 50}} ,{Face::Up, {20, 20}} }),
 adadaLeft(16.0f, 19.0f, 10.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {25, 25}},{Face::Right, {20, 20}},{Face::Left, {20, 20}},{Face::Back, {20, 20}},{Face::Front, {20, 20}} ,{Face::Up, {20, 20}} }),
 adadaRight(8.0f, 19.0f, 10.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {25, 25}},{Face::Right, {20, 20}},{Face::Left, {20, 20}},{Face::Back, {20, 20}},{Face::Front, {20, 20}} ,{Face::Up, {20, 20}} }),
 adadaMiddile(2.0f, 2.0f, 100.0f, 300, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
@@ -51,10 +51,10 @@ void Mall::draw()
 	floor_1.draw();
 	//
 	electronicRoom.draw();
-	resturantRoom.draw();
-	supermarketRoom.draw();
-	caffeRoom.draw();
-	libraryRoom.draw();
+	//resturantRoom.draw();
+	//supermarketRoom.draw();
+	//caffeRoom.draw();
+	//libraryRoom.draw();
 	//
 	
 }

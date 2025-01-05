@@ -3,6 +3,7 @@
 #include <chair.h>
 #include <Cylinder.h>
 #include <Cup.h>
+#include <Scene/Model/ModelObject.h>
 
 class ElectronicRoom : public Parent
 {

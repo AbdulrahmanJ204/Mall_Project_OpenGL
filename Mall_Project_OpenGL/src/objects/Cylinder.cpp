@@ -4,9 +4,8 @@
 #include <Scene.h>
 
 Cylinder::Cylinder(float topRadius, float bottomRadius, float height, int segmentCount, const std::string& vertexPath, const std::string& fragmentPath, glm::vec3 trans)
-    : m_TopRadius(topRadius), m_BottomRadius(bottomRadius), m_Height(height), m_SegmentCount(segmentCount),
-    m_Model(1.0f), m_Position(0.0f), m_Scale(1.0f),
-    m_RotationAngle(0.0f), m_RotationAxis(0.0f, 1.0f, 0.0f) {
+    : m_TopRadius(topRadius), m_BottomRadius(bottomRadius), m_Height(height), m_SegmentCount(segmentCount)
+{
 
     int vertexCount = segmentCount * 12; // Adjusted for top, bottom, and side
     float* vertices = new float[vertexCount * 8]; // Position, Normal, Texture
@@ -43,37 +42,7 @@ void Cylinder::setBottomTexture(const std::string& texturePath, bool mirrorX, bo
     m_BottomTexture = std::make_shared<Texture>(texturePath);
 }
 
-void Cylinder::setParentModel(glm::mat4 pModel) {
-    m_ParentModel = pModel;
-}
 
-
-void Cylinder::setPosition(const glm::vec3& position) {
-    m_Position = position;
-    updateModelMatrix();
-}
-
-void Cylinder::setRotation(float angle, const glm::vec3& axis) {
-    m_RotationAngle = angle;
-    m_RotationAxis = axis;
-    updateModelMatrix();
-}
-
-void Cylinder::setScale(const glm::vec3& scale) {
-    m_Scale = scale;
-    updateModelMatrix();
-}
-
-
-void Cylinder::updateModelMatrix() {
-    m_Model = glm::mat4(1.0f);
-    m_Model = glm::translate(m_Model, m_Position);
-    m_Model = glm::rotate(m_Model, glm::radians(m_RotationAngle), m_RotationAxis);
-    m_Model = glm::scale(m_Model, m_Scale);
-    m_Model = m_ParentModel * m_Model;
-    //m_Model = m_Model * m_ParentModel;
-
-}
 
 
 void Cylinder::generateVertices(float* vertices, int& vertexCount) {
@@ -186,7 +155,7 @@ void Cylinder::drawOpaque() {
     //updateModelMatrix();
     updateModelMatrix();
     m_Shader->Bind();
-    m_Shader->setUniformMat4f("model", m_Model);
+    m_Shader->setUniformMat4f("model", getModel());
     m_Shader->setUniformMat4f("view", Scene::getView());
     m_VAO->Bind();
     // Draw top
@@ -212,6 +181,10 @@ void Cylinder::drawOpaque() {
 
     m_Shader->Unbind();
     m_VAO->Unbind();
+}
+
+void Cylinder::drawTransparent()
+{
 }
 
 void Cylinder::onImguiRender(std::string name)

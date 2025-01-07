@@ -20,9 +20,9 @@ struct Vertex {
 };
 
 struct Texture1 {
-    unsigned int id;
-    string type;
-    string path;
+    unsigned int id = 0;
+    string type = "";
+    string path = "";
 };
 
 class Mesh {

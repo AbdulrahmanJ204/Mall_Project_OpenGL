@@ -1,7 +1,7 @@
 #include "Chair.h"
 
 Chair::Chair() : 
-    Parent(),
+
     rjl(20.0f, 60.0f, 20.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Front,{3,2}} }),
     seat(80.0f , 20.0f , 80.0f , "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 {
@@ -62,7 +62,7 @@ void Chair::setTex()
     rjl.setFaceTexture(Face::Down ,  "assets/textures/arrows.png");
     rjl.setFaceTexture(Face::Left ,  "assets/textures/arrows.png");
     rjl.setFaceTexture(Face::Right , "assets/textures/arrows.png",false , false , true);
-    rjl.setFaceTexture(Face::Back ,  "assets/textures/awesomeface.png", false, true, true);
+    rjl.setFaceTexture(Face::Back ,  "assets/textures/awesomeface.png", true, true, true);
     rjl.setFaceTexture(Face::Front , "assets/textures/awesomeface.png",true, true , true);
 
 

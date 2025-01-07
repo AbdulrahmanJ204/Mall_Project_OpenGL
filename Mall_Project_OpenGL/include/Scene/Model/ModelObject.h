@@ -10,7 +10,7 @@
 
 class ModelObject {
 public:
-    ModelObject() {};
+    //ModelObject() {};
     ModelObject(const std::string& modelPath, const std::string& vertexPath, const std::string& fragPath, glm::vec3 trans = glm::vec3(0.0f));
     ModelObject(ModelObject&&) noexcept = default;
     ModelObject& operator=(ModelObject&&) noexcept = default;

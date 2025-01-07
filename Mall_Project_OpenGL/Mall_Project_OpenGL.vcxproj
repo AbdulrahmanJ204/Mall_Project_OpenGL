@@ -142,14 +142,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\Mall\SkyBox.h" />
-    <ClInclude Include="include\objects\Cup.h" />
     <ClInclude Include="include\objects\Cylinder.h" />
     <ClInclude Include="include\objects\Box.h" />
-    <ClInclude Include="include\objects\Circle.h" />
     <ClInclude Include="include\core.h" />
     <ClInclude Include="include\core\Application.h" />
     <ClInclude Include="include\core\Window.h" />
-    <ClInclude Include="include\objects\Cube.h" />
+    <ClInclude Include="include\objects\Square.h" />
     <ClInclude Include="include\opengl\EBO.h" />
     <ClInclude Include="include\opengl\Shader.h" />
     <ClInclude Include="include\opengl\Texture.h" />
@@ -157,7 +155,7 @@
     <ClInclude Include="include\opengl\VBO.h" />
     <ClInclude Include="include\opengl\VBOLayout.h" />
     <ClInclude Include="include\Mall\Resturant\Chair.h" />
-    <ClInclude Include="include\objects\Parent.h" />
+    <ClInclude Include="include\objects\Object.h" />
     <ClInclude Include="include\Scene\Camera.h" />
     <ClInclude Include="include\Scene\Lights\DirectionalLight.h" />
     <ClInclude Include="include\Scene\Lights\Light.h" />
@@ -187,22 +185,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mall\Resturant\ResturantRoom.cpp" />
-    <ClCompile Include="src\objects\Cup.cpp" />
     <ClCompile Include="src\objects\Cylinder.cpp" />
     <ClCompile Include="src\Mall\Mall.cpp" />
     <ClCompile Include="src\objects\Box.cpp" />
-    <ClCompile Include="src\objects\Circle.cpp" />
     <ClCompile Include="src\core\Application.cpp" />
     <ClCompile Include="src\core\Window.cpp" />
-    <ClCompile Include="src\objects\Cube.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\objects\Square.cpp" />
     <ClCompile Include="src\opengl\EBO.cpp" />
     <ClCompile Include="src\opengl\Shader.cpp" />
     <ClCompile Include="src\opengl\Texture.cpp" />
     <ClCompile Include="src\opengl\VAO.cpp" />
     <ClCompile Include="src\opengl\VBO.cpp" />
-    <ClCompile Include="src\objects\Parent.cpp" />
+    <ClCompile Include="src\objects\Object.cpp" />
     <ClCompile Include="src\Mall\Resturant\Chair.cpp" />
     <ClCompile Include="src\Scene\Camera.cpp" />
     <ClCompile Include="src\Scene\Lights\LightHelper.cpp" />

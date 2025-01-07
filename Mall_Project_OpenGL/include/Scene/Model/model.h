@@ -201,7 +201,7 @@ private:
             int width, height, nrComponents;
             unsigned char* data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
             if (data) {
-                GLenum format;
+                GLenum format = GL_RED;
                 std::cout << nrComponents << std::endl;
                 if (nrComponents == 1)
                     format = GL_RED;
@@ -256,7 +256,7 @@ private:
         int width, height, nrComponents;
         unsigned char* imageData = stbi_load_from_memory(data, size, &width, &height, &nrComponents, 0);
         if (imageData) {
-            GLenum format;
+            GLenum format = GL_RED;
             if (nrComponents == 1)
                 format = GL_RED;
             else if (nrComponents == 3)

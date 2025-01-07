@@ -3,6 +3,8 @@
 Scene* Scene::instancePtr = nullptr;
 glm::mat4 Scene::s_Proj(glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f));
 Camera Scene::camera(glm::vec3(0.0f, 0.0f, 0.0f));
+std::vector<Object*> Scene::transparentPositions;
+
 Scene::Scene() :
 	lastX(0.0f), lastY(0.0f), firstMouse(true)
 {

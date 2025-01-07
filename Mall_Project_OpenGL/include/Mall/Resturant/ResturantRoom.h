@@ -1,11 +1,13 @@
 #pragma once
-#include "Parent.h"
+#include "Object.h"
+#include "Box.h"
+#include "Cylinder.h"
 #include <Chair.h>
-class ResturantRoom : public Parent
+class ResturantRoom : public Object
 {
 public:
 	ResturantRoom();
-	// Inherited via Parent
+	// Inherited via Object
 	void drawOpaque() override;
 
 	void drawTransparent() override;

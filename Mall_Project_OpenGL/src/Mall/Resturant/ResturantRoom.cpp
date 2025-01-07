@@ -20,9 +20,9 @@ void ResturantRoom::drawOpaque()
 	chair.setParentModel(getModel());
 	cylinder.setParentModel(getModel());
 	room.setParentModel(getModel());
-	room.drawOpaque();
-	cylinder.drawOpaque();
 	chair.drawOpaque();
+	cylinder.drawOpaque();
+	room.drawOpaque();
 }
 
 void ResturantRoom::drawTransparent()

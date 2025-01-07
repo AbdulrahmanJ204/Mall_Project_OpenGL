@@ -1,7 +1,8 @@
 #pragma once
-#include "Parent.h"
+#include "Object.h"
+#include "Box.h"
 
-class Chair : public Parent { // Use public inheritance
+class Chair : public Object { // Use public inheritance
 public:
     Chair();
     void drawOpaque() override;

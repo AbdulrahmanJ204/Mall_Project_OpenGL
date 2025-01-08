@@ -2,7 +2,7 @@
 #include "Object.h"
 #include "Box.h"
 
-class Chair : public Object { // Use public inheritance
+class Chair : public Object { 
 public:
     Chair();
     void drawOpaque() override;

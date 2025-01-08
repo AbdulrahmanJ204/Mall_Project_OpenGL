@@ -10,20 +10,16 @@ class Mall : public Object
 {
 public:
 	Mall();
+	void setTex();
 	// Inherited via Object
 	void drawOpaque() override;
+	void drawSkyBox();
 	void getTransparent() override;
 	void onImguiRender() override;
 private:
-
-	//Cup cup;
-	//Cylinder cylinder;
-	//Chair chair;
-	Texture defaultTex;
 	ModelObject model;
 	Box mall;
 	Skybox skybox;
 	ResturantRoom resturant;
-	//chair ch;
 };
 

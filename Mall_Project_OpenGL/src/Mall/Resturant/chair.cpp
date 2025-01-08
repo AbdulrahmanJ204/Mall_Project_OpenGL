@@ -12,7 +12,7 @@ Chair::Chair() :
 }
 
 void Chair::drawOpaque() {
-    //rjl.setRotation(30.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    // !Note: Postoins should not be like this.
     glm::vec3 positions[4] = {
     glm::vec3(30.0f , -seat.getHeight() / 2 - rjls[0].getHeight() / 2 , 30.0f),
     glm::vec3(30.0f , -seat.getHeight() / 2 - rjls[0].getHeight() / 2, -30.0f),
@@ -35,16 +35,17 @@ void Chair::drawOpaque() {
 
 void Chair::getTransparent()
 {
-    for (int i = 0; i < 4; i++)
-        rjls[i].setParentModel(getModel());
     seat.setParentModel(getModel());
+    // !Note: Postoins should not be like this.
     glm::vec3 positions[4] = {
     glm::vec3(30.0f , -seat.getHeight() / 2 - rjls[0].getHeight() / 2 , 30.0f),
     glm::vec3(30.0f , -seat.getHeight() / 2 - rjls[0].getHeight() / 2, -30.0f),
     glm::vec3(-30.0f , -seat.getHeight() / 2 - rjls[0].getHeight() / 2 , 30.0f),
     glm::vec3(-30.0f , -seat.getHeight() / 2 - rjls[0].getHeight() / 2 , -30.0f)
     };
+    
     for (int i = 0; i < 4; i++) {
+        rjls[i].setParentModel(getModel());
         rjls[i].setPosition(positions[i]);
         rjls[i].getTransparent();
     }

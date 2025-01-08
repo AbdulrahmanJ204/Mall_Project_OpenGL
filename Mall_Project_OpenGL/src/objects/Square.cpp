@@ -92,8 +92,7 @@ float Square::calculateDistanceToPlane(const glm::vec3& cameraPosition)  {
 }
 void Square::getTransparent() {
     if (!m_IsTransparent) return;
-    glm::vec3 pos(getModifiedPosition());
-    Scene::addTransparent(this,m_Position);
+    Scene::addTransparent(this);
 }
 
 void Square::onImguiRender() {

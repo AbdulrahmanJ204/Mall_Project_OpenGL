@@ -3,9 +3,7 @@
 Scene* Scene::instancePtr = nullptr;
 glm::mat4 Scene::s_Proj(glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f));
 Camera Scene::camera(glm::vec3(0.0f, 0.0f, 0.0f));
-//std::set<std::pair<Object* , std::tuple<float, float, float>>> Scene::objectsSet;
 std::vector<Object*> Scene::transparentObjects;
-std::vector<glm::vec3> Scene::transparentPositions;
 
 Scene::Scene() :
 	lastX(0.0f), lastY(0.0f), firstMouse(true)
@@ -22,17 +20,6 @@ void Scene::draw()
 	if (!m_GotTransparent) {
 		mall.getTransparent();
 		m_GotTransparent = true;
-		std::map< std::string, int> mp;
-
-		for (auto x : transparentObjects)
-		{
-			stringstream z;
-			z << x;
-			//z.str();
-			mp[z.str()]++;
-			std::cout << x << "\n";
-		}
-		for (auto x : mp) std::cout << x.second << '\n';
 	}
 	drawTransparent();
 }
@@ -42,17 +29,6 @@ void Scene::drawTransparent()
 
 	glm::vec3 cameraPosition = camera.Position;
 	GLCall(glDepthMask(GL_FALSE));
-	//std::sort(transparentObjects.begin(), transparentObjects.end(), [&](Object* a, Object* b) {
-	//	auto* squareA = dynamic_cast<Square*>(a);
-	//	auto* squareB = dynamic_cast<Square*>(b);
-
-	//	if (squareA && squareB) {
-	//		float distanceA = squareA->calculateDistanceToPlane(cameraPosition);
-	//		float distanceB = squareB->calculateDistanceToPlane(cameraPosition);
-	//		return distanceA < distanceB; // Sort farther objects first
-	//	}
-	//	return false;
-	//	});
 	std::sort(transparentObjects.begin(), transparentObjects.end(), [&](Object* a, Object* b) {
 		float distanceA = glm::distance(cameraPosition, a->getModifiedPosition());
 		float distanceB = glm::distance(cameraPosition, b->getModifiedPosition());
@@ -60,7 +36,6 @@ void Scene::drawTransparent()
 		});
 	int i = 0;
 	for (auto object : transparentObjects) {
-		object->setPosition(transparentPositions[i]);
 		object->drawTransparent();
 		i++;
 	}

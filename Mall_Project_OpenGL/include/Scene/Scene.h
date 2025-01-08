@@ -24,13 +24,9 @@ public:
 	static void updateProj() {
 		s_Proj = glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f);
 	}
-	//static std::set <std::pair<Object*, std::tuple<float , float ,float>>> objectsSet;
 	static std::vector<Object*> transparentObjects;
-	static std::vector<glm::vec3> transparentPositions;
-	static void addTransparent(Object* obj , glm::vec3& pos) {
+	static void addTransparent(Object* obj ) {
 		transparentObjects.emplace_back(obj);
-		transparentPositions.emplace_back(pos);
-		//objectsSet.insert(std::make_pair(obj, std::make_tuple(pos.x , pos.y , pos.z)));
 	}
 	static glm::mat4 getView() { return camera.GetViewMatrix(); };
 	static glm::mat4 getProjection() { return s_Proj; };

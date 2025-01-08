@@ -5,12 +5,11 @@
 #include "VAO.h"
 #include "Texture.h"
 #include "Shader.h"
-/*
-    NOTE:
-    Dont use this class 
-    If you want to make a square , use the box class and make the depth = 0.
-    or you can use it, but send the vertices :-)
-*/
+//    ! NOTE:
+//    ! Dont use this class 
+//    ! If you want to make a square , use the box class and make the depth = 0.
+//    ! or you can use it, but send the vertices :-)
+
 class Square : public Object {
 public:
     Square(const float* vertices, float size, const std::string& vertexPath, const std::string& fragmentPath);

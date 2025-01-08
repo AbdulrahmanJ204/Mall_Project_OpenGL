@@ -13,10 +13,12 @@ skybox(
 		"assets/textures/skybox1/front.jpg",
 		"assets/textures/skybox1/back.jpg"
 	}),
-	mall(500.0f, 500.0f, 500.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
-//model("assets/objects/soda_vending_machine/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag");
+//model("assets/objects/soda_vending_machine/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),;
+	defaultTex("assets/objects/akg/RGB_2c92d57d27a342de83566894f7e590be_AK47_Base_Color.png"),
+	model ("assets/objects/ak47/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),	mall(500.0f, 500.0f, 500.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 {
-	//model = ModelObject("assets/objects/backpack/backpack.obj", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag");
+	// TODO: Try to load CS model.
+//model= ModelObject("assets/objects/w_knife.mdl", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),
 	//ch.setParentModel(getModel());
 	//cup.setInnerTexture("assets/textures/brickwall.jpg");
 	//cup.setOuterTexture("assets/textures/container2.png");
@@ -41,10 +43,10 @@ skybox(
 }
 
 void Mall::onImguiRender() {
+	model.onImguiRender();
 	ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 0.0f, 360.0f);
 	ImGui::SliderFloat3("Mall Position ", &m_Position.x, -200.0f, 200.0f);
 	resturant.onImguiRender();
-	//model.onImguiRender();
 	//cylinder.onImguiRender();
 }
 void Mall::drawOpaque()
@@ -56,18 +58,22 @@ void Mall::drawOpaque()
 	mall.drawOpaque();
 	resturant.setParentModel(getModel());
 	resturant.drawOpaque();
+
 	//setRotation(m_RotationAngle, m_RotationAxis);
 	//std::cout << m_RotationAngle << std::endl;
 	//cup.draw();
 	//chair.setPosition(glm::vec3(0.0f, 400.0f, -800.0f));
 	//model.setScale(glm::vec3(-1.0f, -1.0f, -1.0f));
-	//model.draw();
+	//defaultTex.Bind();
+	model.drawOpaque();
 	//cylinder.setParentModel(getModel());
 	//cylinder.drawOpaque();
 }
 
-void Mall::drawTransparent()
+void Mall::getTransparent()
 {
-	mall.drawTransparent();
-	resturant.drawTransparent();
+	// !NOTE : do the GetTransparent after setting the texture and initializing the objects.
+	// !Every thing you want to draw should call this method. "Objects that extends Object class , not models"
+	mall.getTransparent();
+	resturant.getTransparent();
 }

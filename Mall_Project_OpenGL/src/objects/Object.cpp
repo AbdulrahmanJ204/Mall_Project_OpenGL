@@ -17,13 +17,18 @@ void Object::setRotation(float angle, const glm::vec3& axis) {
 }
 
 void Object::setScale(const glm::vec3& scale) {
-	m_Scale = scale;
+	m_NonUniformScale = scale;
+	updateModelMatrix();
+}
+
+void Object::setScale(const float& scale) {
+	m_UniformScale = scale;
 	updateModelMatrix();
 }
 
 glm::vec3 Object::getModifiedPosition()
 {
-	return glm::vec3(getModel() * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+	return glm::vec3(getModel() * glm::vec4(m_Center, 1.0f));
 }
 
 
@@ -31,8 +36,8 @@ void Object::updateModelMatrix() {
 	m_Model = glm::mat4(1.0f);
 	m_Model = glm::translate(m_Model, m_Position);
 	m_Model = glm::rotate(m_Model, glm::radians(m_RotationAngle), m_RotationAxis);
-	m_Model = glm::scale(m_Model, m_Scale);
-	//m_Model =  m_ParentModel* m_Model;
+	glm::vec3 combinedScale = m_NonUniformScale * m_UniformScale;
+	m_Model = glm::scale(m_Model, combinedScale);
 }
 
 glm::mat4 Object::getModel()

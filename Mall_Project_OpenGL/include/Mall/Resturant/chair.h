@@ -6,11 +6,12 @@ class Chair : public Object { // Use public inheritance
 public:
     Chair();
     void drawOpaque() override;
-    void drawTransparent() override;
+    void getTransparent() override;
     void onImguiRender() override;
     void setTex();
 
 private:
-    Box rjl;
+    std::vector<Box> rjls;
     Box seat;
+    
 };

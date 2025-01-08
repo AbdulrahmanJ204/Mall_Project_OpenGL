@@ -4,12 +4,14 @@
 #include "Object.h"
 #include "Mall.h"
 #include "Window.h"
+#include <set>
 class Scene
 {
 public:
 	Scene();
 	~Scene();
 	void draw();
+	void drawTransparent();
 	inline glm::vec3& getCameraPosition() { return camera.Position; }
 	inline Camera& getCamera() { return camera; };
 
@@ -22,9 +24,13 @@ public:
 	static void updateProj() {
 		s_Proj = glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f);
 	}
-	static std::vector<Object*> transparentPositions;
-	static void addTransparent(Object* obj) {
-		transparentPositions.emplace_back(obj);
+	//static std::set <std::pair<Object*, std::tuple<float , float ,float>>> objectsSet;
+	static std::vector<Object*> transparentObjects;
+	static std::vector<glm::vec3> transparentPositions;
+	static void addTransparent(Object* obj , glm::vec3& pos) {
+		transparentObjects.emplace_back(obj);
+		transparentPositions.emplace_back(pos);
+		//objectsSet.insert(std::make_pair(obj, std::make_tuple(pos.x , pos.y , pos.z)));
 	}
 	static glm::mat4 getView() { return camera.GetViewMatrix(); };
 	static glm::mat4 getProjection() { return s_Proj; };
@@ -34,6 +40,7 @@ private:
 	float lastX, lastY;
 	bool firstMouse;
 	Mall mall;
+	bool m_GotTransparent = false;
 	// Could be a skyBox also  here.
 };
 

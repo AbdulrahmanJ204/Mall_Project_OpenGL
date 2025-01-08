@@ -183,7 +183,7 @@ void Cylinder::drawOpaque() {
     m_VAO->Unbind();
 }
 
-void Cylinder::drawTransparent()
+void Cylinder::getTransparent()
 {
 }
 

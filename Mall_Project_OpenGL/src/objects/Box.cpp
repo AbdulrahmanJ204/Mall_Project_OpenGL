@@ -119,11 +119,11 @@ void Box::drawOpaque() {
     }
 }
 
-void Box::drawTransparent() {
-    updateModelMatrix();
+void Box::getTransparent() {
+   updateModelMatrix();
     for (auto& face : m_Faces) {
         face->setParentModel(getModel());
-        face->drawTransparent();
+        face->getTransparent();
     }
 }
 

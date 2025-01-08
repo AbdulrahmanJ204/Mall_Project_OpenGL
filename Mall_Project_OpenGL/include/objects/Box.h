@@ -18,6 +18,7 @@ enum Face {
 
 class Box : public Object {
 public:
+    Box() {};
     Box(float width, float height, float depth, const std::string& vertexPath, const std::string& fragmentPath,
        const faceRepeatMap&  repeat = {
             {Face::Back, {1, 1}},
@@ -28,11 +29,14 @@ public:
             {Face::Down, {1, 1}}
         },
         glm::vec3 trans = glm::vec3(0.0f, 0.0f, 0.0f));
+    Box(Box&&) noexcept = default;
+    Box& operator=(Box&&) noexcept = default;
 
     ~Box();
     void setFaceTexture(Face face, const std::string& texturePath, bool isTransparent = false, bool mirrorX = false, bool mirrorY = false);
     void drawOpaque() override;
-    void drawTransparent() override;
+  
+    void getTransparent() override;
 
     
     inline float getWidth() const { return m_Width; }

@@ -141,12 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\objects\Cup.h" />
-    <ClInclude Include="include\Mall\Caffe\caffe_room.h" />
     <ClInclude Include="include\Mall\Electronic\electronic_room.h" />
-    <ClInclude Include="include\Mall\Library\library_room.h" />
-    <ClInclude Include="include\Mall\Resturant\resturant_room.h" />
-    <ClInclude Include="include\Mall\Supermarket\supermarket_room.h" />
+    <ClInclude Include="include\objects\Cup.h" />
     <ClInclude Include="include\Mall\SkyBox.h" />
     <ClInclude Include="include\objects\Cylinder.h" />
     <ClInclude Include="include\objects\Box.h" />
@@ -190,6 +186,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Mall\Resturant\ResturantRoom.cpp" />
     <ClCompile Include="src\objects\Cup.cpp" />
     <ClCompile Include="src\objects\Cylinder.cpp" />
     <ClCompile Include="src\Mall\Mall.cpp" />

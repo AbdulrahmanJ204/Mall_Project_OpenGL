@@ -3,7 +3,7 @@
 
 Mall::Mall() :Object(),
 //cup(30.0f, 20.0f, 30.0f, 5.0f, 100, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-
+table(),
 skybox(
 	{
 		"assets/textures/skybox1/right.jpg",
@@ -41,9 +41,11 @@ skybox(
 }
 
 void Mall::onImguiRender() {
-	ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 0.0f, 360.0f);
+	
+	table.onImguiRender();
+	//ImGui::SliderFloat("table Rotation ", &m_RotationAngle, 0.0f, 360.0f);
 	ImGui::SliderFloat3("Mall Position ", &m_Position.x, -200.0f, 200.0f);
-	resturant.onImguiRender();
+	//resturant.onImguiRender();
 	//model.onImguiRender();
 	//cylinder.onImguiRender();
 }
@@ -52,22 +54,25 @@ void Mall::drawOpaque()
 	glm::mat4 p = Scene::getProjection(), v = Scene::getView();
 	skybox.draw(v , p);
 	updateModelMatrix();
-	mall.setParentModel(getModel());
-	mall.drawOpaque();
-	resturant.setParentModel(getModel());
-	resturant.drawOpaque();
+	//mall.setParentModel(getModel());
+	//mall.drawOpaque();
+	//resturant.setParentModel(getModel());
+	//resturant.drawOpaque();
 	//setRotation(m_RotationAngle, m_RotationAxis);
 	//std::cout << m_RotationAngle << std::endl;
 	//cup.draw();
 	//chair.setPosition(glm::vec3(0.0f, 400.0f, -800.0f));
 	//model.setScale(glm::vec3(-1.0f, -1.0f, -1.0f));
 	//model.draw();
-	//cylinder.setParentModel(getModel());
-	//cylinder.drawOpaque();
+	table.setParentModel(getModel());
+	table.setPosition(m_Position);
+	table.drawOpaque();
+	
+
 }
 
 void Mall::drawTransparent()
 {
-	mall.drawTransparent();
-	resturant.drawTransparent();
+	//mall.drawTransparent();
+	//resturant.drawTransparent();
 }

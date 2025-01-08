@@ -1,8 +1,9 @@
 #pragma once
 #include "core.h"
 #include "Camera.h"
+#include "Object.h"
 #include "Mall.h"
-
+#include "Window.h"
 class Scene
 {
 public:
@@ -18,7 +19,13 @@ public:
 	void onImguiRender();
 	static Scene* instancePtr;
 	static glm::mat4 s_Proj;
-
+	static void updateProj() {
+		s_Proj = glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f);
+	}
+	static std::vector<Object*> transparentPositions;
+	static void addTransparent(Object* obj) {
+		transparentPositions.emplace_back(obj);
+	}
 	static glm::mat4 getView() { return camera.GetViewMatrix(); };
 	static glm::mat4 getProjection() { return s_Proj; };
 	static Camera camera;

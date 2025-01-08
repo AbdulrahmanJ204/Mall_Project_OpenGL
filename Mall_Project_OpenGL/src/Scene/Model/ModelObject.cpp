@@ -3,34 +3,30 @@
 #include <GLFW/glfw3.h>
 #include "Scene.h"
 
-ModelObject::ModelObject()
-    : m_Model(nullptr),
-    m_Shader(nullptr),
-    m_ModelTransform(glm::mat4(1.0f)),
-    m_View(glm::mat4(1.0f)),
-    m_Proj(glm::mat4(1.0f)),
-    m_Pos(glm::vec3(0.0f)),
-    m_LightPos(glm::vec3(10.0f, 10.0f, 20.0f)),
-    m_PointLight(m_LightPos, lightProp, 600.0f),
-    m_SpotLight(m_LightPos, glm::vec3(0.0f, 0.0f, 0.0f), lightProp, 30.0f)
-{
-    int width, height;
-    glfwGetWindowSize(glfwGetCurrentContext(), &width, &height);
-    m_Proj = glm::perspective(glm::radians(45.0f), static_cast<float>(width) / height, 0.1f, 2000.0f);
-}
+//ModelObject::ModelObject()
+    //: m_Model(nullptr),
+    //m_Shader(nullptr),
+    //m_ModelTransform(glm::mat4(1.0f)),
+    //m_View(glm::mat4(1.0f)),
+    //m_Proj(glm::mat4(1.0f)),
+    //m_Pos(glm::vec3(0.0f)),
+    //m_LightPos(glm::vec3(10.0f, 10.0f, 20.0f)),
+    //m_PointLight(m_LightPos, lightProp, 600.0f),
+    //m_SpotLight(m_LightPos, glm::vec3(0.0f, 0.0f, 0.0f), lightProp, 30.0f)
+//{}
 
 ModelObject::ModelObject(const std::string& modelPath, const std::string& vertexPath, const std::string& fragPath, glm::vec3 trans)
-    : ModelObject() // Initialize defaults
+    :m_ModelTransform(1.0f), m_ParentModel(1.0f), m_Position(trans), m_Scale(1.0f),
+    m_RotationAngle(0.0f), m_RotationAxis(0.0f, 1.0f, 0.0f) 
 {
-    m_Pos = trans;
     m_Model = std::make_unique<Model>(modelPath);
     m_Shader = std::make_unique<Shader>(vertexPath, fragPath);
-    m_ModelTransform = glm::translate(glm::mat4(1.0f), trans);
 }
 
 ModelObject::~ModelObject() {}
 
 void ModelObject::draw() {
+    updateModelMatrix();
     if (m_Shader) {
         m_Shader->Bind();
         updateUniforms();
@@ -45,10 +41,10 @@ void ModelObject::updateUniforms() {
 
     m_Shader->Bind();
     m_Shader->setUniformMat4f("model", m_ModelTransform);
-    m_Shader->setUniformMat4f("view", m_View);
-    m_Shader->setUniformMat4f("projection", m_Proj);
+    m_Shader->setUniformMat4f("projection", Scene::getProjection());
+    m_Shader->setUniformMat4f("view", Scene::getView());
 
-    if (m_Shader->getPath().find("light_cube") != std::string::npos) return;
+   /* if (m_Shader->getPath().find("light_cube") != std::string::npos) return;
 
     m_Shader->SetUniform3fv("viewPos", Scene::instancePtr->getCameraPosition());
     m_PointLight.updatePosition(m_LightPos);
@@ -63,34 +59,45 @@ void ModelObject::updateUniforms() {
         m_SpotLight.turnOff(*m_Shader, "spotLight");
     }
 
-    m_Shader->SetUniform1f("shininess", 8.0f);
+    m_Shader->SetUniform1f("shininess", 8.0f);*/
 }
 
-void ModelObject::Rotate(float degree, glm::vec3& axis) {
-    m_ModelTransform = glm::rotate(m_ModelTransform, glm::radians(degree), axis);
+void ModelObject::setParentModel(glm::mat4 pModel)
+{
+    m_ParentModel = pModel; 
 }
 
-void ModelObject::Translate(glm::vec3& translate) {
-    m_ModelTransform = glm::translate(m_ModelTransform, translate);
-    m_Pos += translate;
+void ModelObject::setPosition(const glm::vec3& position) {
+    m_Position = position;
+    updateModelMatrix();
 }
 
-void ModelObject::Scale(glm::vec3& scale) {
-    m_ModelTransform = glm::scale(m_ModelTransform, scale);
+void ModelObject::setRotation(float angle, const glm::vec3& axis) {
+    m_RotationAngle = angle;
+    m_RotationAxis = axis;
+    updateModelMatrix();
 }
 
-void ModelObject::Scale(float scale) {
-    m_ModelTransform = glm::scale(m_ModelTransform, glm::vec3(scale));
+void ModelObject::setScale(const glm::vec3& scale) {
+    m_Scale = scale;
+    updateModelMatrix();
 }
 
-void ModelObject::SetView(glm::mat4 view) {
-    m_View = view;
+void ModelObject::updateModelMatrix() {
+    m_ModelTransform = glm::mat4(1.0f);
+    m_ModelTransform = glm::translate(m_ModelTransform, m_Position);
+    m_ModelTransform = glm::rotate(m_ModelTransform, glm::radians(m_RotationAngle), m_RotationAxis);
+    m_ModelTransform = glm::scale(m_ModelTransform, m_Scale);
+    m_ModelTransform = m_ParentModel * m_ModelTransform;
 }
 
-void ModelObject::SetProj(glm::mat4 proj) {
-    m_Proj = proj;
+void ModelObject::onImguiRender()
+{
+    ImGui::SliderFloat3("Model Scale", &m_Scale.x, -1, 20);
 }
 
-void ModelObject::SetLightPos(glm::vec3 pos) {
-    m_LightPos = pos;
-}
+
+
+//void ModelObject::SetLightPos(glm::vec3 pos) {
+//    m_LightPos = pos;
+//}

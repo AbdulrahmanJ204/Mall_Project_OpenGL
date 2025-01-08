@@ -42,7 +42,7 @@
     <ClInclude Include="include\Mall\Resturant\Chair.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\objects\Parent.h">
+    <ClInclude Include="include\objects\Object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Scene\Camera.h">
@@ -87,13 +87,7 @@
     <ClInclude Include="include\objects\Box.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\objects\Circle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\Cube.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="vendor\imGui\imconfig.h">
@@ -135,7 +129,13 @@
     <ClInclude Include="include\objects\Cylinder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\objects\Cup.h">
+    <ClInclude Include="include\Mall\SkyBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\Resturant\ResturantRoom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\Square.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Mall\Electronic\electronic_room.h">
@@ -203,19 +203,13 @@
     <ClCompile Include="src\objects\Box.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\Circle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\Cube.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\Parent.cpp">
+    <ClCompile Include="src\objects\Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="vendor\imGui\imgui.cpp">
@@ -248,7 +242,10 @@
     <ClCompile Include="src\objects\Cylinder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\objects\Cup.cpp">
+    <ClCompile Include="src\Mall\Resturant\ResturantRoom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\objects\Square.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Mall\Electronic\electronic_room.cpp">

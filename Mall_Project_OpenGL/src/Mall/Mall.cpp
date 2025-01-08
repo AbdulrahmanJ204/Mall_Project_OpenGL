@@ -2,10 +2,10 @@
 
 Mall::Mall():
 skybox(15000.0f, 15000.0f, 15000.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-mall_front(120.9f,40.1f, 120.9f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {50, 50}}, }),
+mall_front(60.9f,20.1f, 60.9f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {50, 50}}, }),
 plan_mall(63.0f, 1.5f, 63.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {50, 50}},{Face::Down, {25, 25}},{Face::Right, {50, 2}},{Face::Left, {50, 2}},{Face::Back, {50, 2}}, { Face::Front, {50, 2} } }),
 floor_1(20.0f, 1.0f, 59.9f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {50, 50}},{Face::Down, {25, 25}},{Face::Right, {50, 2}},{Face::Left, {50, 2}},{Face::Back, {50, 2}}, { Face::Front, {50, 2} } }),
-mall_back(120.0f, 40.0f, 120.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {25, 25}},{Face::Right, {50, 50}},{Face::Left, {50, 50}},{Face::Back, {50, 50}},{Face::Front, {50, 50}} ,{Face::Up, {20, 20}} }),
+mall_back(60.0f, 20.0f, 60.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {25, 25}},{Face::Right, {50, 50}},{Face::Left, {50, 50}},{Face::Back, {50, 50}},{Face::Front, {50, 50}} ,{Face::Up, {20, 20}} }),
 adadaLeft(16.0f, 19.0f, 10.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {25, 25}},{Face::Right, {20, 20}},{Face::Left, {20, 20}},{Face::Back, {20, 20}},{Face::Front, {20, 20}} ,{Face::Up, {20, 20}} }),
 adadaRight(8.0f, 19.0f, 10.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {25, 25}},{Face::Right, {20, 20}},{Face::Left, {20, 20}},{Face::Back, {20, 20}},{Face::Front, {20, 20}} ,{Face::Up, {20, 20}} }),
 adadaMiddile(2.0f, 2.0f, 100.0f, 300, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
@@ -14,7 +14,9 @@ electronicRoom(),
 resturantRoom(),
 supermarketRoom(),
 caffeRoom(),
-libraryRoom()
+libraryRoom(),
+iteBack(1.0f, 18.0f, 15.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {1, 1}}, }),
+iteFront(80.0f, 15.0f, 40.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {1, 1}}, })
 {
 	skybox.setParentModel(getModel());
 	plan.setParentModel(getModel());
@@ -27,6 +29,8 @@ libraryRoom()
 
 void Mall::draw()
 {
+	iteFront.setRotation(m_RotationAngle, glm::vec3(0.0f, 1.0f, 0.0f));
+	iteBack.setRotation(m_RotationAngle, glm::vec3(0.0f, 1.0f, 0.0f));
 	skybox.draw();
 	mall_front.setPosition(glm::vec3(0.0f, +mall_front.getHeight() / 2 + plan_mall.getHeight()+0.01, 0.0f));
 	mall_back.setPosition(glm::vec3(0.0f, +mall_back.getHeight() / 2 + plan_mall.getHeight() + 0.01 +0.001, 0.0f));
@@ -35,7 +39,11 @@ void Mall::draw()
 	plan_mall.setPosition(glm::vec3(0.0f, +plan_mall.getHeight() / 2 +0.001, 0.0f));
 	
 	plan.setPosition(glm::vec3(0.0f, -0.01f, 0.0f));
-	
+	iteBack.setPosition(glm::vec3(-70.0f, 1.01f+ iteFront.getHeight() / 2, 25.0f));
+	iteFront.setPosition(glm::vec3(-100.0f,1.01f+iteFront.getHeight()/2, 0.0f));
+	iteFront.draw();
+	iteBack.draw();
+
 	mall_front.draw();
 	mall_back.draw();
 	plan_mall.draw();
@@ -59,7 +67,7 @@ void Mall::draw()
 	
 }
 void Mall::onImguiRender() {
-	//ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 0.0f, 360.0f);
+	ImGui::SliderFloat("ITE Rotation ", &m_RotationAngle, 0.0f, 360.0f);
 }
 void Mall::setTex()
 {
@@ -121,4 +129,14 @@ void Mall::setTex()
 	floor_1.setFaceTexture(Face::Right, "assets/textures/plan/p11.jpg", 1, 1);
 	floor_1.setFaceTexture(Face::Back, "assets/textures/plan/p2.jpg", 1, 1);
 	floor_1.setFaceTexture(Face::Front, "assets/textures/plan/p2.jpg", 1, 1);
+
+	iteFront.setFaceTexture(Face::Back, "assets/textures/ite/ite_back.png", 0, 0);
+	iteFront.setFaceTexture(Face::Front, "assets/textures/ite/ite_front.png", 0, 0);
+	iteFront.setFaceTexture(Face::Left, "assets/textures/ite/ite_left.png", 1, 1);
+	iteFront.setFaceTexture(Face::Right, "assets/textures/ite/ite_left.png", 1, 1);
+
+	iteBack.setFaceTexture(Face::Back, "assets/textures/ite/ite_title.png", 0, 0);
+	iteBack.setFaceTexture(Face::Front, "assets/textures/ite/ite_title2.png", 0, 0);
+	iteBack.setFaceTexture(Face::Left, "assets/textures/ite/ite_title.png", 1, 1);
+	iteBack.setFaceTexture(Face::Right, "assets/textures/ite/ite_title2.png", 1, 1);
 }

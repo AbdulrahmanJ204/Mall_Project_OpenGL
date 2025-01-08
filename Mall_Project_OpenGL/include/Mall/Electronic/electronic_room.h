@@ -16,5 +16,6 @@ class ElectronicRoom : public Parent
 		float x, y, z;
 		Box electronic_wall_base, electronic_wall_sec;
 		Box n;
+		
 };
 

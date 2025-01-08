@@ -28,5 +28,7 @@ private:
 	SupermarketRoom supermarketRoom;
 	CaffeRoom caffeRoom;
 	LibraryRoom libraryRoom;
+
+	Box iteFront, iteBack;
 };
 

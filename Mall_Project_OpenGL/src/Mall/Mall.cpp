@@ -33,10 +33,11 @@ skybox(
 // 
 // 
 // 
-// ? For Models :
+// ? For Models : " The class could have some errors , it is not final"
 // !	in the constructor pass the model path , default vertex and fragment shader 
 // ! ModelObject inherits Object class , you can deal with all its methods (setPosition , rotation...)
 // ! To Draw the model , call drawOpaque , no Transparent for now ( maybe in the future)
+// ! NOTE : if the texture is not right , go to the texture and flip it vertically.
 // ? For Box :
 // 	   ! pass the width , height , depth , vertex and fragment shader
 // 	   ! dont forget to call getTrasnparent if it does have transparent faces.
@@ -49,7 +50,7 @@ skybox(
 	///className (parameters) :
 	/// model("assets/objects/w_knife.mdl", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),
 	// !In Consturctor :
-	/// 
+	///  "optoinal translations"
 	// !in drawOpaque:
 	/// model.setParentModel(getModel());
 	/// model.setPoistion(...);

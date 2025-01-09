@@ -7,7 +7,7 @@ std::vector<Object*> Scene::transparentPositions;
 
 Scene::Scene() :
 	lastX(0.0f), lastY(0.0f), firstMouse(true)
-{
+{ 
 	instancePtr = this;
 	lastX = Window::getWidth() / 2.0f;
 	lastY = Window::getHeight() / 2.0f;

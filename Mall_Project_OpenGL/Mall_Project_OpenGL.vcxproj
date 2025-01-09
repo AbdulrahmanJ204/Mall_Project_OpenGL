@@ -184,6 +184,7 @@
     <ClInclude Include="vendor\imGui\imstb_textedit.h" />
     <ClInclude Include="vendor\imGui\imstb_truetype.h" />
     <ClInclude Include="vendor\stb_image\stb_image.h" />
+    <ClInclude Include="include\Mall\Library\wall.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mall\Library\LibraryRoom.cpp" />
@@ -221,6 +222,7 @@
     <ClCompile Include="vendor\imGui\imgui_tables.cpp" />
     <ClCompile Include="vendor\imGui\imgui_widgets.cpp" />
     <ClCompile Include="vendor\stb_image\stb_image.cpp" />
+    <ClCompile Include="src\Mall\Library\wall.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

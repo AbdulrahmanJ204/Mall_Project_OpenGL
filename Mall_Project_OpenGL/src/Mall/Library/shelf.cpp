@@ -18,11 +18,13 @@ void Shelf::drawOpaque() {
     wall.drawOpaque();
 
     float inc = 1.5f; 
+    raf.setParentModel(getModel());
     raf.setRotation(180.0f, glm::vec3(0.0f, 0.0f, 1.0f));
     for (int i = 1; i <= 6; i++) {
         raf.setPosition(glm::vec3(0.0f + raf.getWidth() / 2, -5.3f + (1.5f * i), 0.0f));
         raf.drawOpaque();
     }
+    column.setParentModel(getModel());
     column.setRotation(90, glm::vec3(1.0f, 0.0f, 0.0f));
     for (int i = 1; i <= 9; i++) {
         column.setPosition(glm::vec3(0.0f + column.getWidth() / 2, 0.0f, -7.5f + (inc * i)));

@@ -7,6 +7,7 @@ Book::Book() :
 
 void Book::drawOpaque()
 {
+    book.setParentModel(getModel());
     float inc = 0.12;
     book.setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f));
     for (int i = 1; i <= 10; i++) {

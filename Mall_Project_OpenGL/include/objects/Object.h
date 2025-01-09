@@ -11,8 +11,8 @@ public:
 		m_RotationAxis(0.0f, 1.0f, 0.0f) , m_Scale(1.0f){
 	};
 	~Object() {};
-	virtual void drawOpaque() = 0;
-	virtual void drawTransparent() = 0;
+	virtual void drawOpaque() = 0; 
+	virtual void drawTransparent() {};
 	virtual void onImguiRender() {}; // For debugging.
 	void setParentModel(glm::mat4 pModel);
 	void setPosition(const glm::vec3& position);

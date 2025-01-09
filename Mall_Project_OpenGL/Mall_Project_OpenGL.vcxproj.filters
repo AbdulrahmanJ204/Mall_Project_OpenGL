@@ -138,10 +138,10 @@
     <ClInclude Include="include\objects\Square.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Mall\Library\board.h">
+    <ClInclude Include="include\Mall\Library\floor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Mall\Library\book.h">
+    <ClInclude Include="include\Mall\Library\LibraryRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -239,10 +239,16 @@
     <ClCompile Include="src\objects\Square.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mall\Library\board.cpp">
+    <ClCompile Include="src\Mall\Library\shelf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Mall\Library\book.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Library\floor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Library\LibraryRoom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

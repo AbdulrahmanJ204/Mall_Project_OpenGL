@@ -1,29 +1,25 @@
-#include "Library/book.h" 
-
+#include "Library/book.h"  
 Book::Book() :
-    Parent(), book(0.05f, 1.0f, 0.5f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
+    Object(), book(0.05f, 1.0f, 0.5f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 {
     setTex();
 }
 
-Book::~Book() {
-
-}
-void Book::draw()
+void Book::drawOpaque()
 {
     float inc = 0.12;
-      book.setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-     for (int i = 1; i <= 10; i++) {
+    book.setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+    for (int i = 1; i <= 10; i++) {
         book.setPosition(glm::vec3(0.8f, -0.3f, 0.0f + (inc * i)));
-        book.draw();
+        book.drawOpaque();
     }
 
 }
 
 void Book::setTex()
 {
- 
-    std::string texturePath =  "assets/textures/book.jpg";
+
+    std::string texturePath = "assets/textures/book.jpg";
 
     book.setFaceTexture(Face::Up, texturePath);
     book.setFaceTexture(Face::Down, texturePath);

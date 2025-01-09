@@ -11,16 +11,15 @@ Scene::Scene() :
 	instancePtr = this;
 	lastX = Window::getWidth() / 2.0f;
 	lastY = Window::getHeight() / 2.0f;
-	
+
 
 }
 void Scene::draw()
-{	
-	//mall.draw();
-	board.draw(); 
-	book.draw();
-	mall.drawOpaque();
+{
+	/*mall.drawOpaque();
 	mall.drawTransparent();
+	 */
+	libraryRoom.drawOpaque();
 }
 
 Scene::~Scene()
@@ -43,8 +42,8 @@ void Scene::processDiscreteInput(int32_t key, int32_t scancode, int32_t action, 
 			updateProj();
 		}
 		if (key == GLFW_KEY_CAPS_LOCK) {
-		int mode = glfwGetInputMode(Window::instancePtr->getWindow(), GLFW_CURSOR);
-		glfwSetInputMode(Window::instancePtr->getWindow(), GLFW_CURSOR, mode == GLFW_CURSOR_DISABLED ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_DISABLED);
+			int mode = glfwGetInputMode(Window::instancePtr->getWindow(), GLFW_CURSOR);
+			glfwSetInputMode(Window::instancePtr->getWindow(), GLFW_CURSOR, mode == GLFW_CURSOR_DISABLED ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_DISABLED);
 		}
 	}
 
@@ -80,7 +79,7 @@ void Scene::onCursorPositionEvent(double x, double y)
 
 void Scene::processContinuousInput(float& deltaTime)
 {
-	
+
 	GLFWwindow* window = Window::instancePtr->getWindow();
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 		getCamera().ProcessKeyboard(FORWARD, deltaTime);
@@ -104,9 +103,9 @@ void Scene::processContinuousInput(float& deltaTime)
 
 void Scene::onImguiRender()
 {
-	board.onImguiRender(); 
-	book.onImguiRender(); 
 	ImGui::SliderFloat("Camera Speed", &camera.MovementSpeed, 1, 100);
-	mall.onImguiRender();
+	//mall.onImguiRender();
+	libraryRoom.onImguiRender();
+	/*
+	 book.onImguiRender(); */
 }
-

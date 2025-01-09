@@ -1,12 +1,12 @@
 #pragma once
 #include "Object.h"
 #include "Box.h"
-class Book : public Object {
+class Floor : public Object {
 public:
-	Book();
-	void drawOpaque() override; 
+	Floor();
+	void drawOpaque() override;
 	void setTex();
 
 private:
-	Box book;
+	Box floor;
 };

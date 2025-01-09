@@ -30,8 +30,12 @@ void Scene::drawTransparent()
 	glm::vec3 cameraPosition = camera.Position;
 	GLCall(glDepthMask(GL_FALSE));
 	std::sort(transparentObjects.begin(), transparentObjects.end(), [&](Object* a, Object* b) {
-		float distanceA = glm::distance(cameraPosition, a->getModifiedPosition());
-		float distanceB = glm::distance(cameraPosition, b->getModifiedPosition());
+		auto* squareA = dynamic_cast<Square*>(a);
+		auto* squareB = dynamic_cast<Square*>(b);
+		float distanceA = squareA->distanceToPlane();
+		//float distanceA =glm::distance(cameraPosition, a->getModifiedPosition());
+		float distanceB = squareB->distanceToPlane();
+		//float distanceB =glm::distance(cameraPosition, b->getModifiedPosition());
 		return distanceA > distanceB;
 		});
 	int i = 0;

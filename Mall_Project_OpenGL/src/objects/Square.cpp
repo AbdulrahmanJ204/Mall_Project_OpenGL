@@ -13,6 +13,7 @@ Square::Square(const float* vertices ,float size, const std::string& vertexPath,
     layout.Push<float>(2); // Texture coordinates
     m_Normal = glm::vec3(vertices[3], vertices[4], vertices[5]);
     m_VAO->AddBuffer(*m_VBO, layout);
+    m_Center = glm::vec3(vertices[0], vertices[1], vertices[2]);
     std::set<float> stx , sty , stz;
     for (int i = 0; i < 6; ++i) { // Assuming 4 vertices
         stx.insert(vertices[i * 8 + 0]); // x 
@@ -60,7 +61,35 @@ void Square::drawOpaque() {
     m_VAO->Unbind();
     m_Shader->Unbind();
 }
+float Square::distanceToPlane() {
+    // Camera position
+    glm::vec3 point = Scene::instancePtr->getCameraPosition();
 
+    // Transform the normal
+    glm::mat3 normalMatrix = glm::transpose(glm::inverse(glm::mat3(getModel())));
+    glm::vec3 transformedNormal = normalMatrix * m_Normal;
+    transformedNormal = glm::normalize(transformedNormal);
+
+    // Transform the plane point (center of the face)
+    glm::vec3 planePoint = glm::vec3(getModel() * glm::vec4(m_Center, 1.0f));
+
+    // Calculate the signed distance from the camera to the plane
+    float signedDistance = glm::dot(transformedNormal, point - planePoint);
+    float distance = glm::abs(signedDistance);
+
+    // Debug output
+    std::cout << "-------------------------------\n";
+    std::cout << "Original Normal: (" << m_Normal.x << ", " << m_Normal.y << ", " << m_Normal.z << ")\n";
+    std::cout << "Transformed Normal: (" << transformedNormal.x << ", " << transformedNormal.y << ", " << transformedNormal.z << ")\n";
+    std::cout << "Plane Point (Local): (" << m_Center.x << ", " << m_Center.y << ", " << m_Center.z << ")\n";
+    std::cout << "Plane Point (World): (" << planePoint.x << ", " << planePoint.y << ", " << planePoint.z << ")\n";
+    std::cout << "Camera Position: (" << point.x << ", " << point.y << ", " << point.z << ")\n";
+    std::cout << "Signed Distance: " << signedDistance << "\n";
+    std::cout << "Distance: " << distance << "\n";
+    std::cout << "-------------------------------\n";
+
+    return distance;
+}
 void Square::drawTransparent()
 {
     if (!m_IsTransparent) return;
@@ -80,21 +109,24 @@ void Square::drawTransparent()
     m_VAO->Unbind();
     m_Shader->Unbind();
 }
-float Square::calculateDistanceToPlane(const glm::vec3& cameraPosition)  {
-    glm::vec3 transformedNormal = glm::mat3(glm::transpose(glm::inverse(getModel()))) * m_Normal;
 
-    // Normalize the transformed normal to ensure it has unit length
-    transformedNormal = glm::normalize(transformedNormal);
-
-    // Calculate the distance from the camera to the plane in world space
-    float distance = glm::dot(transformedNormal, cameraPosition - getModifiedPosition());
-    return distance; // Perpendicular distance (unsigned)
-}
 void Square::getTransparent() {
     if (!m_IsTransparent) return;
     Scene::addTransparent(this);
 }
 
 void Square::onImguiRender() {
+    glm::vec3 planeNormal = (glm::transpose(glm::inverse(getModel()))) * glm::vec4(m_Normal , 1.0f);
+    planeNormal = glm::normalize(planeNormal);
+    glm::mat4 transform = getModel(); // Transformation matrix for the box
+    glm::mat3 normalMatrix = glm::transpose(glm::inverse(glm::mat3(transform)));
+
+    // Transform the normal
+    glm::vec3 originalNormal = m_Normal; // Original normal of the face
+    glm::vec3 transformedNormal = normalMatrix * originalNormal;
+
+    ImGui::InputFloat3("NORMALS", &transformedNormal.x);
+    float d = distanceToPlane();
+    ImGui::InputFloat("Distance", &d);
     ImGui::SliderFloat3("Position", &m_Position.x, -100, 100);
 }

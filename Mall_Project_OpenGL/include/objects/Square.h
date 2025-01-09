@@ -5,7 +5,7 @@
 #include "VAO.h"
 #include "Texture.h"
 #include "Shader.h"
-//    ! NOTE:
+//    ? NOTE:
 //    ! Dont use this class 
 //    ! If you want to make a square , use the box class and make the depth = 0.
 //    ! or you can use it, but send the vertices :-)
@@ -16,12 +16,12 @@ public:
     ~Square();
 
     void drawOpaque() override;
+    float distanceToPlane();
     void drawTransparent() override;
-    float calculateDistanceToPlane(const glm::vec3& cameraPosition);
     void getTransparent() override;
     void onImguiRender() override;
 
-    void setTexture(const std::string& texturePath, bool isTransparent, bool mirrorX, bool mirrorY);
+    void setTexture(const std::string& texturePath, bool isTransparent = false, bool mirrorX = false, bool mirrorY = false);
 
 private:
     std::unique_ptr<VAO> m_VAO;

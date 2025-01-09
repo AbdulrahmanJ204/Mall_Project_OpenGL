@@ -84,6 +84,7 @@ void Mall::onImguiRender() {
 	model.onImguiRender();
 	ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 0.0f, 360.0f);
 	ImGui::SliderFloat3("Mall Position ", &m_Position.x, -200.0f, 200.0f);
+	ImGui::SliderFloat("Mall Scale ", &m_UniformScale, 0.1f, 20.0f , "%.5f");
 	resturant.onImguiRender();
 }
 void Mall::drawOpaque()

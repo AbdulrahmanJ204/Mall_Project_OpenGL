@@ -182,6 +182,7 @@ private:
             int textureIndex = std::stoi(filename.substr(1)); // Extract the texture index
             const aiTexture* embeddedTexture = scene->mTextures[textureIndex];
 
+            stbi_set_flip_vertically_on_load(true);
             // Load the embedded texture
             if (embeddedTexture->mHeight == 0) {
                 // Compressed texture (e.g., PNG, JPG)

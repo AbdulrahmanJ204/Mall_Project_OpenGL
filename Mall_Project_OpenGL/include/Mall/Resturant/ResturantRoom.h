@@ -10,7 +10,7 @@ public:
 	// Inherited via Object
 	void drawOpaque() override;
 
-	void drawTransparent() override;
+	void getTransparent() override;
 	void onImguiRender() override;
 	void setTex();
 private:

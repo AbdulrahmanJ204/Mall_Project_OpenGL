@@ -13,31 +13,73 @@ skybox(
 		"assets/textures/skybox1/front.jpg",
 		"assets/textures/skybox1/back.jpg"
 	}),
-	mall(500.0f, 500.0f, 500.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
-//model("assets/objects/soda_vending_machine/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag");
+	model ("assets/objects/ak47/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),	mall(500.0f, 500.0f, 500.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 {
-	//model = ModelObject("assets/objects/backpack/backpack.obj", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag");
-	//ch.setParentModel(getModel());
-	//cup.setInnerTexture("assets/textures/brickwall.jpg");
-	//cup.setOuterTexture("assets/textures/container2.png");
-	//cup.setRimTexture("assets/textures/container.jpg");
-	//cup.setParentModel(getModel());
-	//cylinder.setBottomTexture("assets/textures/brickwall.jpg");
-	//cylinder.setSideTexture("assets/textures/container2.png");
-	//cylinder.setTopTexture("assets/textures/container.jpg");
-	//cylinder.setParentModel(getModel());
-	//cylinder.setPosition(glm::vec3(100.0f, 100.0f, 100.0f));
-	//model.setPosition(glm::vec3(100.0f, -100.0f, 100.0f));
-
-	mall.setFaceTexture(Face::Up,	 "assets/textures/container.jpg");
-	mall.setFaceTexture(Face::Down,  "assets/textures/container.jpg");
-	mall.setFaceTexture(Face::Left,  "assets/textures/container.jpg");
-	mall.setFaceTexture(Face::Right, "assets/textures/container.jpg");
-	mall.setFaceTexture(Face::Back,  "assets/textures/container.jpg");
-	mall.setFaceTexture(Face::Front, "assets/textures/container.jpg");
-	//cylinder.setRotation(150.0f, glm::vec3(0.0f, 0.0f, 1.0f));
-	//chair.setParentModel(getModel());
 	
+
+// ? NOTES :
+// ! 1- Dont forget to use public when inheriting from Object class" class Class : public Object".
+// ! 2- Dont forget to setParentModel(getModel()) for all of the class children
+// ! 3- if the object have a transparent Texture , call obj.getTransparent in getTransparent Method
+// ! 4- dont forget to updateModelMatrix inside each draw call to see the result 
+// !	    when dealing with Imgui  (not Necessary if not using it i guess).
+// ! 5- Cylinder Class does not work with transparent texture for now ,maybe in the future.
+// 
+// ? How to draw:
+// ! declare the object in header file 
+// ! ModelObject model , Box box , Cylinder cylinder
+// ? For transparent objects :
+// ! there is an issue when drawing the same object in multiple places , like in chair class we created
+// 	 ! for now just do objects as the number of the positions  "Like in Chair class , check rjls vector".
+//  ? JUST FOR TRANSPARENT , Opaque work fine with it.
+// 
+// 
+// 
+// ? For Models : " The class could have some errors , it is not final"
+// !	in the constructor pass the model path , default vertex and fragment shader 
+// ! ModelObject inherits Object class , you can deal with all its methods (setPosition , rotation...)
+// ! To Draw the model , call drawOpaque , no Transparent for now ( maybe in the future)
+// ! NOTE : if the texture is not right , go to the texture and flip it vertically.
+// ? For Box :
+// 	   ! pass the width , height , depth , vertex and fragment shader
+// 	   ! dont forget to call getTrasnparent if it does have transparent faces.
+// ? For Cylinder :
+// 	   ! pass the upper and lower radius  , segmentCounts , vertex and fragment shaders
+// 	   ! the Segment count is the resolution of the circle , higher is smoother
+// 	   ! when using a small number like 4 or 5 , you got a regular shape with the segments you passed
+// 	   TODO Just try it yourself
+// ?Model Example:
+	///className (parameters) :
+	/// model("assets/objects/w_knife.mdl", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),
+	// !In Consturctor :
+	///  "optoinal translations"
+	// !in drawOpaque:
+	/// model.setParentModel(getModel());
+	/// model.setPoistion(...);
+	/// .
+	/// .
+	/// model.drawOpaque();
+
+// ?NOTE : 
+// !you can see box and cylinder examples in ResturantRoom class.	
+
+
+// ?ImGui : 
+// ! soon...
+
+	setTex();
+	
+}
+
+void Mall::setTex()
+{
+
+	mall.setFaceTexture(Face::Up, "assets/textures/container.jpg");
+	mall.setFaceTexture(Face::Down, "assets/textures/container.jpg");
+	mall.setFaceTexture(Face::Left, "assets/textures/container.jpg");
+	mall.setFaceTexture(Face::Right, "assets/textures/container.jpg");
+	mall.setFaceTexture(Face::Back, "assets/textures/container.jpg");
+	mall.setFaceTexture(Face::Front, "assets/textures/container.jpg");
 }
 
 void Mall::onImguiRender() {
@@ -51,8 +93,7 @@ void Mall::onImguiRender() {
 }
 void Mall::drawOpaque()
 {
-	glm::mat4 p = Scene::getProjection(), v = Scene::getView();
-	skybox.draw(v , p);
+	drawSkyBox();
 	updateModelMatrix();
 	//mall.setParentModel(getModel());
 	//mall.drawOpaque();

@@ -15,7 +15,7 @@ public:
     void setSideTexture(const std::string& texturePath, bool mirrorX = false, bool mirrorY = false);
     void setBottomTexture(const std::string& texturePath, bool mirrorX = false, bool mirrorY = false);
     void drawOpaque() override;
-    void drawTransparent() override;
+    void getTransparent() override;
     void onImguiRender(std::string name = "Cylinder ");
     
 private:

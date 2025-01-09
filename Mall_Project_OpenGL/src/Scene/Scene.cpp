@@ -3,7 +3,7 @@
 Scene* Scene::instancePtr = nullptr;
 glm::mat4 Scene::s_Proj(glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f));
 Camera Scene::camera(glm::vec3(0.0f, 0.0f, 0.0f));
-std::vector<Object*> Scene::transparentPositions;
+std::vector<Object*> Scene::transparentObjects;
 
 Scene::Scene() :
 	lastX(0.0f), lastY(0.0f), firstMouse(true)
@@ -12,12 +12,34 @@ Scene::Scene() :
 	lastX = Window::getWidth() / 2.0f;
 	lastY = Window::getHeight() / 2.0f;
 	
-	
+
 }
 void Scene::draw()
 {	
-	mall.drawOpaque();
-	mall.drawTransparent();
+	mall.drawOpaque(); 
+	if (!m_GotTransparent) {
+		mall.getTransparent();
+		m_GotTransparent = true;
+	}
+	drawTransparent();
+}
+
+void Scene::drawTransparent()
+{
+
+	glm::vec3 cameraPosition = camera.Position;
+	GLCall(glDepthMask(GL_FALSE));
+	std::sort(transparentObjects.begin(), transparentObjects.end(), [&](Object* a, Object* b) {
+		float distanceA = glm::distance(cameraPosition, a->getModifiedPosition());
+		float distanceB = glm::distance(cameraPosition, b->getModifiedPosition());
+		return distanceA > distanceB;
+		});
+	int i = 0;
+	for (auto object : transparentObjects) {
+		object->drawTransparent();
+		i++;
+	}
+	GLCall(glDepthMask(GL_TRUE));
 }
 
 Scene::~Scene()

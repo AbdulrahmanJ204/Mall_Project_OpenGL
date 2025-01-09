@@ -2,15 +2,16 @@
 #include "Object.h"
 #include "Box.h"
 
-class Chair : public Object { // Use public inheritance
+class Chair : public Object { 
 public:
     Chair();
     void drawOpaque() override;
-    void drawTransparent() override;
+    void getTransparent() override;
     void onImguiRender() override;
     void setTex();
 
 private:
-    Box rjl;
+    std::vector<Box> rjls;
     Box seat;
+    
 };

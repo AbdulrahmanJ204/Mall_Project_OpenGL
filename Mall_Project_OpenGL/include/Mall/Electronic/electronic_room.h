@@ -1,17 +1,15 @@
 #pragma once
 #include "Object.h"
-#include <chair.h>
-#include <Cylinder.h>
-#include <Cup.h>
 #include <Scene/Model/ModelObject.h>
 #include <Mall/Electronic/table_electronic.h>
-
+#include "Box.h"
+#include "Cylinder.h"
 class ElectronicRoom : public Object
 {
 	public:
 		ElectronicRoom();
 		void drawOpaque() override;
-		void drawTransparent() override;
+		void getTransparent() override;
 		void onImguiRender() override;
 		void setTex();
 	private:

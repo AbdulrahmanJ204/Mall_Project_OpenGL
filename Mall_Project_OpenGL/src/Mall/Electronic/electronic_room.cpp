@@ -30,7 +30,7 @@ void ElectronicRoom::drawOpaque() {
 	table.drawOpaque();
 }
 
-void ElectronicRoom::drawTransparent() {
+void ElectronicRoom::getTransparent() {
 	
 }
 

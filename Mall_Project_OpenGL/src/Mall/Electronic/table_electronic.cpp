@@ -44,7 +44,7 @@ void TableElectronic::drawOpaque()
 	hwafe.drawOpaque();
 }
 
-void TableElectronic::drawTransparent()
+void TableElectronic::getTransparent()
 {
 }
 

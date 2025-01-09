@@ -5,8 +5,8 @@
 #include "Cup.h"
 #include "ResturantRoom.h"
 #include "Box.h"
-#include <Mall/Electronic/table_electronic.h>
 #include <Mall/Electronic/electronic_room.h>
+
 class Mall : public Object
 {
 public:
@@ -18,10 +18,9 @@ public:
 	void getTransparent() override;
 	void onImguiRender() override;
 private:
-	ModelObject model;
-	Box mall;
+//	Box mall;
 	Skybox skybox;
-	ResturantRoom resturant;
+	//ResturantRoom resturant;
 	
 	ElectronicRoom electronicRoom;
 	//chair ch;

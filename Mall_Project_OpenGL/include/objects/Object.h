@@ -1,6 +1,7 @@
 #pragma once
 #include "core.h"
 #include "SkyBox.h"
+
 class Object
 {
 public:

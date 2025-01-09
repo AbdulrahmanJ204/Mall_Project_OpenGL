@@ -30,18 +30,12 @@ void Scene::drawTransparent()
 	glm::vec3 cameraPosition = camera.Position;
 	GLCall(glDepthMask(GL_FALSE));
 	std::sort(transparentObjects.begin(), transparentObjects.end(), [&](Object* a, Object* b) {
-		auto* squareA = dynamic_cast<Square*>(a);
-		auto* squareB = dynamic_cast<Square*>(b);
-		float distanceA = squareA->distanceToPlane();
-		//float distanceA =glm::distance(cameraPosition, a->getModifiedPosition());
-		float distanceB = squareB->distanceToPlane();
-		//float distanceB =glm::distance(cameraPosition, b->getModifiedPosition());
+		float distanceA = a->dist();
+		float distanceB = b->dist();
 		return distanceA > distanceB;
 		});
-	int i = 0;
-	for (auto object : transparentObjects) {
+	for (auto& object : transparentObjects) {
 		object->drawTransparent();
-		i++;
 	}
 	GLCall(glDepthMask(GL_TRUE));
 }
@@ -128,6 +122,7 @@ void Scene::processContinuousInput(float& deltaTime)
 void Scene::onImguiRender()
 {
 	ImGui::SliderFloat("Camera Speed", &camera.MovementSpeed, 1, 100);
+	ImGui::InputFloat3("Camera Pos", &getCameraPosition().x);
 	mall.onImguiRender();
 }
 

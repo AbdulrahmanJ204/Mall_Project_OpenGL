@@ -17,6 +17,7 @@ public:
 	virtual void drawTransparent() {};
 	virtual void getTransparent() = 0;
 	virtual void onImguiRender() {}; // For debugging.
+	virtual float dist() { return 0.0f; }; // For distance.
 	void setParentModel(glm::mat4 pModel);
 	void setPosition(const glm::vec3& position);
 	void setRotation(float angle, const glm::vec3& axis);
@@ -24,12 +25,12 @@ public:
 	void setScale(const float& scale);
 
 	void updateModelMatrix();
-	glm::vec3 getModifiedPosition();
 	glm::mat4 getModel();
 	void setTargetPosition(const glm::vec3& targetPosition);
 	glm::mat4 m_Model, m_ParentModel;
 	glm::vec3 m_Position, m_NonUniformScale, m_RotationAxis, m_Center;
 	float m_RotationAngle, m_UniformScale;
+	glm::vec3 getModifiedPosition(glm::vec3& point);
 
 	// Add target state variables
 	glm::vec3 m_TargetPosition;

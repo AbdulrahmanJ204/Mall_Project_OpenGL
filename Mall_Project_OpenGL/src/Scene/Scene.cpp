@@ -2,7 +2,9 @@
 #include "Application.h"
 Scene* Scene::instancePtr = nullptr;
 glm::mat4 Scene::s_Proj(glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f));
-Camera Scene::camera(glm::vec3(10.0f, 0.0f, 10.0f));
+Camera Scene::camera(glm::vec3(0.0f, 0.0f, 0.0f));
+std::vector<Object*> Scene::transparentPositions;
+
 Scene::Scene() :
 	lastX(0.0f), lastY(0.0f), firstMouse(true)
 {
@@ -17,6 +19,8 @@ void Scene::draw()
 	//mall.draw();
 	board.draw(); 
 	book.draw();
+	mall.drawOpaque();
+	mall.drawTransparent();
 }
 
 Scene::~Scene()
@@ -36,6 +40,7 @@ void Scene::processDiscreteInput(int32_t key, int32_t scancode, int32_t action, 
 	else if (action == GLFW_PRESS) {
 		if (key == GLFW_KEY_F11) {
 			Window::instancePtr->toggleFullscreen();
+			updateProj();
 		}
 		if (key == GLFW_KEY_CAPS_LOCK) {
 		int mode = glfwGetInputMode(Window::instancePtr->getWindow(), GLFW_CURSOR);
@@ -101,5 +106,7 @@ void Scene::onImguiRender()
 {
 	board.onImguiRender(); 
 	book.onImguiRender(); 
+	ImGui::SliderFloat("Camera Speed", &camera.MovementSpeed, 1, 100);
+	mall.onImguiRender();
 }
 

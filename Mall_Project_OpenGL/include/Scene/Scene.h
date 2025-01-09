@@ -1,10 +1,12 @@
 #pragma once
 #include "core.h"
 #include "Camera.h"
+#include "Object.h"
 #include "Mall.h"
 #include "Library/board.h" 
 #include "Library/book.h" 
 
+#include "Window.h"
 class Scene
 {
 public:
@@ -29,8 +31,6 @@ private:
 	float lastX, lastY;
 	bool firstMouse;
 	Mall mall;
-	Board board; 
-	Book book;
 	// Could be a skyBox also  here.
 };
 

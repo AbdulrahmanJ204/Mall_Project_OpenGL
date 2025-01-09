@@ -10,8 +10,8 @@ skybox(
 		"assets/textures/skybox1/bottom.jpg",
 		"assets/textures/skybox1/front.jpg",
 		"assets/textures/skybox1/back.jpg"
-	}),
-	model ("assets/objects/ak47/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),	mall(500.0f, 500.0f, 500.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
+	})
+	//model ("assets/objects/ak47/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),	mall(500.0f, 500.0f, 500.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 {
 	
 
@@ -81,7 +81,7 @@ void Mall::setTex()
 }
 
 void Mall::onImguiRender() {
-	model.onImguiRender();
+	//model.onImguiRender();
 	ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 0.0f, 360.0f);
 	ImGui::SliderFloat3("Mall Position ", &m_Position.x, -200.0f, 200.0f);
 	ImGui::SliderFloat("Mall Scale ", &m_UniformScale, 0.1f, 20.0f , "%.5f");
@@ -93,10 +93,10 @@ void Mall::drawOpaque()
 	updateModelMatrix();
 	mall.setParentModel(getModel());
 	resturant.setParentModel(getModel());
-	model.setParentModel(getModel());
+	//model.setParentModel(getModel());
 	mall.drawOpaque();
 	resturant.drawOpaque();
-	model.drawOpaque();
+	//model.drawOpaque();
 }
 
 void Mall::drawSkyBox()

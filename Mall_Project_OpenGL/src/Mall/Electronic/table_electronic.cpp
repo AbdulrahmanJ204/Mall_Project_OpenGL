@@ -1,9 +1,9 @@
 #include "table_electronic.h"
 
 TableElectronic::TableElectronic():Object(),
-plan(24.0f,0.5f,16.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-hwafe(8.0f,8.0f,0.5f,300,"assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-rgle(0.5f,0.5f,10.0f,300,"assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
+plan(2.4f,0.05f,1.6f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
+hwafe(0.8f,0.8f,0.05f,300,"assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
+rgle(0.05f,0.05f,1.0f,300,"assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
 mobile(ModelObject("assets/mobile-obj/mobile.obj", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"))
 {
 	mobile=(ModelObject("assets/mobile-obj/mobile.obj", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"));
@@ -34,13 +34,13 @@ void TableElectronic::drawOpaque()
 	mobile.setPosition(glm::vec3(0.0f, 1.0f, 0.0f));
 	
 	//mobile.draw();
-	rgle.setPosition(glm::vec3(-10.0f, -5.0f, 0.0f));
+	rgle.setPosition(glm::vec3(-1.0f, -0.5f, 0.0f));
 	rgle.drawOpaque();
-	rgle.setPosition(glm::vec3(+10.0f, -5.0f, 0.0f));
+	rgle.setPosition(glm::vec3(+1.0f, -0.5f, 0.0f));
 	rgle.drawOpaque();
-	hwafe.setPosition(glm::vec3(12.0f, -0.0001f, 0.0f));
+	hwafe.setPosition(glm::vec3(1.2f, -0.0001f, 0.0f));
 	hwafe.drawOpaque();
-	hwafe.setPosition(glm::vec3(-12.0f, -0.0001f, 0.0f));
+	hwafe.setPosition(glm::vec3(-1.2f, -0.0001f, 0.0f));
 	hwafe.drawOpaque();
 }
 

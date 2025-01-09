@@ -3,7 +3,7 @@
 
 Mall::Mall() :Object(),
 //cup(30.0f, 20.0f, 30.0f, 5.0f, 100, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-table(),
+electronicRoom(),
 skybox(
 	{
 		"assets/textures/skybox1/right.jpg",
@@ -42,7 +42,7 @@ skybox(
 
 void Mall::onImguiRender() {
 	
-	table.onImguiRender();
+	electronicRoom.onImguiRender();
 	//ImGui::SliderFloat("table Rotation ", &m_RotationAngle, 0.0f, 360.0f);
 	ImGui::SliderFloat3("Mall Position ", &m_Position.x, -200.0f, 200.0f);
 	//resturant.onImguiRender();
@@ -62,11 +62,9 @@ void Mall::drawOpaque()
 	//std::cout << m_RotationAngle << std::endl;
 	//cup.draw();
 	//chair.setPosition(glm::vec3(0.0f, 400.0f, -800.0f));
-	//model.setScale(glm::vec3(-1.0f, -1.0f, -1.0f));
-	//model.draw();
-	table.setParentModel(getModel());
-	table.setPosition(m_Position);
-	table.drawOpaque();
+	electronicRoom.setScale(glm::vec3(1.0f, 1.0f, 1.0f));
+	electronicRoom.drawOpaque();
+	
 	
 
 }
@@ -74,5 +72,5 @@ void Mall::drawOpaque()
 void Mall::drawTransparent()
 {
 	//mall.drawTransparent();
-	//resturant.drawTransparent();
+	electronicRoom.drawTransparent();
 }

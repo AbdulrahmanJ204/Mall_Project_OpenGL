@@ -6,6 +6,7 @@
 #include "ResturantRoom.h"
 #include "Box.h"
 #include <Mall/Electronic/table_electronic.h>
+#include <Mall/Electronic/electronic_room.h>
 class Mall : public Object
 {
 public:
@@ -23,7 +24,8 @@ private:
 	Box mall;
 	Skybox skybox;
 	ResturantRoom resturant;
-	TableElectronic table;
+	
+	ElectronicRoom electronicRoom;
 	//chair ch;
 };
 

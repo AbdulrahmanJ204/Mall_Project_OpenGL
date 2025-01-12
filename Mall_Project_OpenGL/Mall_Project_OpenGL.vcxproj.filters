@@ -144,6 +144,12 @@
     <ClInclude Include="include\Mall\Electronic\electronic_room.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Mall\Electronic\tv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\Electronic\laptop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\Application.cpp">
@@ -243,6 +249,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Mall\Electronic\electronic_room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Electronic\tv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Electronic\laptop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

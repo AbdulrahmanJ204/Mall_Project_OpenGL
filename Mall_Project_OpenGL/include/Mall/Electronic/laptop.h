@@ -1,17 +1,19 @@
 #pragma once
 #include "Object.h"
 #include <Scene/Model/ModelObject.h>
+#include <Mall/Electronic/table_electronic.h>
 #include "Box.h"
 #include "Cylinder.h"
-class TableElectronic : public Object
+class Laptop : public Object
 {
 public:
-	TableElectronic();
+	Laptop(int type = 1);
 	void drawOpaque() override;
 	void getTransparent() override;
 	void onImguiRender() override;
+	void setTex();
 private:
-	Box plan;
-	Cylinder hwafe,rgle;
+	int type;
+	Box laptop_back,laptop_front;
 };
 

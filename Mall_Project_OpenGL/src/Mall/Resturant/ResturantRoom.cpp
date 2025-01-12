@@ -6,9 +6,7 @@ room(300.0f, 300.0f, 300.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fra
 cylinder(30.0f, 20.0f, 100.0f, 6, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
 chair()
 {
-	
 	setTex();
-
 }
 
 

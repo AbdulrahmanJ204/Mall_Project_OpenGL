@@ -156,6 +156,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\Mall\Electronic\electronic_room.h" />
+    <ClInclude Include="include\Mall\Electronic\laptop.h" />
+    <ClInclude Include="include\Mall\Electronic\tv.h" />
     <ClInclude Include="include\Mall\SkyBox.h" />
     <ClInclude Include="include\objects\Cylinder.h" />
     <ClInclude Include="include\objects\Box.h" />
@@ -201,6 +203,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mall\Electronic\electronic_room.cpp" />
+    <ClCompile Include="src\Mall\Electronic\laptop.cpp" />
+    <ClCompile Include="src\Mall\Electronic\tv.cpp" />
     <ClCompile Include="src\Mall\Resturant\ResturantRoom.cpp" />
     <ClCompile Include="src\objects\Cylinder.cpp" />
     <ClCompile Include="src\Mall\Mall.cpp" />

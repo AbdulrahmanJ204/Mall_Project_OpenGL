@@ -10,7 +10,7 @@ void Floor::drawOpaque()
 {
 	floor.setParentModel(getModel());
 	floor.setRotation(90.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-	floor.setPosition(glm::vec3(0.8f, -0.3f, 0.0f));
+	floor.setPosition(glm::vec3(0.8f, -5.0f, 0.0f));
 	floor.drawOpaque();
 	 
 }

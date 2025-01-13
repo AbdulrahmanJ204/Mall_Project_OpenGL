@@ -1,9 +1,9 @@
 #include "Library/wall.h" 
 
 Wall::Wall() :
-	Object(), wall(40.0f, 10.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-	wall2(50.0f, 10.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-	wall3(30.0f, 10.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
+	Object(), wall(40.0f, 20.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
+	wall2(50.0f, 20.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Front,{10,10}} }),
+	wall3(30.0f, 20.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 {
 	setTex();
 }
@@ -31,6 +31,9 @@ void Wall::setTex()
 {
 
 	std::string texturePath = "assets/textures/wall.png";
+	std::string texturePath2 = "assets/textures/wall3.jpg";
+
+
 
 	wall.setFaceTexture(Face::Up, texturePath);
 	wall.setFaceTexture(Face::Down, texturePath);
@@ -39,12 +42,12 @@ void Wall::setTex()
 	wall.setFaceTexture(Face::Back, texturePath);
 	wall.setFaceTexture(Face::Front, texturePath);
 
-	wall2.setFaceTexture(Face::Up, texturePath);
-	wall2.setFaceTexture(Face::Down, texturePath);
-	wall2.setFaceTexture(Face::Left, texturePath);
-	wall2.setFaceTexture(Face::Right, texturePath);
-	wall2.setFaceTexture(Face::Back, texturePath);
-	wall2.setFaceTexture(Face::Front, texturePath);
+	wall2.setFaceTexture(Face::Up, texturePath2);
+	wall2.setFaceTexture(Face::Down, texturePath2);
+	wall2.setFaceTexture(Face::Left, texturePath2);
+	wall2.setFaceTexture(Face::Right, texturePath2);
+	wall2.setFaceTexture(Face::Back, texturePath2);
+	wall2.setFaceTexture(Face::Front, texturePath2);
 
 	wall3.setFaceTexture(Face::Up, texturePath);
 	wall3.setFaceTexture(Face::Down, texturePath);

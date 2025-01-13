@@ -147,6 +147,15 @@
     <ClInclude Include="include\Mall\Library\wall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Mall\Library\table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\Library\signboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\Library\rectable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\Application.cpp">
@@ -255,6 +264,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Mall\Library\wall.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Library\table.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Library\signboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Library\rectable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

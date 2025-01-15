@@ -2,16 +2,19 @@
 
 LibraryRoom::LibraryRoom() :
 	Object(),
-	model("assets/objects/plant2/scene.gltf",
+	model("assets/objects/plant4/scene.gltf",
 		"assets/shaders/model_loading.vert",
 		"assets/shaders/model_loading.frag"),
 	chair("assets/objects/chair2/scene.gltf",
 		"assets/shaders/model_loading.vert",
-		"assets/shaders/model_loading.frag")
+		"assets/shaders/model_loading.frag") 
+	 
 
 {
-	model.setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
+	model.setPosition(glm::vec3(-13.0f, -5.0f, 14.0f));
 	chair.setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
+	//sofa.setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
+
 }
 
 void LibraryRoom::drawOpaque()
@@ -34,7 +37,7 @@ void LibraryRoom::drawOpaque()
 	signboard.drawOpaque();
 	//model.setRotation(90.0f, glm::vec3(1.0f, 0.0f, 0.0f));//for plant 1
 	//model.setScale(glm::vec3(0.5f, 0.5f, 0.5f));//for plant 1
-	rectable.drawOpaque();
+	 rectable.drawOpaque();
 	/*model.setRotation(90.0f, glm::vec3(1.0f, 0.0f, 0.0f))//for plant 2;
 	model.setScale(glm::vec3(-5.0f, -5.0f, -5.0f));// for plant 2*/
 
@@ -43,9 +46,15 @@ void LibraryRoom::drawOpaque()
 	//model.draw();
 	//chair.setScale(glm::vec3(0.2f, 0.2f, 0.2f));
 	//chair.draw();
+
+	//model.setParentModel(getModel());
+	//model.setScale(glm::vec3(-3.5f, -3.5f, -3.5f));
+	//model.setRotation(90.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+	//model.draw();
 }
 
 void LibraryRoom::onImguiRender() {
 	//model.onImguiRender();
 	//chair.onImguiRender();
+	model.onImguiRender();
 }

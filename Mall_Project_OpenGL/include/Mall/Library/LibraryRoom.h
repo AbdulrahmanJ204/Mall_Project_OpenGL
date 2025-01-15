@@ -25,4 +25,5 @@ private:
     Signboard signboard;
     ModelObject chair;
     Rectable rectable;
+   // ModelObject sofa;
 };

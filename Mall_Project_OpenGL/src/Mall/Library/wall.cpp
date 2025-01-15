@@ -2,7 +2,7 @@
 
 Wall::Wall() :
 	Object(), wall(40.0f, 20.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-	wall2(50.0f, 20.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Front,{10,10}} }),
+	wall2(50.0f, 20.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Front,{2,1}} }),
 	wall3(30.0f, 20.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 {
 	setTex();
@@ -10,15 +10,15 @@ Wall::Wall() :
 
 void Wall::drawOpaque()
 {
-	wall.setParentModel(getModel()); 
+	wall.setParentModel(getModel());
 
 	wall.setPosition(glm::vec3(5.8f, 4.9f, 15.0f));
 	wall.drawOpaque();
-	
+
 	wall2.setPosition(glm::vec3(0.8f, 4.9f, -15.0f));
 	wall2.drawOpaque();
 
-	wall3.setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f)); 
+	wall3.setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 	wall3.setPosition(glm::vec3(25.5f, 4.9f, 0.0f));
 	wall3.drawOpaque();
 
@@ -30,9 +30,9 @@ void Wall::drawOpaque()
 void Wall::setTex()
 {
 
-	std::string texturePath = "assets/textures/wall.png";
+	std::string texturePath = "assets/textures/wall5.jpg";
 	std::string texturePath2 = "assets/textures/wall3.jpg";
-
+	std::string texturePath3 = "assets/textures/wall4.jpg";
 
 
 	wall.setFaceTexture(Face::Up, texturePath);
@@ -49,11 +49,11 @@ void Wall::setTex()
 	wall2.setFaceTexture(Face::Back, texturePath2);
 	wall2.setFaceTexture(Face::Front, texturePath2);
 
-	wall3.setFaceTexture(Face::Up, texturePath);
-	wall3.setFaceTexture(Face::Down, texturePath);
-	wall3.setFaceTexture(Face::Left, texturePath);
-	wall3.setFaceTexture(Face::Right, texturePath);
-	wall3.setFaceTexture(Face::Back, texturePath);
-	wall3.setFaceTexture(Face::Front, texturePath);
+	wall3.setFaceTexture(Face::Up, texturePath3);
+	wall3.setFaceTexture(Face::Down, texturePath3);
+	wall3.setFaceTexture(Face::Left, texturePath3);
+	wall3.setFaceTexture(Face::Right, texturePath3);
+	wall3.setFaceTexture(Face::Back, texturePath3);
+	wall3.setFaceTexture(Face::Front, texturePath3);
 
 }

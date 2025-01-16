@@ -11,5 +11,5 @@ public:
 	void setTex();
 
 private:
-	Box wall,wall2,wall3;
+	Box wall,wall2,wall3,logo;
 };

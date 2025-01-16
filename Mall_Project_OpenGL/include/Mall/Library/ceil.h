@@ -10,4 +10,6 @@ public:
 
 private:
 	Box ceil;
+	Box sideCeil;
+	Box sideCeil2;
 };

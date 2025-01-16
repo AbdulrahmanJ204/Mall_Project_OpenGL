@@ -100,6 +100,12 @@ Box::Box(float width, float height, float depth, const std::string& vertexPath, 
     m_Faces[static_cast<int>(Face::Right)] = std::make_unique<Square>(rightVertices,sizeof(rightVertices), vertexPath, fragmentPath);
     m_Faces[static_cast<int>(Face::Up)] = std::make_unique<Square>(upVertices,sizeof(upVertices),  vertexPath, fragmentPath);
     m_Faces[static_cast<int>(Face::Down)] = std::make_unique<Square>(downVertices,sizeof(downVertices), vertexPath, fragmentPath);
+    setFaceTexture(Face::Down, "assets/textures/defaultTex.jpg", 0);
+    setFaceTexture(Face::Up, "assets/textures/defaultTex.jpg", 0);
+    setFaceTexture(Face::Left, "assets/textures/defaultTex.jpg", 0);
+    setFaceTexture(Face::Right, "assets/textures/defaultTex.jpg", 0);
+    setFaceTexture(Face::Back, "assets/textures/defaultTex.jpg", 0);
+    setFaceTexture(Face::Front, "assets/textures/defaultTex.jpg", 0);
 }
 
 Box::~Box() {}

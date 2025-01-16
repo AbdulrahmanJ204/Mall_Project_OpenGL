@@ -16,9 +16,11 @@ class ElectronicRoom : public Object
 		void setTex();
 	private:
 		float x, y, z;
-		Box electronic_wall_base, electronic_wall_sec;
+		Box electronic_wall_base, electronic_wall_sec,wall_front1,arma1, arma2;
 		TableElectronic table;
 		TV tv1;
 		Laptop laptop;
+		ModelObject washing_machine;
+		Cylinder tableC1, tableC2;
 };
 

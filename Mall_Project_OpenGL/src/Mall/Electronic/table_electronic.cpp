@@ -5,17 +5,17 @@ plan(2.4f,0.05f,1.6f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.fra
 hwafe(0.8f,0.8f,0.05f,300,"assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
 rgle(0.05f,0.05f,1.0f,300,"assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 {
-	plan.setFaceTexture(Face::Up, "assets/textures/electronic/t1.jpg");
-	plan.setFaceTexture(Face::Down, "assets/textures/electronic/t1.jpg");
+	plan.setFaceTexture(Face::Up, "assets/textures/electronic/t3.jpg");
+	plan.setFaceTexture(Face::Down, "assets/textures/electronic/t3.jpg");
 	plan.setFaceTexture(Face::Left, "assets/textures/electronic/t1.jpg");
 	plan.setFaceTexture(Face::Right, "assets/textures/electronic/t1.jpg");
 	plan.setFaceTexture(Face::Back, "assets/textures/electronic/t2.jpg");
 	plan.setFaceTexture(Face::Front, "assets/textures/electronic/t2.jpg");
-	hwafe.setBottomTexture("assets/textures/electronic/t1.jpg");
-	hwafe.setTopTexture("assets/textures/electronic/t1.jpg");
+	hwafe.setBottomTexture("assets/textures/electronic/t3.jpg");
+	hwafe.setTopTexture("assets/textures/electronic/t3.jpg");
 	hwafe.setSideTexture("assets/textures/electronic/t2.jpg");
-	rgle.setBottomTexture("assets/textures/electronic/t1.jpg");
-	rgle.setTopTexture("assets/textures/electronic/t1.jpg");
+	rgle.setBottomTexture("assets/textures/electronic/t3.jpg");
+	rgle.setTopTexture("assets/textures/electronic/t3.jpg");
 	rgle.setSideTexture("assets/textures/electronic/t2.jpg");
 }
 

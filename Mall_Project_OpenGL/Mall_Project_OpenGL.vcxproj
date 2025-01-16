@@ -155,6 +155,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\Mall\drabzen.h" />
+    <ClInclude Include="include\Mall\buildings.h" />
     <ClInclude Include="include\Mall\Electronic\electronic_room.h" />
     <ClInclude Include="include\Mall\Electronic\laptop.h" />
     <ClInclude Include="include\Mall\Electronic\tv.h" />
@@ -200,8 +202,11 @@
     <ClInclude Include="vendor\imGui\imstb_textedit.h" />
     <ClInclude Include="vendor\imGui\imstb_truetype.h" />
     <ClInclude Include="vendor\stb_image\stb_image.h" />
+    <ClInclude Include="include\Mall\world_plan.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Mall\drabzen.cpp" />
+    <ClCompile Include="src\Mall\buildings.cpp" />
     <ClCompile Include="src\Mall\Electronic\electronic_room.cpp" />
     <ClCompile Include="src\Mall\Electronic\laptop.cpp" />
     <ClCompile Include="src\Mall\Electronic\tv.cpp" />
@@ -237,6 +242,7 @@
     <ClCompile Include="vendor\imGui\imgui_tables.cpp" />
     <ClCompile Include="vendor\imGui\imgui_widgets.cpp" />
     <ClCompile Include="vendor\stb_image\stb_image.cpp" />
+    <ClCompile Include="src\Mall\world_plan.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

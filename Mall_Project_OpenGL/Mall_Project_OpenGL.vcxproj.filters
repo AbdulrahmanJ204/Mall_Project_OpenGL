@@ -150,6 +150,15 @@
     <ClInclude Include="include\Mall\Electronic\laptop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Mall\world_plan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\buildings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\drabzen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\Application.cpp">
@@ -255,6 +264,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Mall\Electronic\laptop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\world_plan.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\buildings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\drabzen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

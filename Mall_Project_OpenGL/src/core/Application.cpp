@@ -1,9 +1,10 @@
 #include"Application.h"
 #include "Window.h"
 Application* Application::instancePtr = nullptr;
+float Application::deltaTime= 0.0f;
 
 Application::Application() :
-	deltaTime(0.0f), lastFrame(0.0f),
+	lastFrame(0.0f),
 	window("Mall", Window::getWidth(), Window::getHeight()),
 	myImGui(Window::getWidth(), Window::getHeight())
 {

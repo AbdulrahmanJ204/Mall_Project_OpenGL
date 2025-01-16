@@ -21,12 +21,13 @@ public:
 	static Application& instance() { return *instancePtr; };
 
 	static Application* instancePtr;
+	static float deltaTime;
 private:
 	
 	Window window;
 	Scene scene;
 	myImGuiManager myImGui;
-	float deltaTime, lastFrame;
+	float lastFrame;
 
 	void LoadImGui();
 	void SetupBasics();

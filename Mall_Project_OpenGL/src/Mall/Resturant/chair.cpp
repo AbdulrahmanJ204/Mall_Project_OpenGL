@@ -9,6 +9,7 @@ Chair::Chair() :
         rjls[i] = Box(20.0f, 60.0f, 20.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Front,{3,2}} });
     }
     setTex();
+    //setTargetPosition(glm::vec3(0.0f, 500.0f, 0.0f));
 }
 
 void Chair::drawOpaque() {
@@ -19,6 +20,7 @@ void Chair::drawOpaque() {
     glm::vec3(-30.0f , -seat.getHeight() / 2 - rjls[0].getHeight() / 2 , 30.0f),
     glm::vec3(-30.0f , -seat.getHeight() / 2 - rjls[0].getHeight() / 2 , -30.0f)
     };
+    //update();
     updateModelMatrix();
     for (int i = 0; i < 4; i++)
     rjls[i].setParentModel(getModel());
@@ -56,6 +58,8 @@ void Chair::getTransparent()
 void Chair::onImguiRender()
 {
     ImGui::SliderFloat3("Chair Position", &m_Position.x, -100, 100);
+    int i = 0;
+    for (Box& x : rjls) x.onImguiRender("RJL " + std::to_string(i++));
     //rjl.onImguiRender("RJL ");
     //seat.onImguiRender("Seat ");
 }

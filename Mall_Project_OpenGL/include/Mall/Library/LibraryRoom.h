@@ -8,6 +8,7 @@
 #include "Library/table.h"
 #include "Library/signboard.h"
 #include "Library/rectable.h"
+#include "Library/ceil.h"
 
 class LibraryRoom : public Object {
 public:
@@ -25,5 +26,7 @@ private:
     Signboard signboard;
     ModelObject chair;
     Rectable rectable;
+    ModelObject arm_chair;
+    Ceil ceil;
    // ModelObject sofa;
 };

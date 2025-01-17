@@ -17,7 +17,7 @@ void Floor::drawOpaque()
 
 void Floor::setTex()
 { 
-	std::string texturePath = "assets/textures/floor.png";
+	std::string texturePath = "assets/textures/p16.jpg";
  
 	floor.setFaceTexture(Face::Up, texturePath);
 	floor.setFaceTexture(Face::Down, texturePath);

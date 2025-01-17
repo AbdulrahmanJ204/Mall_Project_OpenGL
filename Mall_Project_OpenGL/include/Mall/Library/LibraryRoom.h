@@ -18,7 +18,7 @@ public:
 
 private:
     Floor floor;
-    Book book;
+    Book book[5];
     Shelf shelf;
     Wall wall;
     ModelObject model;  // Declare the model

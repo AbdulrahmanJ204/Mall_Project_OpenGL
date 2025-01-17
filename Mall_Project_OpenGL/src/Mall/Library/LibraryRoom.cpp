@@ -31,10 +31,12 @@ void LibraryRoom::drawOpaque()
 	shelf.setParentModel(getModel());
 	shelf.drawOpaque();
 
-	book.setParentModel(getModel());
-	book.setPosition(glm::vec3(0.0f, 6.0f, 14.5f));
-	book.setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-	book.drawOpaque();
+  
+	for (int i = 0; i < 5; i++) {  
+		book[i].setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+		book[i].setPosition(glm::vec3(0.0f, 6.0f + (-1.5f * i), 14.5f));
+		book[i].drawOpaque(); 
+	} 
 
 	shelf.setPosition(glm::vec3(0.0f, 6.0f, 14.5f));
 	shelf.setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f));

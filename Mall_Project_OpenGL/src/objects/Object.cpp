@@ -28,9 +28,9 @@ void Object::setScale(const float& scale) {
 	updateModelMatrix();
 }
 
-glm::vec3 Object::getModifiedPosition()
+glm::vec3 Object::getModifiedPosition(glm::vec3& point)
 {	
-	return glm::vec3(getModel() * glm::vec4(m_Center, 1.0f));
+	return glm::vec3(getModel() * glm::vec4(point, 1.0f));
 }
 
 

@@ -15,13 +15,13 @@ struct Vec3Comparator {
 
 
 LightSquare::LightSquare(const float* vertices, float size, const std::string& vertexPath, const std::string& fragmentPath)
-	: 
-	defaultLight(glm::vec3(0.0f , 0.0f , 0.0f), LightHelper::getLightColor(Color::DEFAULT), 600.0f),
+	:
+	defaultLight(glm::vec3(0.0f, 0.0f, 0.0f), LightHelper::getLightColor(Color::DEFAULT), 600.0f),
 	m_IsTransparent(false) {
 	m_VAO = std::make_unique<VAO>();
 	std::vector<float> data = addTangentsAndBitangents(vertices, 6);
 	m_VBO = std::make_unique<VBO>(data.data(), data.size());
-	VBOLayout layout;	
+	VBOLayout layout;
 	layout.Push<float>(3); // Position
 	layout.Push<float>(3); // Normals
 	layout.Push<float>(2); // Texture coordinates
@@ -30,7 +30,7 @@ LightSquare::LightSquare(const float* vertices, float size, const std::string& v
 	m_Normal = glm::vec3(vertices[3], vertices[4], vertices[5]);
 	m_VAO->AddBuffer(*m_VBO, layout);
 	std::set<glm::vec3, Vec3Comparator> unVertices;
-	for (int i = 0; i < 6; ++i) { 
+	for (int i = 0; i < 6; ++i) {
 		glm::vec3 vertex(vertices[i * 8 + 0], vertices[i * 8 + 1], vertices[i * 8 + 2]);
 		unVertices.insert(vertex);
 	}
@@ -110,9 +110,9 @@ std::vector<float> LightSquare::addTangentsAndBitangents(const float* vertices, 
 	return result;
 }
 
-void LightSquare::setTexture( textureMap& texturePath, bool isTransparent, bool mirrorX, bool mirrorY) {
+void LightSquare::setTexture(textureMap& texturePath, bool isTransparent, bool mirrorX, bool mirrorY) {
 	m_IsTransparent = isTransparent;
-	
+
 	m_Texture = std::make_shared<Texture>(texturePath[TextureType::ALBEDO], mirrorX, mirrorY);
 	m_AOMAP = std::make_shared<Texture>(texturePath[TextureType::AO], mirrorX, mirrorY);
 	m_NormalMap = std::make_shared<Texture>(texturePath[TextureType::NORMAL], mirrorX, mirrorY);
@@ -160,23 +160,33 @@ void LightSquare::drawOpaque() {
 void LightSquare::drawTransparent()
 {
 	if (!m_IsTransparent) return;
+
 	updateModelMatrix();
 	m_Shader->Bind();
+	m_Texture->Bind();
+	m_AOMAP->Bind(1);
+	m_NormalMap->Bind(2);
+	m_RoughnessMap->Bind(3);
+	m_MetalicMap->Bind(4);
 	m_Shader->setUniformMat4f("projection", Scene::getProjection());
 	m_Shader->setUniformMat4f("model", getModel());
 	m_Shader->setUniformMat4f("view", Scene::getView());
-
-
-	m_Texture->Bind();
 	m_Shader->SetUniform3fv("viewPos", Scene::instancePtr->getCameraPosition());
-	m_Shader->SetUniform1f("material.shininess", 32.0f);
-	m_Shader->SetUniform1i("material.diffuse", 0);
-	m_Shader->SetUniform1i("material.specular", 1);
-	
+	m_Shader->SetUniform1i("albedoMap", 0);
+	m_Shader->SetUniform1i("aoMap", 1);
+	m_Shader->SetUniform1i("normalMap", 2);
+	m_Shader->SetUniform1i("roughnessMap", 3);
+	m_Shader->SetUniform1i("metallicMap", 4);
+	m_Shader->SetUniform1i("pointLightsNumber", static_cast<int>(pointLights.size()));
+	glm::vec3 pos(0.0f);
+	pos = getModifiedPosition(pos);
+	pointLights.rbegin()->updatePosition(pos);
+	defaultLight.uploadLightsArray(*m_Shader, "pointLights", pointLights);
 	m_VAO->Bind();
-	GLCall(glDrawArrays(GL_TRIANGLES, 0, 6)); 
+	GLCall(glDrawArrays(GL_TRIANGLES, 0, 6));
 	m_VAO->Unbind();
 	m_Shader->Unbind();
+
 }
 
 void LightSquare::getTransparent() {
@@ -185,10 +195,10 @@ void LightSquare::getTransparent() {
 }
 
 void LightSquare::onImguiRender() {
-	
+
 	float d = dist();
 	ImGui::InputFloat("Distance", &d);
-	
+
 	ImGui::SliderFloat3("Position", &m_Position.x, -500, 500);
 	int i = 0;
 	for (PointLight& light : pointLights) {

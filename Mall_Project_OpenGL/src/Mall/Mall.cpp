@@ -11,7 +11,9 @@ Mall::Mall() :
 			"assets/textures/skybox1/front.jpg",
 			"assets/textures/skybox1/back.jpg"
 		}),
-	electronicRoom()
+	//electronicRoom()
+	resturant()
+
 {
 
 
@@ -75,15 +77,21 @@ void Mall::setTex()
 }
 
 void Mall::onImguiRender() {
-	ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 0.0f, 360.0f);
-	ImGui::SliderFloat3("Mall Position ", &m_Position.x, -200.0f, 200.0f);
+	ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 1.0f, 360.0f);
+	//ImGui::SliderFloat3("scale mall ", &m_Position.x, -200.0f, 200.0f);
+	//ImGui::SliderFloat3("Scal mall", &m_Position.x, -200.0f, 200.0f);
+
+	resturant.onImguiRender();
 }
 void Mall::drawOpaque()
 {
 	drawSkyBox();
 	updateModelMatrix();
-	electronicRoom.setScale(2.0f);
-	electronicRoom.drawOpaque();
+	//resturant.setScale(2.0f);
+	resturant.setParentModel(getModel());
+	//resturant.setPosition(glm::vec3(0,100,0));
+	//resturant.setScale(m_RotationAngle);
+	resturant.drawOpaque();
 }
 
 void Mall::drawSkyBox()
@@ -97,7 +105,7 @@ void Mall::getTransparent()
 {
 	// !NOTE : do the GetTransparent after setting the texture and initializing the objects.
 	// !For now , Every thing you want to draw should call this method. "Objects that extends Object class , not models"
-	
+	resturant.getTransparent();
 }
 
 //#include "Mall.h"

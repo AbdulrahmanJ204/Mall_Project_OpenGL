@@ -3,9 +3,9 @@
 #include "Cylinder.h"
 #include "Chair.h"
 #include "Cup.h"
-#include "ResturantRoom.h"
 #include "Box.h"
 #include <Mall/Electronic/electronic_room.h>
+#include <RestaurantRoom.h>
 
 class Mall : public Object
 {
@@ -20,9 +20,10 @@ public:
 private:
 //	Box mall;
 	Skybox skybox;
-	//ResturantRoom resturant;
+	RestaurantRoom resturant;
 	
-	ElectronicRoom electronicRoom;
+	//ElectronicRoom electronicRoom;
+	
 	//chair ch;
 };
 

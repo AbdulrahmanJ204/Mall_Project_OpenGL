@@ -132,7 +132,7 @@
     <ClInclude Include="include\Mall\SkyBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Mall\Resturant\ResturantRoom.h">
+    <ClInclude Include="include\Mall\Resturant\window\ResturantWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\objects\Square.h">
@@ -142,6 +142,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Mall\Electronic\electronic_room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\Resturant\RestaurantRoom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mall\Resturant\decorated_wall\DecoratedWall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -233,7 +239,7 @@
     <ClCompile Include="src\objects\Cylinder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mall\Resturant\ResturantRoom.cpp">
+    <ClCompile Include="src\Mall\Resturant\window\ResturantWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\objects\Square.cpp">
@@ -243,6 +249,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Mall\Electronic\electronic_room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Resturant\RestaurantRoom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mall\Resturant\decorated_wall\DecoratedWall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

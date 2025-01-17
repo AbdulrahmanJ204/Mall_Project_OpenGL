@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\Mall\Resturant\decorated_wall\DecoratedWall.h" />
     <ClInclude Include="include\Mall\Electronic\electronic_room.h" />
     <ClInclude Include="include\Mall\SkyBox.h" />
     <ClInclude Include="include\objects\Cylinder.h" />
@@ -186,8 +187,9 @@
     <ClInclude Include="include\utils\myImGuiManager.h" />
     <ClInclude Include="include\utils\StringManager.h" />
     <ClInclude Include="include\Mall\Mall.h" />
-    <ClInclude Include="include\Mall\Resturant\ResturantRoom.h" />
+    <ClInclude Include="include\Mall\Resturant\window\ResturantWindow.h" />
     <ClInclude Include="include\Mall\Electronic\table_electronic.h" />
+    <ClInclude Include="include\Mall\Resturant\RestaurantRoom.h" />
     <ClInclude Include="vendor\imGui\imconfig.h" />
     <ClInclude Include="vendor\imGui\imgui.h" />
     <ClInclude Include="vendor\imGui\imgui_impl_glfw.h" />
@@ -200,8 +202,10 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Mall\Resturant\decorated_wall\DecoratedWall.cpp" />
+    <ClCompile Include="src\Mall\Resturant\RestaurantRoom.cpp" />
     <ClCompile Include="src\Mall\Electronic\electronic_room.cpp" />
-    <ClCompile Include="src\Mall\Resturant\ResturantRoom.cpp" />
+    <ClCompile Include="src\Mall\Resturant\window\ResturantWindow.cpp" />
     <ClCompile Include="src\objects\Cylinder.cpp" />
     <ClCompile Include="src\Mall\Mall.cpp" />
     <ClCompile Include="src\objects\Box.cpp" />

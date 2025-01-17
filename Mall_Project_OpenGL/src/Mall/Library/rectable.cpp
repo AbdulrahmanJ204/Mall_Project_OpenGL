@@ -41,32 +41,32 @@ void Rectable::drawOpaque() {
 
 void Rectable::setTex()
 {
-    side.setFaceTexture(Face::Down, "assets/textures/rectable.jpg");
-    side.setFaceTexture(Face::Up, "assets/textures/rectable.jpg");
-    side.setFaceTexture(Face::Left, "assets/textures/rectable.jpg");
-    side.setFaceTexture(Face::Right, "assets/textures/rectable.jpg");
-    side.setFaceTexture(Face::Back, "assets/textures/rectable.jpg");
-    side.setFaceTexture(Face::Front, "assets/textures/rectable.jpg");
+    side.setFaceTexture(Face::Down, "assets/textures/Library/rectable.jpg");
+    side.setFaceTexture(Face::Up, "assets/textures/Library/rectable.jpg");
+    side.setFaceTexture(Face::Left, "assets/textures/Library/rectable.jpg");
+    side.setFaceTexture(Face::Right, "assets/textures/Library/rectable.jpg");
+    side.setFaceTexture(Face::Back, "assets/textures/Library/rectable.jpg");
+    side.setFaceTexture(Face::Front, "assets/textures/Library/rectable.jpg");
     
-    board.setFaceTexture(Face::Down, "assets/textures/rectable2.jpg");
-    board.setFaceTexture(Face::Up, "assets/textures/rectable2.jpg");
-    board.setFaceTexture(Face::Left, "assets/textures/rectable2.jpg");
-    board.setFaceTexture(Face::Right, "assets/textures/rectable2.jpg");
-    board.setFaceTexture(Face::Back, "assets/textures/rectable2.jpg");
-    board.setFaceTexture(Face::Front, "assets/textures/rectable2.jpg");
+    board.setFaceTexture(Face::Down, "assets/textures/Library/rectable2.jpg");
+    board.setFaceTexture(Face::Up, "assets/textures/Library/rectable2.jpg");
+    board.setFaceTexture(Face::Left, "assets/textures/Library/rectable2.jpg");
+    board.setFaceTexture(Face::Right, "assets/textures/Library/rectable2.jpg");
+    board.setFaceTexture(Face::Back, "assets/textures/Library/rectable2.jpg");
+    board.setFaceTexture(Face::Front, "assets/textures/Library/rectable2.jpg");
 
-    back.setFaceTexture(Face::Down, "assets/textures/rectable2.jpg");
-    back.setFaceTexture(Face::Up, "assets/textures/rectable2.jpg");
-    back.setFaceTexture(Face::Left, "assets/textures/rectable2.jpg");
-    back.setFaceTexture(Face::Right, "assets/textures/rectable2.jpg");
-    back.setFaceTexture(Face::Back, "assets/textures/rectable2.jpg");
-    back.setFaceTexture(Face::Front, "assets/textures/rectable2.jpg");
+    back.setFaceTexture(Face::Down, "assets/textures/Library/rectable2.jpg");
+    back.setFaceTexture(Face::Up, "assets/textures/Library/rectable2.jpg");
+    back.setFaceTexture(Face::Left, "assets/textures/Library/rectable2.jpg");
+    back.setFaceTexture(Face::Right, "assets/textures/Library/rectable2.jpg");
+    back.setFaceTexture(Face::Back, "assets/textures/Library/rectable2.jpg");
+    back.setFaceTexture(Face::Front, "assets/textures/Library/rectable2.jpg");
  
-    book.setFaceTexture(Face::Down, "assets/textures/book.jpg");
-    book.setFaceTexture(Face::Up, "assets/textures/book.jpg");
-    book.setFaceTexture(Face::Left, "assets/textures/book.jpg");
-    book.setFaceTexture(Face::Right, "assets/textures/book.jpg");
-    book.setFaceTexture(Face::Back, "assets/textures/book.jpg");
-    book.setFaceTexture(Face::Front, "assets/textures/book.jpg");
+    book.setFaceTexture(Face::Down, "assets/textures/Library/books/book.jpg");
+    book.setFaceTexture(Face::Up, "assets/textures/Library/books/book.jpg");
+    book.setFaceTexture(Face::Left, "assets/textures/Library/books/book.jpg");
+    book.setFaceTexture(Face::Right, "assets/textures/Library/books/book.jpg");
+    book.setFaceTexture(Face::Back, "assets/textures/Library/books/book.jpg");
+    book.setFaceTexture(Face::Front, "assets/textures/Library/books/book.jpg");
 
 }

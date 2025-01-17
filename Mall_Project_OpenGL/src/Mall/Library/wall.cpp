@@ -36,10 +36,10 @@ void Wall::drawOpaque()
 void Wall::setTex()
 {
 
-	std::string texturePath = "assets/textures/wall5.jpg";
-	std::string texturePath2 = "assets/textures/wall3.jpg";
-	std::string texturePath3 = "assets/textures/wall4.jpg";
-	std::string texturePath4 = "assets/textures/logo.jpg";
+	std::string texturePath = "assets/textures/Library/wall5.jpg";
+	std::string texturePath2 = "assets/textures/Library/wall3.jpg";
+	std::string texturePath3 = "assets/textures/Library/wall4.jpg";
+	std::string texturePath4 = "assets/textures/Library/logo2.jpg";
 
 	wall.setFaceTexture(Face::Up, texturePath);
 	wall.setFaceTexture(Face::Down, texturePath);

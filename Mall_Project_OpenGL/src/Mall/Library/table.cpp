@@ -24,7 +24,7 @@ void Table::drawOpaque()
 
 void Table::setTex()
 {
-	std::string texturePath = "assets/textures/table.jpg";
+	std::string texturePath = "assets/textures/Library/table.jpg";
 
 	table.setTopTexture(texturePath);
 	table.setBottomTexture(texturePath);

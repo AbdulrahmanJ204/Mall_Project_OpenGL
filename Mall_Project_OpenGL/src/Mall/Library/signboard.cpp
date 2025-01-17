@@ -18,12 +18,12 @@ void Signboard::drawOpaque() {
 
 void Signboard::setTex()
 {
-    board.setFaceTexture(Face::Down, "assets/textures/wood.jpg");
-    board.setFaceTexture(Face::Up, "assets/textures/wood.jpg");
-    board.setFaceTexture(Face::Left, "assets/textures/wood.jpg");
-    board.setFaceTexture(Face::Right, "assets/textures/wood.jpg");
-    board.setFaceTexture(Face::Back, "assets/textures/signboard.jpg");
-    board.setFaceTexture(Face::Front, "assets/textures/signboard.jpg");
+    board.setFaceTexture(Face::Down, "assets/textures/Library/wood.jpg");
+    board.setFaceTexture(Face::Up, "assets/textures/Library/wood.jpg");
+    board.setFaceTexture(Face::Left, "assets/textures/Library/wood.jpg");
+    board.setFaceTexture(Face::Right, "assets/textures/Library/wood.jpg");
+    board.setFaceTexture(Face::Back, "assets/textures/Library/signboard.jpg");
+    board.setFaceTexture(Face::Front, "assets/textures/Library/signboard.jpg");
  
 
 }

@@ -9,6 +9,9 @@
 #include "Library/signboard.h"
 #include "Library/rectable.h"
 #include "Library/ceil.h"
+#include "Library/booklab.h"
+#include "Library/clock.h"
+#include "Library/book2.h"
 
 class LibraryRoom : public Object {
 public:
@@ -19,14 +22,19 @@ public:
 private:
     Floor floor;
     Book book[5];
+    Book2 book2[10];
     Shelf shelf;
     Wall wall;
     ModelObject model;  // Declare the model
+    ModelObject top_plant;
+    ModelObject door_plant;
     Table table;
     Signboard signboard;
     ModelObject chair;
     Rectable rectable;
-    ModelObject arm_chair;
+    ModelObject arm_chair; 
     Ceil ceil;
+    Booklab booklab;
+    Clock clock;
    // ModelObject sofa;
 };

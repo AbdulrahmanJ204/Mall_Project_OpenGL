@@ -14,7 +14,6 @@ public:
 private:
 	//Box table;
 	Cylinder table;
-	ModelObject table_plant;
-	
-	
+	ModelObject table_plant; 
+
 };

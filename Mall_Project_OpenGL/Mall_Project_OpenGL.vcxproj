@@ -141,6 +141,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\Mall\Library\book2.h" />
+    <ClInclude Include="include\Mall\Library\clock.h" />
+    <ClInclude Include="include\Mall\Library\booklab.h" />
     <ClInclude Include="include\Mall\Library\ceil.h" />
     <ClInclude Include="include\Mall\Library\floor.h" />
     <ClInclude Include="include\Mall\SkyBox.h" />
@@ -191,6 +194,9 @@
     <ClInclude Include="include\Mall\Library\wall.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Mall\Library\book2.cpp" />
+    <ClCompile Include="src\Mall\Library\clock.cpp" />
+    <ClCompile Include="src\Mall\Library\booklab.cpp" />
     <ClCompile Include="src\Mall\Library\ceil.cpp" />
     <ClCompile Include="src\Mall\Library\rectable.cpp" />
     <ClCompile Include="src\Mall\Library\signboard.cpp" />

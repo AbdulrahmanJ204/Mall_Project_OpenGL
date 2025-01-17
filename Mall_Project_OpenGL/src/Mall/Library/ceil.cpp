@@ -33,8 +33,8 @@ void Ceil::drawOpaque()
 
 void Ceil::setTex()
 { 
-	std::string texturePath = "assets/textures/ceil.jpg";
-	std::string texturePath2 = "assets/textures/black.png";
+	std::string texturePath = "assets/textures/Library/ceil.jpg";
+	std::string texturePath2 = "assets/textures/Library/black.png";
    
 	ceil.setFaceTexture(Face::Up, texturePath);
 	ceil.setFaceTexture(Face::Down, texturePath);

@@ -6,17 +6,7 @@
 #include "VBO.h"
 #include "Object.h"
 #include "LightSquare.h"
-#ifndef faceRepeatMap
-#define faceRepeatMap std::map<Face, std::pair<int, int>>
-enum Face {
-    Back,
-    Front,
-    Left,
-    Right,
-    Up,
-    Down,
-};
-#endif
+
 class LightBox : public Object {
 public:
     LightBox() {};

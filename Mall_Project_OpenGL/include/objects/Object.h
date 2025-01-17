@@ -2,6 +2,17 @@
 #include "core.h"
 #include "PointLight.h"
 #include "SkyBox.h"
+
+enum Face {
+	Back,
+	Front,
+	Left,
+	Right,
+	Up,
+	Down,
+};
+#define faceRepeatMap std::map<Face, std::pair<int, int>>
+
 class Object
 {
 public:

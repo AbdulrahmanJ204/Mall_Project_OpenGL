@@ -188,6 +188,7 @@
     <ClInclude Include="include\utils\StringManager.h" />
     <ClInclude Include="include\Mall\Mall.h" />
     <ClInclude Include="include\Mall\TestsRoom\TestsRoom.h" />
+    <ClInclude Include="include\objects\MovingDoor.h" />
     <ClInclude Include="vendor\imGui\imconfig.h" />
     <ClInclude Include="vendor\imGui\imgui.h" />
     <ClInclude Include="vendor\imGui\imgui_impl_glfw.h" />
@@ -200,6 +201,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\objects\MovingDoor.cpp" />
     <ClCompile Include="src\Mall\TestsRoom\TestsRoom.cpp" />
     <ClCompile Include="src\objects\Cylinder.cpp" />
     <ClCompile Include="src\Mall\Mall.cpp" />

@@ -2,7 +2,6 @@
 #include "Object.h"
 #include "Cylinder.h"
 #include "Chair.h"
-#include "Cup.h"
 #include "TestsRoom.h"
 #include "Box.h"
 #include "ModelObject.h"

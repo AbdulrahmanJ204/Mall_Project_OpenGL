@@ -3,6 +3,7 @@
 #include "ModelObject.h"
 #include "LightBox.h"
 #include "Cylinder.h"
+#include "MovingDoor.h"
 #include <Chair.h>
 class TestsRoom : public Object
 {
@@ -15,11 +16,12 @@ public:
 	void onImguiRender() override;
 	void setTex();
 private:
-	LightBox room;
-	LightBox temp;
+	//LightBox room;
+	//LightBox temp;
 	std::vector<PointLight> upperLights;
 	//Chair chair;
-	ModelObject model;
+	MovingDoor door;
+	//ModelObject model;
 	Cylinder cylinder;
 };
 

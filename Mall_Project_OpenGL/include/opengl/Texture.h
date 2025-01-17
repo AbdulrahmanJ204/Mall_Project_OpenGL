@@ -1,6 +1,13 @@
 #pragma once
 #include "core.h"
-
+enum class TextureType {
+	ALBEDO,
+	NORMAL,
+	AO,
+	ROUGHNESS,
+	METALIC
+};
+#define textureMap std::map<TextureType, std::string> 
 #include<string>
 class Texture
 {

@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\TestsRoom</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -126,7 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\TestsRoom</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -161,6 +161,8 @@
     <ClInclude Include="include\core.h" />
     <ClInclude Include="include\core\Application.h" />
     <ClInclude Include="include\core\Window.h" />
+    <ClInclude Include="include\objects\LightBox.h" />
+    <ClInclude Include="include\objects\LightSquare.h" />
     <ClInclude Include="include\objects\Square.h" />
     <ClInclude Include="include\opengl\EBO.h" />
     <ClInclude Include="include\opengl\Shader.h" />
@@ -168,12 +170,12 @@
     <ClInclude Include="include\opengl\VAO.h" />
     <ClInclude Include="include\opengl\VBO.h" />
     <ClInclude Include="include\opengl\VBOLayout.h" />
-    <ClInclude Include="include\Mall\Resturant\Chair.h" />
     <ClInclude Include="include\objects\Object.h" />
     <ClInclude Include="include\Scene\Camera.h" />
     <ClInclude Include="include\Scene\Lights\DirectionalLight.h" />
     <ClInclude Include="include\Scene\Lights\Light.h" />
     <ClInclude Include="include\Scene\Lights\LightHelper.h" />
+    <ClInclude Include="include\Scene\Model\LightModelObject.h" />
     <ClInclude Include="include\Scene\Model\mesh.h" />
     <ClInclude Include="include\Scene\Model\model.h" />
     <ClInclude Include="include\Scene\Model\ModelObject.h" />
@@ -185,7 +187,7 @@
     <ClInclude Include="include\utils\myImGuiManager.h" />
     <ClInclude Include="include\utils\StringManager.h" />
     <ClInclude Include="include\Mall\Mall.h" />
-    <ClInclude Include="include\Mall\Resturant\ResturantRoom.h" />
+    <ClInclude Include="include\Mall\TestsRoom\TestsRoom.h" />
     <ClInclude Include="vendor\imGui\imconfig.h" />
     <ClInclude Include="vendor\imGui\imgui.h" />
     <ClInclude Include="vendor\imGui\imgui_impl_glfw.h" />
@@ -198,7 +200,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Mall\Resturant\ResturantRoom.cpp" />
+    <ClCompile Include="src\Mall\TestsRoom\TestsRoom.cpp" />
     <ClCompile Include="src\objects\Cylinder.cpp" />
     <ClCompile Include="src\Mall\Mall.cpp" />
     <ClCompile Include="src\objects\Box.cpp" />
@@ -206,6 +208,8 @@
     <ClCompile Include="src\core\Window.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\objects\LightBox.cpp" />
+    <ClCompile Include="src\objects\LightSquare.cpp" />
     <ClCompile Include="src\objects\Square.cpp" />
     <ClCompile Include="src\opengl\EBO.cpp" />
     <ClCompile Include="src\opengl\Shader.cpp" />
@@ -213,9 +217,9 @@
     <ClCompile Include="src\opengl\VAO.cpp" />
     <ClCompile Include="src\opengl\VBO.cpp" />
     <ClCompile Include="src\objects\Object.cpp" />
-    <ClCompile Include="src\Mall\Resturant\Chair.cpp" />
     <ClCompile Include="src\Scene\Camera.cpp" />
     <ClCompile Include="src\Scene\Lights\LightHelper.cpp" />
+    <ClCompile Include="src\Scene\Model\LightModelObject.cpp" />
     <ClCompile Include="src\Scene\Model\ModelObject.cpp" />
     <ClCompile Include="src\Scene\Renderer.cpp" />
     <ClCompile Include="src\Scene\Scene.cpp" />

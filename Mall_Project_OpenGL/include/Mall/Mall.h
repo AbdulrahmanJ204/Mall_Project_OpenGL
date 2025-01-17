@@ -3,7 +3,7 @@
 #include "Cylinder.h"
 #include "Chair.h"
 #include "Cup.h"
-#include "ResturantRoom.h"
+#include "TestsRoom.h"
 #include "Box.h"
 #include "ModelObject.h"
 class Mall : public Object
@@ -17,9 +17,9 @@ public:
 	void getTransparent() override;
 	void onImguiRender() override;
 private:
-	ModelObject model;
+	//ModelObject model;
 	Box mall;
 	Skybox skybox;
-	ResturantRoom resturant;
+	TestsRoom resturant;
 };
 

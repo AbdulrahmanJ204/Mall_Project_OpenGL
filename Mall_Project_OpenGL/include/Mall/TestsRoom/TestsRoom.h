@@ -1,21 +1,25 @@
 #pragma once
 #include "Object.h"
-#include "Box.h"
+#include "ModelObject.h"
+#include "LightBox.h"
 #include "Cylinder.h"
 #include <Chair.h>
-class ResturantRoom : public Object
+class TestsRoom : public Object
 {
 public:
-	ResturantRoom();
+	TestsRoom();
 	// Inherited via Object
 	void drawOpaque() override;
-
+	void updateLights() ;
 	void getTransparent() override;
 	void onImguiRender() override;
 	void setTex();
 private:
-	Box room;
-	Chair chair;
+	LightBox room;
+	LightBox temp;
+	std::vector<PointLight> upperLights;
+	//Chair chair;
+	ModelObject model;
 	Cylinder cylinder;
 };
 

@@ -11,7 +11,8 @@ skybox(
 		"assets/textures/skybox1/front.jpg",
 		"assets/textures/skybox1/back.jpg"
 	}),
-	model ("assets/objects/ak47/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),	mall(500.0f, 500.0f, 500.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
+	//model ("assets/objects/ak47/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),
+	mall(500.0f, 500.0f, 500.0f, "assets/shaders/vertex.vert", "assets/shaders/fragment.frag")
 {
 	
 
@@ -26,6 +27,8 @@ skybox(
 // ? How to draw:
 // ! declare the object in header file 
 // ! ModelObject model , Box box , Cylinder cylinder
+// ! in drawOpaque function :
+// 	   ! 1- SetParentModel(getModel()) for ALL THE OBJECTS
 // ? For transparent objects :
 // ! there is an issue when drawing the same object in multiple places , like in chair class we created
 // 	 ! for now just do objects as the number of the positions  "Like in Chair class , check rjls vector".
@@ -50,7 +53,7 @@ skybox(
 	///className (parameters) :
 	/// model("assets/objects/w_knife.mdl", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),
 	// !In Consturctor :
-	///  "optoinal translations"
+	///  "optional translations"
 	// !in drawOpaque:
 	/// model.setParentModel(getModel());
 	/// model.setPoistion(...);
@@ -72,16 +75,16 @@ skybox(
 void Mall::setTex()
 {
 
-	mall.setFaceTexture(Face::Up, "assets/textures/container.jpg");
-	mall.setFaceTexture(Face::Down, "assets/textures/container.jpg");
-	mall.setFaceTexture(Face::Left, "assets/textures/container.jpg");
-	mall.setFaceTexture(Face::Right, "assets/textures/container.jpg");
-	mall.setFaceTexture(Face::Back, "assets/textures/container.jpg");
-	mall.setFaceTexture(Face::Front, "assets/textures/container.jpg");
+	//mall.setFaceTexture(Face::Up, "assets/textures/container.jpg");
+	//mall.setFaceTexture(Face::Down, "assets/textures/container.jpg");
+	//mall.setFaceTexture(Face::Left, "assets/textures/container.jpg");
+	//mall.setFaceTexture(Face::Right, "assets/textures/container.jpg");
+	//mall.setFaceTexture(Face::Back, "assets/textures/container.jpg");
+	//mall.setFaceTexture(Face::Front, "assets/textures/container.jpg");
 }
 
 void Mall::onImguiRender() {
-	model.onImguiRender();
+	//model.onImguiRender();
 	ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 0.0f, 360.0f);
 	ImGui::SliderFloat3("Mall Position ", &m_Position.x, -200.0f, 200.0f);
 	ImGui::SliderFloat("Mall Scale ", &m_UniformScale, 0.1f, 20.0f , "%.5f");
@@ -93,10 +96,10 @@ void Mall::drawOpaque()
 	updateModelMatrix();
 	mall.setParentModel(getModel());
 	resturant.setParentModel(getModel());
-	model.setParentModel(getModel());
-	mall.drawOpaque();
+	//model.setParentModel(getModel());
+	//mall.drawOpaque();
 	resturant.drawOpaque();
-	model.drawOpaque();
+	//model.drawOpaque();
 }
 
 void Mall::drawSkyBox()

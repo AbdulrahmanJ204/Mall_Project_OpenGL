@@ -39,9 +39,6 @@
     <ClInclude Include="include\opengl\VBOLayout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Mall\Resturant\Chair.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\objects\Object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -132,10 +129,19 @@
     <ClInclude Include="include\Mall\SkyBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Mall\Resturant\ResturantRoom.h">
+    <ClInclude Include="include\Mall\TestsRoom\TestsRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\objects\Square.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\LightBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\LightSquare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\Model\LightModelObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -159,9 +165,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\opengl\VBO.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Mall\Resturant\Chair.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Scene\Lights\LightHelper.cpp">
@@ -227,10 +230,19 @@
     <ClCompile Include="src\objects\Cylinder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mall\Resturant\ResturantRoom.cpp">
+    <ClCompile Include="src\Mall\TestsRoom\TestsRoom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\objects\Square.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\objects\LightBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\objects\LightSquare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Model\LightModelObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

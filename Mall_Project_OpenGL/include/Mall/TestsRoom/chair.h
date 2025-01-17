@@ -1,6 +1,7 @@
 #pragma once
 #include "Object.h"
 #include "Box.h"
+#include "PointLight.h"
 
 class Chair : public Object { 
 public:
@@ -13,5 +14,5 @@ public:
 private:
     std::vector<Box> rjls;
     Box seat;
-    
+    PointLight light;
 };

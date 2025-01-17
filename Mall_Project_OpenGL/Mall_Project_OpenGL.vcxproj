@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant;include\Mall\Electronic;include\Mall\Supermarket</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant;include\Mall\Electronic;include\Mall\Supermarket;include\Mall\Library</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -126,7 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant;include\Mall\Electronic;include\Mall\Supermarket</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant;include\Mall\Electronic;include\Mall\Supermarket;include\Mall\Library</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -160,6 +160,21 @@
     <ClInclude Include="include\Mall\Electronic\electronic_room.h" />
     <ClInclude Include="include\Mall\Electronic\laptop.h" />
     <ClInclude Include="include\Mall\Electronic\tv.h" />
+    <ClInclude Include="include\Mall\Library\book.h" />
+    <ClInclude Include="include\Mall\Library\book2.h" />
+    <ClInclude Include="include\Mall\Library\booklab.h" />
+    <ClInclude Include="include\Mall\Library\ceil.h" />
+    <ClInclude Include="include\Mall\Library\clock.h" />
+    <ClInclude Include="include\Mall\Library\floor.h" />
+    <ClInclude Include="include\Mall\Library\LibraryRoom.h" />
+    <ClInclude Include="include\Mall\Library\rectable.h" />
+    <ClInclude Include="include\Mall\Library\shelf.h" />
+    <ClInclude Include="include\Mall\Library\signboard.h" />
+    <ClInclude Include="include\Mall\Library\table.h" />
+    <ClInclude Include="include\Mall\Library\wall.h" />
+    <ClInclude Include="include\Mall\Resturant\decorated_wall\DecoratedWall.h" />
+    <ClInclude Include="include\Mall\Resturant\RestaurantRoom.h" />
+    <ClInclude Include="include\Mall\Resturant\window\ResturantWindow.h" />
     <ClInclude Include="include\Mall\SkyBox.h" />
     <ClInclude Include="include\objects\Cylinder.h" />
     <ClInclude Include="include\objects\Box.h" />
@@ -190,7 +205,6 @@
     <ClInclude Include="include\utils\myImGuiManager.h" />
     <ClInclude Include="include\utils\StringManager.h" />
     <ClInclude Include="include\Mall\Mall.h" />
-    <ClInclude Include="include\Mall\Resturant\ResturantRoom.h" />
     <ClInclude Include="include\Mall\Electronic\table_electronic.h" />
     <ClInclude Include="include\Mall\Supermarket\supermarket.h" />
     <ClInclude Include="vendor\imGui\imconfig.h" />
@@ -211,7 +225,21 @@
     <ClCompile Include="src\Mall\Electronic\electronic_room.cpp" />
     <ClCompile Include="src\Mall\Electronic\laptop.cpp" />
     <ClCompile Include="src\Mall\Electronic\tv.cpp" />
-    <ClCompile Include="src\Mall\Resturant\ResturantRoom.cpp" />
+    <ClCompile Include="src\Mall\Library\book.cpp" />
+    <ClCompile Include="src\Mall\Library\book2.cpp" />
+    <ClCompile Include="src\Mall\Library\booklab.cpp" />
+    <ClCompile Include="src\Mall\Library\ceil.cpp" />
+    <ClCompile Include="src\Mall\Library\clock.cpp" />
+    <ClCompile Include="src\Mall\Library\floor.cpp" />
+    <ClCompile Include="src\Mall\Library\LibraryRoom.cpp" />
+    <ClCompile Include="src\Mall\Library\rectable.cpp" />
+    <ClCompile Include="src\Mall\Library\shelf.cpp" />
+    <ClCompile Include="src\Mall\Library\signboard.cpp" />
+    <ClCompile Include="src\Mall\Library\table.cpp" />
+    <ClCompile Include="src\Mall\Library\wall.cpp" />
+    <ClCompile Include="src\Mall\Resturant\decorated_wall\DecoratedWall.cpp" />
+    <ClCompile Include="src\Mall\Resturant\RestaurantRoom.cpp" />
+    <ClCompile Include="src\Mall\Resturant\window\ResturantWindow.cpp" />
     <ClCompile Include="src\objects\Cylinder.cpp" />
     <ClCompile Include="src\Mall\Mall.cpp" />
     <ClCompile Include="src\objects\Box.cpp" />

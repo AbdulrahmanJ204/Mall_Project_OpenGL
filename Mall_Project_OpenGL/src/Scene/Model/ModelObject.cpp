@@ -68,6 +68,8 @@ void ModelObject::updateUniforms() {
 
 void ModelObject::onImguiRender()
 {
+    ImGui::SliderFloat3("WorldPlan Position ", &m_Position.x, -200.0f, 200.0f);
+
     ImGui::SliderFloat("Model Scale", &m_UniformScale, -1, 20);
 }
 

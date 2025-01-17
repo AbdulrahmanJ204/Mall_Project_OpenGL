@@ -16,7 +16,7 @@ public:
 	~Object() {};
 	virtual void drawOpaque() = 0;
 	virtual void drawTransparent() {};
-	virtual void getTransparent() = 0;
+	virtual void getTransparent() {};
 	virtual void onImguiRender() {}; // For debugging.
 	virtual float dist() { return 0.0f; }; // For distance.
 	void setParentModel(glm::mat4 pModel);

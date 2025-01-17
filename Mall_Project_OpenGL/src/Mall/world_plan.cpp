@@ -11,7 +11,8 @@ street2(10.0f, 0.1f, 160.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fra
 plan3(140.0f, 0.1f, 10.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {20, 3}}, }),
 plan4(10.0f, 0.1f, 50.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {3, 10}}, }),
 plan5(10.0f, 10.0f, 0.5f, 300, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-plan2(140.0f, 0.1f, 180.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {100, 120}}, })
+plan2(140.0f, 0.1f, 180.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {100, 120}}, }),
+bahra("assets/obj/medieval_fountain/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag")
 {
 	plan1.setFaceTexture(Face::Up, "assets/textures/electronic/t3.jpg");
 	plan2.setFaceTexture(Face::Up, "assets/textures/plan/p5.png");
@@ -34,6 +35,7 @@ plan2(140.0f, 0.1f, 180.0f, "assets/shaders/vertexSh.vert", "assets/shaders/frag
 	plan3.setPosition(glm::vec3(0.0f, 0.02f,+65.0f));
 	plan4.setPosition(glm::vec3(0.0f, 0.02f,+65.0f));
 	plan5.setPosition(glm::vec3(0.0f, 0.02f,+65.0f));
+	bahra.setPosition(glm::vec3(-7.4f, 0.03f,+72.55f));
 	ite1.setPosition(glm::vec3(0.0f, 0.02f+ite1.getHeight()/2, +110.0f + ite1.getDepth() / 2));
 	mall.setPosition(glm::vec3(0.0f, 0.01f + mall.getHeight()/2, -80.0f + mall.getDepth() / 2));
 	
@@ -51,12 +53,17 @@ void WorldPlan::drawOpaque()
 	mall.setParentModel(getModel());
 	ite1.setParentModel(getModel());
 	buildings.setParentModel(getModel());
+	bahra.setParentModel(getModel());
 
 	plan1.drawOpaque();
 	plan2.drawOpaque();
 	plan3.drawOpaque();
 	plan4.drawOpaque();
 	plan5.drawOpaque();
+
+	bahra.setRotation(-90, glm::vec3(1.0f, 0.0f, 0.0f));
+	bahra.setScale(0.04);
+	bahra.drawOpaque();
 	//mall.drawOpaque();
 	ite1.drawOpaque();
 
@@ -90,5 +97,5 @@ void WorldPlan::getTransparent()
 
 void WorldPlan::onImguiRender()
 {
-	ImGui::SliderFloat3("WorldPlan Position ", &m_Position.x, -200.0f, 200.0f);
+	bahra.onImguiRender();
 }

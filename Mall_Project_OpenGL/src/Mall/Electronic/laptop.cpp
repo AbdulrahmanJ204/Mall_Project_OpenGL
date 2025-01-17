@@ -36,6 +36,7 @@ void Laptop::getTransparent() {
 
 
 void Laptop::onImguiRender() {
+	ImGui::SliderFloat3("Laptop Position ", &m_Position.x, -100.0f, 100.0f);
 }
 
 void Laptop::setTex()
@@ -56,19 +57,19 @@ void Laptop::setTex()
 		laptop_back.setFaceTexture(Face::Front, "assets/textures/electronic/tv_55_2.png", 0);
 	}
 	else if (type == 2) {
-		laptop_front.setFaceTexture(Face::Down, "assets/textures/electronic/tv_1_3.png", 1);
-		laptop_front.setFaceTexture(Face::Up, "assets/textures/electronic/tv_1_3.png");
-		laptop_front.setFaceTexture(Face::Left, "assets/textures/electronic/tv_1_3.png", 1);
-		laptop_front.setFaceTexture(Face::Right, "assets/textures/electronic/tv_1_3.png", 1);
-		laptop_front.setFaceTexture(Face::Back, "assets/textures/electronic/tv_1_2.png", 1);
-		laptop_front.setFaceTexture(Face::Front, "assets/textures/electronic/tv_1_1.png", 1);
+		laptop_front.setFaceTexture(Face::Down, "assets/textures/electronic/tv_1_3.png", 0);
+		laptop_front.setFaceTexture(Face::Up, "assets/textures/electronic/tv_55_2.png", 0);
+		laptop_front.setFaceTexture(Face::Left, "assets/textures/electronic/tv_1_3.png", 0);
+		laptop_front.setFaceTexture(Face::Right, "assets/textures/electronic/tv_1_3.png", 0);
+		laptop_front.setFaceTexture(Face::Back, "assets/textures/electronic/laptop_2_3.png", 0);
+		laptop_front.setFaceTexture(Face::Front, "assets/textures/electronic/laptop_2_2.png", 0);
 
-		laptop_back.setFaceTexture(Face::Down, "assets/textures/electronic/tv_1_3.png", 1);
-		laptop_back.setFaceTexture(Face::Up, "assets/textures/electronic/tv_1_3.png");
-		laptop_back.setFaceTexture(Face::Left, "assets/textures/electronic/tv_1_3.png", 1);
-		laptop_back.setFaceTexture(Face::Right, "assets/textures/electronic/tv_1_3.png", 1);
-		laptop_back.setFaceTexture(Face::Back, "assets/textures/electronic/tv_1_1.png", 1);
-		laptop_back.setFaceTexture(Face::Front, "assets/textures/electronic/tv_1_2.png", 1);
+		laptop_back.setFaceTexture(Face::Down, "assets/textures/electronic/laptop_2_5.png", 0);
+		laptop_back.setFaceTexture(Face::Up, "assets/textures/electronic/laptop_2_4.png", 0);
+		laptop_back.setFaceTexture(Face::Left, "assets/textures/electronic/laptop_2_6.png", 0);
+		laptop_back.setFaceTexture(Face::Right, "assets/textures/electronic/laptop_2_6.png", 0);
+		laptop_back.setFaceTexture(Face::Back, "assets/textures/electronic/laptop_2_1.png", 0);
+		laptop_back.setFaceTexture(Face::Front, "assets/textures/electronic/tv_55_2.png", 0);
 	}
 
 }

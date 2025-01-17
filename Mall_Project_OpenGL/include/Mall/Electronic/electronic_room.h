@@ -15,13 +15,12 @@ class ElectronicRoom : public Object
 		void onImguiRender() override;
 		void setTex();
 	private:
-		float x, y, z;
 		Box electronic_wall_base, electronic_wall_sec,wall_front1,arma1, arma2;
 		TableElectronic table;
 		vector<TV> tvs;
-		Laptop laptop;
+		Laptop laptop1, laptop2;
 		ModelObject washing_machine;
 		Cylinder tableC1, tableC2;
-		Box raf;
+		Box raf,stand1, mobile,tstand1, tstand2;
 };
 

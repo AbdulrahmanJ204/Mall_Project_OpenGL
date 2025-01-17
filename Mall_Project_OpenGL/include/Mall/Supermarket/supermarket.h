@@ -17,7 +17,7 @@ public:
 private:
 	Box wall_base, wall_sec,wall_front,wall_enter;
 	Box arma;
-	ModelObject registerCach;
+	ModelObject registerCach,cart;
 	vector<Box> rafs;
 	vector<Box> brad;
 };

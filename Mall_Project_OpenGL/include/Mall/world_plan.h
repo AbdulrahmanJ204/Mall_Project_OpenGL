@@ -15,6 +15,8 @@ private:
 	Box plan1;
 	Box plan2, plan3, plan4;
 	Cylinder plan5;
+	ModelObject bahra;
+
 	Box street1, street2;
 	Box mall;
 	Box ite1;

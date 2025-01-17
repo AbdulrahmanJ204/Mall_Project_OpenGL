@@ -6,7 +6,8 @@ SupermarketRoom::SupermarketRoom() :
 	wall_front(0.2f, 12.0f, 30.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {5, 12}},{Face::Down, {3, 12.5}},{Face::Right, {1, 1}} ,{Face::Left, {1, 1}},{Face::Front, {10, 6}},{Face::Back, {10, 6}} }),
 	wall_enter(16.0f, 12.0f, 19.9f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {5, 12}},{Face::Down, {3, 12.5}},{Face::Right, {1, 1}} ,{Face::Left, {1, 1}},{Face::Front, {10, 6}},{Face::Back, {1, 1}} }),
 	arma(34.0f, 6.0f, 119.9f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {5, 12}},{Face::Down, {3, 10}},{Face::Right, {1, 1}} ,{Face::Left, {1, 1}},{Face::Front, {10, 6}},{Face::Back, {10, 6}} }),
-	registerCach("assets/obj/cash_register/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag")
+	registerCach("assets/obj/psx_cashier_stand/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),
+	cart("assets/obj/shopping_cart_model/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag")
 {
 	rafs.push_back(Box(10.0f, 6.0f, 1.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"));
 	rafs.push_back(Box(10.0f, 6.0f, 1.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"));
@@ -50,6 +51,7 @@ void SupermarketRoom::drawOpaque() {
 	wall_enter.setParentModel(getModel());
 	arma.setParentModel(getModel());
 	registerCach.setParentModel(getModel());
+	cart.setParentModel(getModel());
 	for (int i = 0; i < 10; i++)
 	{
 		rafs[i].setParentModel(getModel());
@@ -92,10 +94,34 @@ void SupermarketRoom::drawOpaque() {
 
 	arma.drawOpaque();
 
-	registerCach.setPosition(glm::vec3(2, 3, 30));
-	registerCach.setRotation(-90, glm::vec3(1.0f, 0.0f, 0.0f));
+	registerCach.setPosition(glm::vec3(-8, 0, 15));
+	registerCach.setRotation(0, glm::vec3(0.0f, 1.0f, 0.0f));
 	registerCach.setScale(3);
 	registerCach.drawOpaque();
+	registerCach.setPosition(glm::vec3(-8, 0, 25));
+	registerCach.setRotation(0, glm::vec3(0.0f, 1.0f, 0.0f));
+	registerCach.setScale(3);
+	registerCach.drawOpaque();
+	registerCach.setPosition(glm::vec3(-8, 0, 35));
+	registerCach.setRotation(0, glm::vec3(0.0f, 1.0f, 0.0f));
+	registerCach.setScale(3);
+	registerCach.drawOpaque();
+	registerCach.setPosition(glm::vec3(-8, 0, 45));
+	registerCach.setRotation(0, glm::vec3(0.0f, 1.0f, 0.0f));
+	registerCach.setScale(3);
+	registerCach.drawOpaque();
+
+	cart.setScale(3);
+	cart.setPosition(glm::vec3(-5, 1.0, 98));
+	cart.drawOpaque();
+	cart.setPosition(glm::vec3(-7, 1.0, 98));
+	cart.drawOpaque();
+	cart.setPosition(glm::vec3(-9, 1.0, 98));
+	cart.drawOpaque();
+	cart.setPosition(glm::vec3(-11, 1.0, 98));
+	cart.drawOpaque();
+	cart.setPosition(glm::vec3(-13, 1.0, 98));
+	cart.drawOpaque();
 	
 
 }

@@ -13,6 +13,8 @@ Mall::Mall() :
 		}),
 	electronicRoom(),
 	supermarketRoom(),
+	libraryRoom(),
+//	resturant(),
 	worldplan(),
 	mall_front(120.5f, 40.1f, 120.5f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {5, 5}}, }),
 	mall_wall(120.5f, 40.1f, 0.2f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {5, 5}}, }),
@@ -24,7 +26,7 @@ Mall::Mall() :
 	adadaLeft(32.0f, 40.0f, 20.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {25, 25}},{Face::Right, {5, 10}},{Face::Left, {20, 20}},{Face::Back, {20, 20}},{Face::Front, {20, 20}} ,{Face::Up, {20, 20}} }),
 	adadaRight(16.0f, 40.0f, 20.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Down, {25, 25}},{Face::Right, {20, 20}},{Face::Left, {20, 20}},{Face::Back, {20, 20}},{Face::Front, {20, 20}} ,{Face::Up, {20, 20}} }),
 	adadaMiddile(2.0f, 2.0f, 40.0f, 300, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-	escalator("assets/obj/escalator/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),
+	bahra("assets/obj/medieval_fountain/scene.gltf", "assets/shaders/model_loading.vert", "assets/shaders/model_loading.frag"),
 	dr1(40.4),
 	dr2(35.4),
 	dr3(40.4),
@@ -42,8 +44,8 @@ Mall::Mall() :
 void Mall::onImguiRender() {
 	//ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 0.0f, 360.0f);
 	//ImGui::SliderFloat3(" Position ", &m_Position.x, -200.0f, 200.0f);
-	supermarketRoom.onImguiRender();
-	//worldplan.onImguiRender();
+	//electronicRoom.onImguiRender();
+	worldplan.onImguiRender();
 	
 }
 void Mall::drawOpaque()
@@ -57,13 +59,21 @@ void Mall::drawOpaque()
 	floor_1.setParentModel(getModel());
 	mmr.setParentModel(getModel());
 	mall_wall.setParentModel(getModel());
+	bahra.setParentModel(getModel());
+	libraryRoom.setParentModel(getModel());
 
 
 	electronicRoom.setPosition(glm::vec3(-59.8, 0.12, 10.01));
 	electronicRoom.drawOpaque();
+	
+	//resturant.setPosition(glm::vec3(-59.8, 0.12, -59.8));
+	//resturant.drawOpaque();
 
 	supermarketRoom.setPosition(glm::vec3(43.98, 0.12, -59.99));
 	supermarketRoom.drawOpaque();
+
+	libraryRoom.setPosition(glm::vec3(-59.8, 18 + mmr.getHeight() + 0.001, -59.99));
+	libraryRoom.drawOpaque();
 
 
 
@@ -151,7 +161,9 @@ void Mall::getTransparent()
 	dr8.getTransparent();
 	worldplan.getTransparent();
 	electronicRoom.getTransparent();
+	//resturant.getTransparent();
 	supermarketRoom.getTransparent();
+	libraryRoom.getTransparent();
 	
 
 }

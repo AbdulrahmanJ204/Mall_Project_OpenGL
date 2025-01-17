@@ -12,8 +12,10 @@ Mall::Mall() :
 			"assets/textures/skybox1/back.jpg"
 		}),
 	electronicRoom(),
+	supermarketRoom(),
 	worldplan(),
 	mall_front(120.5f, 40.1f, 120.5f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {5, 5}}, }),
+	mall_wall(120.5f, 40.1f, 0.2f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {5, 5}}, }),
 	market1(1.0f, 20.0f, 50.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {1, 1}}, }),
 	floor_1(40.0f, 2.0f, 119.9f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {10, 25}},{Face::Down, {25, 25}},{Face::Right, {50, 2}},{Face::Left, {50, 2}},{Face::Back, {50, 2}}, { Face::Front, {50, 2} } }),
 	mmr(40.0f, 2.0f, 20.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {5,10}},{Face::Down, {25, 25}},{Face::Right, {50, 2}},{Face::Left, {50, 2}},{Face::Back, {50, 2}}, { Face::Front, {50, 2} } }),
@@ -33,14 +35,14 @@ Mall::Mall() :
 	dr8(35.4)
 {
 	setTex();
-
+	mall_wall.setPosition(glm::vec3(0.0f, +mall_front.getHeight() / 2 + 0.1, 60.1f));
 }
 
 
 void Mall::onImguiRender() {
 	//ImGui::SliderFloat("Mall Rotation ", &m_RotationAngle, 0.0f, 360.0f);
-	ImGui::SliderFloat3(" Position ", &m_Position.x, -200.0f, 200.0f);
-	//electronicRoom.onImguiRender();
+	//ImGui::SliderFloat3(" Position ", &m_Position.x, -200.0f, 200.0f);
+	supermarketRoom.onImguiRender();
 	//worldplan.onImguiRender();
 	
 }
@@ -48,22 +50,32 @@ void Mall::drawOpaque()
 {
 	drawSkyBox();
 	updateModelMatrix();
-	/*mall_front.setParentModel(getModel());
+	mall_front.setParentModel(getModel());
 	mall_back.setParentModel(getModel());
 	adadaLeft.setParentModel(getModel());
 	adadaRight.setParentModel(getModel());
 	floor_1.setParentModel(getModel());
-	mmr.setParentModel(getModel());*/
-	electronicRoom.setPosition(glm::vec3(-60.01, 0, 10.01));
+	mmr.setParentModel(getModel());
+	mall_wall.setParentModel(getModel());
+
+
+	electronicRoom.setPosition(glm::vec3(-59.8, 0.12, 10.01));
 	electronicRoom.drawOpaque();
+
+	supermarketRoom.setPosition(glm::vec3(43.98, 0.12, -59.99));
+	supermarketRoom.drawOpaque();
+
+
+
 	worldplan.setPosition(glm::vec3(0,0,20));
 	worldplan.drawOpaque();
 
 	mall_front.setPosition(glm::vec3(0.0f, +mall_front.getHeight() / 2+ 0.1, 0.0f));
+	
 	mall_back.setPosition(glm::vec3(0.0f, +mall_back.getHeight() / 2  + 0.1 + 0.001, 0.0f));
 	mall_front.drawOpaque();
 	mall_back.drawOpaque();
-
+	mall_wall.drawOpaque();
 	adadaLeft.setPosition(glm::vec3(0.0f - 44, +adadaLeft.getHeight() / 2  + 0.01 + 0.001, 0.0f));
 	adadaRight.setPosition(glm::vec3(0.0f + 28 + adadaRight.getWidth() / 2, +adadaRight.getHeight() / 2  + 0.01 + 0.001, 0.0f));
 	adadaMiddile.setPosition(glm::vec3(0, +20, 0));
@@ -78,6 +90,8 @@ void Mall::drawOpaque()
 	floor_1.drawOpaque();
 
 	market1.setPosition(glm::vec3(-35.01f + market1.getWidth() / 2, 19 + (floor_1.getHeight() / 2)+ (market1.getHeight() / 2)+0.001, 10.01 + market1.getDepth() / 2));
+	market1.drawOpaque();
+	market1.setPosition(glm::vec3(+35.01f + market1.getWidth() / 2, 19 + (floor_1.getHeight() / 2)+ (market1.getHeight() / 2)+0.001, 10.01 + market1.getDepth() / 2));
 	market1.drawOpaque();
 
 	mmr.setPosition(glm::vec3(0.0f, 18 + mmr.getHeight() / 2, 0.0f+60- mmr.getDepth() / 2));
@@ -137,6 +151,9 @@ void Mall::getTransparent()
 	dr8.getTransparent();
 	worldplan.getTransparent();
 	electronicRoom.getTransparent();
+	supermarketRoom.getTransparent();
+	
+
 }
 
 
@@ -148,6 +165,13 @@ void Mall::setTex()
 	mall_front.setFaceTexture(Face::Right, "assets/textures/mall/mall_right.jpg", 0, 0);
 	mall_front.setFaceTexture(Face::Back, "assets/textures/mall/mall_back.jpg", 0, 0);
 	mall_front.setFaceTexture(Face::Front, "assets/textures/mall/mall_front.png", 1);
+
+	mall_wall.setFaceTexture(Face::Up, "assets/textures/plan/p6.jpg", 0, 1, 1);
+	mall_wall.setFaceTexture(Face::Down, "assets/textures/plan/p9.jpg", 0, 0);
+	mall_wall.setFaceTexture(Face::Left, "assets/textures/mall/mall_left.jpg", 0, 0);
+	mall_wall.setFaceTexture(Face::Right, "assets/textures/mall/mall_right.jpg", 0, 0);
+	mall_wall.setFaceTexture(Face::Back, "assets/textures/mall/mall_back.jpg", 0, 0);
+	mall_wall.setFaceTexture(Face::Front, "assets/textures/mall/mall_front.png", 0);
 
 	mall_back.setFaceTexture(Face::Up, "assets/textures/plan/p6.jpg", 1, 1, 1);
 	mall_back.setFaceTexture(Face::Down, "assets/textures/plan/p16.jpg", 0, 0);

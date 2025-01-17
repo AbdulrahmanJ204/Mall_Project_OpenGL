@@ -36,12 +36,12 @@ void TV::setTex()
 		tv.setFaceTexture(Face::Back, "assets/textures/electronic/tv_1_2.png",1);
 		tv.setFaceTexture(Face::Front, "assets/textures/electronic/tv_1_1.png",1);
 	}else if (type == 2) {
-		tv.setFaceTexture(Face::Down, "assets/textures/electronic/tv_1_3.png", 1);
-		tv.setFaceTexture(Face::Up, "assets/textures/electronic/tv_1_3.png");
-		tv.setFaceTexture(Face::Left, "assets/textures/electronic/tv_1_3.png");
-		tv.setFaceTexture(Face::Right, "assets/textures/electronic/tv_1_3.png");
-		tv.setFaceTexture(Face::Back, "assets/textures/electronic/tv_1_2.png");
-		tv.setFaceTexture(Face::Front, "assets/textures/electronic/tv_2_1.png");
+		tv.setFaceTexture(Face::Down, "assets/textures/electronic/tv_55_2.png", 1);
+		tv.setFaceTexture(Face::Up, "assets/textures/electronic/tv_55_2.png");
+		tv.setFaceTexture(Face::Left, "assets/textures/electronic/tv_55_2.png");
+		tv.setFaceTexture(Face::Right, "assets/textures/electronic/tv_55_2.png");
+		tv.setFaceTexture(Face::Back, "assets/textures/electronic/tv_55_2.png");
+		tv.setFaceTexture(Face::Front, "assets/textures/electronic/tv_43_1.png");
 	}
 	
 }

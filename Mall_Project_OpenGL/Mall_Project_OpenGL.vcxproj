@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant;include\Mall\Electronic</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant;include\Mall\Electronic;include\Mall\Supermarket</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -126,7 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant;include\Mall\Electronic</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\objects;include\Scene\Lights;include\Scene\Model;include\Mall;include\Mall\Resturant;include\Mall\Electronic;include\Mall\Supermarket</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -192,6 +192,7 @@
     <ClInclude Include="include\Mall\Mall.h" />
     <ClInclude Include="include\Mall\Resturant\ResturantRoom.h" />
     <ClInclude Include="include\Mall\Electronic\table_electronic.h" />
+    <ClInclude Include="include\Mall\Supermarket\supermarket.h" />
     <ClInclude Include="vendor\imGui\imconfig.h" />
     <ClInclude Include="vendor\imGui\imgui.h" />
     <ClInclude Include="vendor\imGui\imgui_impl_glfw.h" />
@@ -234,6 +235,7 @@
     <ClCompile Include="src\utils\GLErrorManager.cpp" />
     <ClCompile Include="src\utils\myImGuiManager.cpp" />
     <ClCompile Include="src\Mall\Electronic\table_electronic.cpp" />
+    <ClCompile Include="src\Mall\Supermarket\supermarket.cpp" />
     <ClCompile Include="vendor\imGui\imgui.cpp" />
     <ClCompile Include="vendor\imGui\imgui_demo.cpp" />
     <ClCompile Include="vendor\imGui\imgui_draw.cpp" />

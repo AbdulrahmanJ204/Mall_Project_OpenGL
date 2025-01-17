@@ -18,9 +18,10 @@ class ElectronicRoom : public Object
 		float x, y, z;
 		Box electronic_wall_base, electronic_wall_sec,wall_front1,arma1, arma2;
 		TableElectronic table;
-		TV tv1;
+		vector<TV> tvs;
 		Laptop laptop;
 		ModelObject washing_machine;
 		Cylinder tableC1, tableC2;
+		Box raf;
 };
 

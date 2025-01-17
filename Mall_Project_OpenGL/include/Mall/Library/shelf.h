@@ -1,6 +1,6 @@
 #pragma once
 #include "Object.h"  
-#include "Box.h"
+#include "Box.h" 
 
 class Shelf : public Object {
 public:
@@ -9,5 +9,5 @@ public:
 	void setTex();
 
 private:
-	Box wall, raf, column;
+	Box wall, raf, column; 
 };

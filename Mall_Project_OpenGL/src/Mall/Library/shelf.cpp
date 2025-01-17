@@ -4,7 +4,7 @@ Shelf::Shelf() :
     Object(),
     wall(0.08f, 7.5f, 12.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Right,{3,2}} }),
     raf(1.08f, 0.08f, 12.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-    column(1.08f, 0.08f, 7.5f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
+    column(1.08f, 0.08f, 7.5f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag") 
 {
     setTex();
     wall.setParentModel(getModel());
@@ -29,7 +29,8 @@ void Shelf::drawOpaque() {
     for (int i = 1; i <= 9; i++) {
         column.setPosition(glm::vec3(0.0f + column.getWidth() / 2, 0.0f, -7.5f + (inc * i)));
         column.drawOpaque();
-    }
+    } 
+
 }
 
 void Shelf::setTex()

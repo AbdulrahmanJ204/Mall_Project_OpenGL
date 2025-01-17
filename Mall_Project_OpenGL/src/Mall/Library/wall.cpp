@@ -4,7 +4,7 @@ Wall::Wall() :
 	Object(), wall(35.0f, 20.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
 	wall2(50.0f, 20.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Front,{2,1}} }),
 	wall3(30.0f, 20.0f, 0.1f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
-	logo(15.0f, 5.0f, 0.5f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
+	logo(15.0f, 6.0f, 0.5f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 
 {
 	setTex();

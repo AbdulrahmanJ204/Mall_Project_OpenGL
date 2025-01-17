@@ -10,4 +10,5 @@ public:
 
 private:
 	Box side, board, back;
+	Box book;
 };

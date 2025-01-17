@@ -14,7 +14,7 @@ LibraryRoom::LibraryRoom() :
 
 {
 	model.setPosition(glm::vec3(-13.0f, -5.0f, 14.0f));
-	
+
 	//sofa.setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
 
 }
@@ -31,8 +31,10 @@ void LibraryRoom::drawOpaque()
 	shelf.setParentModel(getModel());
 	shelf.drawOpaque();
 
-	/*book.setParentModel(getModel());
-	book.drawOpaque(); */
+	book.setParentModel(getModel());
+	book.setPosition(glm::vec3(0.0f, 6.0f, 14.5f));
+	book.setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+	book.drawOpaque();
 
 	shelf.setPosition(glm::vec3(0.0f, 6.0f, 14.5f));
 	shelf.setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f));
@@ -40,7 +42,7 @@ void LibraryRoom::drawOpaque()
 	wall.setParentModel(getModel());
 	wall.drawOpaque();
 
-	
+
 
 	signboard.setParentModel(getModel());
 	signboard.drawOpaque();
@@ -82,16 +84,16 @@ void LibraryRoom::drawOpaque()
 	table.setPosition(glm::vec3(0.0f, -4.0f, 0.0f));
 	table.drawOpaque();
 
-	arm_chair.setScale(glm::vec3(0.04f, 0.04f, 0.04f)); 
-	arm_chair.setPosition(glm::vec3(0.0f, -4.5f, -5.5f)); 
-	arm_chair.setRotation(0.0f, glm::vec3(0.0f, 1.0f, 0.0f)); 
+	arm_chair.setScale(glm::vec3(0.04f, 0.04f, 0.04f));
+	arm_chair.setPosition(glm::vec3(0.0f, -4.5f, -5.5f));
+	arm_chair.setRotation(0.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 	arm_chair.draw();
-	 
+
 	arm_chair.setPosition(glm::vec3(6.0f, -4.5f, -1.5f));
 	arm_chair.setRotation(270.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 	arm_chair.draw();
 
-	
+
 	arm_chair.setPosition(glm::vec3(6.0f, -4.5f, 2.5f));
 	arm_chair.setRotation(270.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 	arm_chair.draw();
@@ -107,7 +109,7 @@ void LibraryRoom::drawOpaque()
 	arm_chair.setPosition(glm::vec3(-6.0f, -4.5f, -1.5f));
 	arm_chair.setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 	arm_chair.draw();
-	  
+
 	arm_chair.setPosition(glm::vec3(-6.0f, -4.5f, 2.5f));
 	arm_chair.setRotation(90.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 	arm_chair.draw();

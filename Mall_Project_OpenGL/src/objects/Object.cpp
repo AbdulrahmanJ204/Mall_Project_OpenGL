@@ -14,7 +14,7 @@ void Object::setPosition(const glm::vec3& position) {
 
 void Object::setRotation(float angle, const glm::vec3& axis) {
 	m_RotationAngle = angle;
-	m_RotationAxis = glm::rotate(glm::mat4(1.0f), glm::radians(angle), glm::normalize(axis));
+	m_RotationAxis = axis;
 	updateModelMatrix();
 }
 
@@ -28,25 +28,7 @@ void Object::setScale(const float& scale) {
 	updateModelMatrix();
 }
 
-void Object::setRotationX(float angle)
-{
-	m_RotationMatrixX = glm::rotate(glm::mat4(1.0f), glm::radians(angle), glm::vec3(1.0f, 0.0f, 0.0f));
-	updateModelMatrix();
-}
-
-void Object::setRotationY(float angle)
-{
-	m_RotationMatrixY = glm::rotate(glm::mat4(1.0f), glm::radians(angle), glm::vec3(0.0f, 1.0f, 0.0f));
-	updateModelMatrix();
-}
-
-void Object::setRotationZ(float angle)
-{
-	m_RotationMatrixZ = glm::rotate(glm::mat4(1.0f), glm::radians(angle), glm::vec3(0.0f, 0.0f, 1.0f));
-	updateModelMatrix();
-}
-
-glm::vec3 Object::getModifiedPosition(glm::vec3 point)
+glm::vec3 Object::getModifiedPosition(glm::vec3& point)
 {	
 	return glm::vec3(getModel() * glm::vec4(point, 1.0f));
 }
@@ -56,7 +38,7 @@ glm::vec3 Object::getModifiedPosition(glm::vec3 point)
 void Object::updateModelMatrix() {
 	m_Model = glm::mat4(1.0f);
 	m_Model = glm::translate(m_Model, m_Position);
-	m_Model *= m_RotationMatrixX * m_RotationMatrixY * m_RotationMatrixZ * m_RotationAxis;
+	m_Model = glm::rotate(m_Model, glm::radians(m_RotationAngle), m_RotationAxis);
 	glm::vec3 combinedScale = m_NonUniformScale * m_UniformScale;
 	m_Model = glm::scale(m_Model, combinedScale);
 }
@@ -80,5 +62,17 @@ void Object::setTargetScale(const glm::vec3& targetScale) {
 	m_TargetScale = targetScale;
 }
 void Object::update() {
-	
+	float deltaTime = Application::instancePtr->deltaTime;
+	// Interpolate position
+	m_Position = glm::mix(m_Position, m_TargetPosition, m_MoveSpeed * deltaTime);
+
+	// Interpolate rotation
+	m_RotationAngle = glm::mix(m_RotationAngle, m_TargetRotationAngle, m_RotateSpeed * deltaTime);
+	m_RotationAxis = glm::mix(m_RotationAxis, m_TargetRotationAxis, m_RotateSpeed * deltaTime);
+
+	// Interpolate scale
+	m_NonUniformScale = glm::mix(m_NonUniformScale, m_TargetScale, m_ScaleSpeed * deltaTime);
+
+	// Update the model matrix after interpolation
+	updateModelMatrix();
 }

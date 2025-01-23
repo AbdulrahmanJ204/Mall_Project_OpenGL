@@ -53,6 +53,8 @@ void MovingDoor::drawOpaque()
 
 void MovingDoor::getTransparent()
 {
+    leftSide.setParentModel(getModel());
+    rightSide.setParentModel(getModel());
     leftSide.getTransparent();
     rightSide.getTransparent();
 }

@@ -7,8 +7,12 @@ int Window::s_Height= 900;
 Window::Window(std::string title, int width , int height) :
 	m_Title(title), m_Window(nullptr), m_Monitor(nullptr) , windowedWidth(width) , windowedHeight(height)
 {
+	
 	if(!initGLFW() ) return;
 	if(!initGLAD()) return;
+	std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
+	std::cout << "Vendor: " << glGetString(GL_VENDOR) << std::endl;
+
 	instancePtr = this;
 }
 

@@ -6,6 +6,15 @@
 #include "VBO.h"
 #include "Object.h"
 #include "Square.h"
+#define faceRepeatMap std::map<Face, std::pair<int, int>>
+enum Face {
+    Back,
+    Front,
+    Left,
+    Right,
+    Up,
+    Down,
+};
 
 class Box : public Object {
 public:
@@ -28,11 +37,7 @@ public:
     void drawOpaque() override;
   
     void getTransparent() override;
-    float dist() {
-        float res = 5000.0f;
-        for (auto& face : m_Faces) res = std::min(res, face->dist());
-        return res;
-    }
+
     
     inline float getWidth() const { return m_Width; }
     inline float getHeight() const { return m_Height; }

@@ -1,6 +1,10 @@
 #include "Square.h"
 #include <Scene.h>
-#include <set>
+#include "TextureManager.h"
+#include "ShaderManager.h"
+#include <set>;
+TextureManager textureManager;
+ShaderManager shaderManager;
 struct Vec3Comparator {
 	bool operator()(const glm::vec3& a, const glm::vec3& b) const {
 		if (a.x != b.x) return a.x < b.x;
@@ -31,8 +35,7 @@ Square::Square(const float* vertices, float size, const std::string& vertexPath,
 
 	rectVertices.assign(unVertices.begin(), unVertices.end());
 	sortRectangleVertices();
-
-	m_Shader = std::make_shared<Shader>(vertexPath, fragmentPath);
+	m_Shader = shaderManager.getShader(vertexPath, fragmentPath);
 	m_VAO->Unbind();
 }
 
@@ -40,7 +43,7 @@ Square::~Square() {}
 
 void Square::setTexture(const std::string& texturePath, bool isTransparent, bool mirrorX, bool mirrorY) {
 	m_IsTransparent = isTransparent;
-	m_Texture = std::make_shared<Texture>(texturePath, mirrorX, mirrorY);
+	m_Texture = textureManager.getTexture(texturePath);
 }
 
 void Square::drawOpaque() {
@@ -137,8 +140,8 @@ void Square::drawTransparent()
 
 	m_VAO->Bind();
 	GLCall(glDrawArrays(GL_TRIANGLES, 0, 6)); 
-	m_VAO->Unbind();
-	m_Shader->Unbind();
+	//m_VAO->Unbind();
+	//m_Shader->Unbind();
 }
 
 void Square::getTransparent() {

@@ -1,12 +1,17 @@
 #pragma once
-#include "Parent.h"
+#include "Object.h"
+#include "Box.h"
 
-class chair : public Parent { // Use public inheritance
+class Chair : public Object { 
 public:
-    chair();
-    void draw() override;
+    Chair();
+    void drawOpaque() override;
+    void getTransparent() override;
+    void onImguiRender() override;
     void setTex();
+
 private:
-    Box rjl;
+    std::vector<Box> rjls;
     Box seat;
+    
 };

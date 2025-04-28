@@ -7,8 +7,12 @@ int Window::s_Height= 900;
 Window::Window(std::string title, int width , int height) :
 	m_Title(title), m_Window(nullptr), m_Monitor(nullptr) , windowedWidth(width) , windowedHeight(height)
 {
+	
 	if(!initGLFW() ) return;
 	if(!initGLAD()) return;
+	std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
+	std::cout << "Vendor: " << glGetString(GL_VENDOR) << std::endl;
+
 	instancePtr = this;
 }
 
@@ -27,14 +31,23 @@ bool Window::initGLFW()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	m_Monitor = glfwGetPrimaryMonitor();
+	const GLFWvidmode* mode = glfwGetVideoMode(m_Monitor);
+	if (!mode) {
+		spdlog::error("Failed to get video mode for primary monitor");
+		glfwTerminate();
+		return false;
+	}
+	m_Window = glfwCreateWindow(mode->width, mode->height, m_Title.c_str(), m_Monitor, nullptr);
 	
-	m_Window = glfwCreateWindow(s_Width, s_Height, m_Title.c_str(), NULL, NULL);
+	//m_Window = glfwCreateWindow(s_Width, s_Height, m_Title.c_str(), NULL, NULL);
 	if (m_Window == NULL) {
 		spdlog::error("Failed to create GLFW window");
 		glfwTerminate();
 		return false;
 	}
 	glfwMakeContextCurrent(m_Window);
+	toggleFullscreen();
 	// v-sync
 	glfwSwapInterval(1);
 	instancePtr = this;
@@ -69,6 +82,7 @@ void Window::onResized(GLFWwindow*, int32_t width, int32_t height) {
 	Window& window = app.getWindow();
 	s_Width = width, s_Height = height;
 	glViewport(0, 0, width, height);
+
 	// TODO: implement onResized in Application , i think projection matrix should be updated.
 	//window.setWindowHeight(height);
 	//window.setWindowWidth(width);
@@ -126,9 +140,22 @@ void Window::toggleFullscreen() {
 		// Get the primary monitor and its video mode
 		m_Monitor = glfwGetPrimaryMonitor();
 		const GLFWvidmode* mode = glfwGetVideoMode(m_Monitor);
+		if (!mode) {
+			spdlog::error("Failed to get video mode for primary monitor");
+			return;
+		}
 
 		// Switch to fullscreen
 		glfwSetWindowMonitor(m_Window, m_Monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+		if (!m_Window) {
+			spdlog::error("Failed to switch to fullscreen mode");
+			return;
+		}
+
+		// Update the window size and call the resize callback
+		s_Width = mode->width;
+		s_Height = mode->height;
+		//onResized(m_Window, mode->width, mode->height); // Pass the new width and height
 		isFullscreen = true;
 	}
 }

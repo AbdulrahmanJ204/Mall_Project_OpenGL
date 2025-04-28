@@ -1,10 +1,9 @@
 #include "Scene.h"
 #include "Application.h"
 Scene* Scene::instancePtr = nullptr;
-//glm::mat4 Scene::s_View(glm::mat4(1.0f));
 glm::mat4 Scene::s_Proj(glm::perspective(glm::radians(45.0f), (float)Window::getWidth() / Window::getHeight(), 0.1f, 1000.0f));
 Camera Scene::camera(glm::vec3(0.0f, 0.0f, 0.0f));
-
+std::vector<Object*> Scene::transparentObjects;
 
 Scene::Scene() :
 	lastX(0.0f), lastY(0.0f), firstMouse(true)
@@ -13,10 +12,33 @@ Scene::Scene() :
 	lastX = Window::getWidth() / 2.0f;
 	lastY = Window::getHeight() / 2.0f;
 	
+
 }
 void Scene::draw()
+{	
+	mall.drawOpaque(); 
+	//if (!m_GotTransparent) {
+	transparentObjects.clear();
+	mall.getTransparent();
+		m_GotTransparent = true;
+	//}
+	drawTransparent();
+}
+
+void Scene::drawTransparent()
 {
-	mall.draw();
+
+	glm::vec3 cameraPosition = camera.Position;
+	GLCall(glDepthMask(GL_FALSE));
+	std::sort(transparentObjects.begin(), transparentObjects.end(), [&](Object* a, Object* b) {
+		float distanceA = a->dist();
+		float distanceB = b->dist();
+		return distanceA > distanceB;
+		});
+	for (auto& object : transparentObjects) {
+		object->drawTransparent();
+	}
+	GLCall(glDepthMask(GL_TRUE));
 }
 
 Scene::~Scene()
@@ -36,6 +58,7 @@ void Scene::processDiscreteInput(int32_t key, int32_t scancode, int32_t action, 
 	else if (action == GLFW_PRESS) {
 		if (key == GLFW_KEY_F11) {
 			Window::instancePtr->toggleFullscreen();
+			updateProj();
 		}
 		if (key == GLFW_KEY_CAPS_LOCK) {
 		int mode = glfwGetInputMode(Window::instancePtr->getWindow(), GLFW_CURSOR);
@@ -95,5 +118,12 @@ void Scene::processContinuousInput(float& deltaTime)
 	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
 		getCamera().ProcessKeyboard(DOWN, deltaTime);
 	}
+}
+
+void Scene::onImguiRender()
+{
+	ImGui::SliderFloat("Camera Speed", &camera.MovementSpeed, 1, 100);
+	ImGui::InputFloat3("Camera Pos", &getCameraPosition().x);
+	mall.onImguiRender();
 }
 

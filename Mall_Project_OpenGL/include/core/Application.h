@@ -1,6 +1,5 @@
 #pragma once
 #include "core.h"
-#include "Cube.h"
 #include "Window.h"
 #include "Camera.h"
 #include "Scene.h"
@@ -21,12 +20,13 @@ public:
 	static Application& instance() { return *instancePtr; };
 
 	static Application* instancePtr;
+	static float deltaTime;
 private:
 	
 	Window window;
 	Scene scene;
 	myImGuiManager myImGui;
-	float deltaTime, lastFrame;
+	float lastFrame;
 
 	void LoadImGui();
 	void SetupBasics();

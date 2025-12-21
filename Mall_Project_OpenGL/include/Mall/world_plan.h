@@ -19,7 +19,7 @@ private:
 
 	Box street1, street2;
 	Box mall;
-	Box ite1;
+	Box ite1, ite2;
 	Buildings buildings;
 };
 

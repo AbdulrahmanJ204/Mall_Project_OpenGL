@@ -6,6 +6,7 @@ buildings(),
 plan1(320.0f, 0.1f, 360.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
 mall(120.0f, 40.1f, 120.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
 ite1(120.0f, 20.1f, 80.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
+ite2(2.0f, 22.1f, 17.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag"),
 street1(10.0f, 0.1f, 200.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {1, 25}}, }),
 street2(10.0f, 0.1f, 160.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {1, 25}}, }),
 plan3(140.0f, 0.1f, 10.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Up, {20, 3}}, }),
@@ -28,6 +29,11 @@ bahra("assets/obj/medieval_fountain/scene.gltf", "assets/shaders/model_loading.v
 	ite1.setFaceTexture(Face::Right, "assets/textures/ite/ite_left.png");
 	ite1.setFaceTexture(Face::Back, "assets/textures/ite/ite_front.png");
 	ite1.setFaceTexture(Face::Front, "assets/textures/ite/ite_back.png");
+	ite2.setFaceTexture(Face::Left, "assets/textures/ite/ite_title2.png",1);
+	ite2.setFaceTexture(Face::Right, "assets/textures/ite/ite_title.png",1);
+	ite2.setFaceTexture(Face::Back, "assets/textures/ite/ite_title3.png",1);
+	ite2.setFaceTexture(Face::Front, "assets/textures/ite/ite_title3.png",1);
+	ite2.setFaceTexture(Face::Up, "assets/textures/ite/ite_title3.png",1);
 
 	//Postions
 	plan1.setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
@@ -36,7 +42,8 @@ bahra("assets/obj/medieval_fountain/scene.gltf", "assets/shaders/model_loading.v
 	plan4.setPosition(glm::vec3(0.0f, 0.02f,+65.0f));
 	plan5.setPosition(glm::vec3(0.0f, 0.02f,+65.0f));
 	bahra.setPosition(glm::vec3(-7.4f, 0.03f,+72.55f));
-	ite1.setPosition(glm::vec3(0.0f, 0.02f+ite1.getHeight()/2, +110.0f + ite1.getDepth() / 2));
+	ite1.setPosition(glm::vec3(0.0f, 0.02f+ite1.getHeight()/2, +120.0f + ite1.getDepth() / 2));
+	ite2.setPosition(glm::vec3(-44.0f, 0.02f+ite2.getHeight()/2, +107.0f + ite2.getDepth() / 2));
 	mall.setPosition(glm::vec3(0.0f, 0.01f + mall.getHeight()/2, -80.0f + mall.getDepth() / 2));
 	
 }
@@ -52,6 +59,7 @@ void WorldPlan::drawOpaque()
 	street2.setParentModel(getModel());
 	mall.setParentModel(getModel());
 	ite1.setParentModel(getModel());
+	ite2.setParentModel(getModel());
 	buildings.setParentModel(getModel());
 	bahra.setParentModel(getModel());
 
@@ -66,6 +74,8 @@ void WorldPlan::drawOpaque()
 	bahra.drawOpaque();
 	//mall.drawOpaque();
 	ite1.drawOpaque();
+
+	
 
 	street1.setPosition(glm::vec3(-75.0f, 0.02f, 0.0f));
 	street1.drawOpaque();
@@ -93,9 +103,10 @@ void WorldPlan::drawOpaque()
 
 void WorldPlan::getTransparent()
 {
+	ite2.getTransparent();
 }
 
 void WorldPlan::onImguiRender()
 {
-	bahra.onImguiRender();
+
 }

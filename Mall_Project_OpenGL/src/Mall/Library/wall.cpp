@@ -13,7 +13,8 @@ Wall::Wall() :
 void Wall::drawOpaque()
 {
 	wall.setParentModel(getModel());
-
+	wall2.setParentModel(getModel());
+	wall3.setParentModel(getModel());
 	wall.setPosition(glm::vec3(8.3f, 4.9f, 15.0f));
 	wall.drawOpaque();
 

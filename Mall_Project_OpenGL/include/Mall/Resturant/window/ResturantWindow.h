@@ -16,23 +16,23 @@ private:
 	void setTexTransparet(Box& box, string textPath);
 
 
-	float windowPillerHeight = 2.5;
-	float windowPillerWidth = 0.08;
-	float windowPillerDepth = 0.04;
+	float windowPillerHeight = 2.5f;
+	float windowPillerWidth = 0.08f;
+	float windowPillerDepth = 0.04f;
 
 	float windowGlassHeight= windowPillerHeight;
 	float windowGlassWidth= windowPillerWidth/2;
-	float windowGlassDepth = windowPillerHeight - (windowPillerDepth * 2) - 0.01;
+	float windowGlassDepth = windowPillerHeight - (windowPillerDepth * 2) - 0.01f;
 
 	float windowSillHeight = windowPillerDepth;
-	float windowSillWidth = windowPillerWidth + 0.40;
+	float windowSillWidth = windowPillerWidth + 0.40f;
 	float windowSillDepth = windowPillerHeight;
 
-	float wallUnderWindowHeight= 2;
-	float wallUnderWindowWidth= windowSillWidth - 0.16;
+	float wallUnderWindowHeight= 2.0f;
+	float wallUnderWindowWidth= windowSillWidth - 0.16f;
 	float wallUnderWindowDepth= windowPillerHeight;
 	
-	float wallAboveWindowHeight=0.5;
+	float wallAboveWindowHeight=0.5f;
 	float wallAboveWindowWidth= wallUnderWindowWidth;
 	float wallAboveWindowDepth = windowPillerHeight;
 
@@ -57,7 +57,7 @@ private:
 		glm::vec3 translate = glm::vec3(0.0f, 0.0f, 0.0f);  // First vec3
 		glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);  // Second vec3
 		glm::vec3 rotate = glm::vec3(1.0f, 0.0f, 0.0f);  // third vec3
-		float rotateDegree = 0;
+		float rotateDegree = 0.0f;
 	};
 
 	Modification modifcation[6];

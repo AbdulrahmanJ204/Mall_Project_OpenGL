@@ -1,6 +1,5 @@
 #pragma once
 #include "core.h"
-#include "Cube.h"
 #include "Window.h"
 #include "Camera.h"
 #include "Scene.h"

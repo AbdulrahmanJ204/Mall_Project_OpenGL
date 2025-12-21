@@ -10,7 +10,9 @@ Signboard::Signboard() :
     board2.setParentModel(getModel()); 
 }
 void Signboard::drawOpaque() {
-     
+    board.setParentModel(getModel());
+    board2.setParentModel(getModel());
+
     board.setPosition(glm::vec3(0.0f, 10.0f, -14.5f));
     board.drawOpaque();
 

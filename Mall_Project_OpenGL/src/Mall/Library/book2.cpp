@@ -15,7 +15,7 @@ void Book2::drawOpaque()
 
 	for (int c = 0; c < 5; c++)
 	{
-		for (int i = 1; i <= 14; i++) {
+		for (int i = 1; i <= 10; i++) {
 			book.setPosition(glm::vec3(0.8f, 2.7f, -6.0f + (inc * i) + (c * x)));
 			book.drawOpaque();
 		}

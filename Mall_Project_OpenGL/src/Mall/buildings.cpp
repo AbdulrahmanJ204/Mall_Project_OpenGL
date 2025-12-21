@@ -7,21 +7,21 @@ build2(30.0f, 50.1f, 30.0f, "assets/shaders/vertexSh.vert", "assets/shaders/frag
 build3(30.0f, 30.1f, 30.0f, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag")
 {
 
-	build1.setFaceTexture(Face::Up, "assets/textures/mall/b4.jpg");
+	build1.setFaceTexture(Face::Up, "assets/textures/plan/p6.jpg");
 	build1.setFaceTexture(Face::Down, "assets/textures/mall/b4.jpg");
 	build1.setFaceTexture(Face::Left, "assets/textures/mall/b4.jpg");
 	build1.setFaceTexture(Face::Right, "assets/textures/mall/b4.jpg");
 	build1.setFaceTexture(Face::Back, "assets/textures/mall/b4.jpg");
 	build1.setFaceTexture(Face::Front, "assets/textures/mall/b4.jpg");
 
-	build2.setFaceTexture(Face::Up, "assets/textures/mall/b1.jpg");
+	build2.setFaceTexture(Face::Up, "assets/textures/plan/p6.jpg");
 	build2.setFaceTexture(Face::Down, "assets/textures/mall/b1.jpg");
 	build2.setFaceTexture(Face::Left, "assets/textures/mall/b1.jpg");
 	build2.setFaceTexture(Face::Right, "assets/textures/mall/b1.jpg");
 	build2.setFaceTexture(Face::Back, "assets/textures/mall/b1.jpg");
 	build2.setFaceTexture(Face::Front, "assets/textures/mall/b1.jpg");
 
-	build3.setFaceTexture(Face::Up, "assets/textures/mall/b3.jpg");
+	build3.setFaceTexture(Face::Up, "assets/textures/plan/p6.jpg");
 	build3.setFaceTexture(Face::Down, "assets/textures/mall/b3.jpg");
 	build3.setFaceTexture(Face::Left, "assets/textures/mall/b3.jpg");
 	build3.setFaceTexture(Face::Right, "assets/textures/mall/b3.jpg");

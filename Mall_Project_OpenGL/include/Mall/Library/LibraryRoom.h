@@ -11,8 +11,8 @@
 #include "Library/ceil.h"
 #include "Library/booklab.h"
 #include "Library/clock.h"
-#include "Library/book2.h"
-
+#include "Library/book2.h" 
+#include "Library/counterL.h"
 class LibraryRoom : public Object {
 public:
     LibraryRoom();
@@ -36,5 +36,6 @@ private:
     Ceil ceil;
     Booklab booklab;
     Clock clock;
+    Counter counter;
    // ModelObject sofa;
 };

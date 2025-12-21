@@ -4,7 +4,7 @@
 class Book : public Object {
 public:
 	Book();
-	void drawOpaque() override; 
+	void drawOpaque(); 
 	void setTex();
 
 private:

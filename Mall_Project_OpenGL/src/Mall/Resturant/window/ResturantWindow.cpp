@@ -9,6 +9,7 @@ wallUnderWindow(wallUnderWindowWidth, wallUnderWindowHeight, wallUnderWindowDept
 wallAboveWindow(wallAboveWindowWidth, wallAboveWindowHeight, wallAboveWindowDepth, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Left, {2,1}}, { Face::Right ,{2,1} } }),
 rightWall(rightWallWidth, rightWallHeight, rightWallDepth, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag", { {Face::Left ,{1,3}},{Face::Right ,{1,3} } }),
 leftWall(leftWallWidth, leftWallHeight, leftWallDepth, "assets/shaders/vertexSh.vert", "assets/shaders/fragSh.frag" ,{ {Face::Left, { 1,3 }}, { Face::Right ,{1,3} } })
+
 {
 	
 	setTex(windowPiller, "assets/textures/resturant/window/window2/base.png");
@@ -25,7 +26,6 @@ leftWall(leftWallWidth, leftWallHeight, leftWallDepth, "assets/shaders/vertexSh.
 	modifcation[3] = { glm::vec3(0.0f,0.0f,windowPillerHeight/2),glm::vec3(1.0f,1.0f,1.0f),glm::vec3(1,0,0),90 };
 	modifcation[4] = { glm::vec3(0.0f,-(windowPillerHeight / 2) + (windowPillerDepth / 2),windowPillerHeight / 2),glm::vec3(1.0f,1.0f,1.0f),glm::vec3(1,0,0),90 };
 	modifcation[5] = { glm::vec3(0.0f,(windowPillerHeight / 2 )- (windowPillerDepth / 2),windowPillerHeight / 2),glm::vec3(1.0f,1.0f,1.0f),glm::vec3(1,0,0),90 };
-	windowGlass.setPosition(glm::vec3(0.0f, 0.0f, windowPillerHeight/2));
 	wallAboveWindow.setPosition(glm::vec3(0.0f, +(windowPillerHeight / 2) + (windowPillerDepth / 2)+(wallAboveWindowHeight /2) + (windowSillHeight/2), windowPillerHeight / 2));
 	wallUnderWindow.setPosition(glm::vec3(0.0f, -(windowPillerHeight / 2) - (windowPillerDepth / 2) - (wallUnderWindowHeight / 2) - (windowSillHeight / 2), windowPillerHeight / 2));
 	rightWall.setPosition(glm::vec3(0.0f, -((wallUnderWindowHeight - wallAboveWindowHeight) / 2), -(rightWallDepth / 2)));
@@ -45,8 +45,10 @@ void RestaurantWindow::drawOpaque()
 		windowPiller.setScale(modifcation[i].scale);
 		windowPiller.drawOpaque();
 	}
-		windowGlass.setParentModel(getModel());
-		windowGlass.drawOpaque();
+	windowGlass.setParentModel(getModel());
+	windowGlass.setPosition(glm::vec3(0.0f, 0.0f, windowPillerHeight / 2));
+	windowGlass.drawOpaque();
+
 	
 
 	windowSill.setParentModel(getModel());
@@ -76,6 +78,8 @@ void RestaurantWindow::drawOpaque()
 
 void RestaurantWindow::getTransparent()
 {
+	windowGlass.setParentModel(getModel());
+	windowGlass.setPosition(glm::vec3(0.0f, 0.0f, windowPillerHeight / 2));
 	windowGlass.getTransparent();
 }
 

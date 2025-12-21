@@ -196,7 +196,7 @@ void ElectronicRoom::setTex()
 	electronic_wall_base.setFaceTexture(Face::Back, "assets/textures/electronic/elecroom1_7.png", 0, 0);
 	electronic_wall_base.setFaceTexture(Face::Front, "assets/textures/electronic/wall1.jpg", 0, 1,1);
 
-	electronic_wall_sec.setFaceTexture(Face::Down, "assets/textures/electronic/t1.jpg", 1, 0);
+	electronic_wall_sec.setFaceTexture(Face::Down, "assets/textures/electronic/t1.jpg", 0, 0);
 	electronic_wall_sec.setFaceTexture(Face::Up, "assets/textures/electronic/elecroom1_4.png", 1, 1);
 	electronic_wall_sec.setFaceTexture(Face::Left, "assets/textures/electronic/elecroom1_7.png", 0);
 	electronic_wall_sec.setFaceTexture(Face::Right, "assets/textures/electronic/elecroom1_3.png", 1);

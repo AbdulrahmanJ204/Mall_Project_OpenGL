@@ -17,10 +17,11 @@ Scene::Scene() :
 void Scene::draw()
 {	
 	mall.drawOpaque(); 
-	if (!m_GotTransparent) {
-		mall.getTransparent();
+	//if (!m_GotTransparent) {
+	transparentObjects.clear();
+	mall.getTransparent();
 		m_GotTransparent = true;
-	}
+	//}
 	drawTransparent();
 }
 

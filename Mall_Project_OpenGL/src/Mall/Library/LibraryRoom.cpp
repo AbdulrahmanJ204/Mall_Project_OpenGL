@@ -50,9 +50,13 @@ void LibraryRoom::drawOpaque()
 	signboard.setParentModel(getModel());
 	table.setParentModel(getModel());
 	ceil.setParentModel(getModel());
+	booklab.setParentModel(getModel());
+	clock.setParentModel(getModel());
+	top_plant.setParentModel(getModel());
+	door_plant.setParentModel(getModel());
+	rectable.setParentModel(getModel());
 
 	floor.drawOpaque();
-
 	shelf.drawOpaque();
 
 	for (int i = 0; i < 5; i++) {
@@ -114,7 +118,6 @@ void LibraryRoom::drawOpaque()
 	arm_chair.setRotation(270.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 	arm_chair.drawOpaque();
 
-
 	arm_chair.setPosition(glm::vec3(6.0f, -4.7f, 2.5f));
 	arm_chair.setRotation(270.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 	arm_chair.drawOpaque();
@@ -137,28 +140,46 @@ void LibraryRoom::drawOpaque()
 
 	ceil.drawOpaque();
 	//sofa.setParentModel(getModel());
-	//sofa.draw();  
+	//sofa.drawOpaque();  
 
-	booklab.setParentModel(getModel());
 	booklab.setPosition(glm::vec3(25.0f, 5.0f, -9.0f));
 	booklab.drawOpaque();
 
 	booklab.setPosition(glm::vec3(25.0f, 5.0f, 9.0f));
 	booklab.drawOpaque();
 
-	//for (int i = 0; i < 10; i++) { 
-	//	book2[i].setPosition(glm::vec3(24.0f, 8.8f + (-1.5f * i), -7.8f));
-	//	book2[i].drawOpaque();
-	//}
-	//for (int i = 0; i < 10; i++) {
-	//	book2[i].setPosition(glm::vec3(24.0f, 8.8f + (-1.5f * i), 10.0f));
-	//	book2[i].drawOpaque();
-	//}
-	clock.setParentModel(getModel());
+	for (int i = 0; i < 10; i++) { 
+		book2[i].setParentModel(getModel());
+		book2[i].setPosition(glm::vec3(24.0f, 8.8f + (-1.5f * i), -7.8f));
+		book2[i].drawOpaque();
+	}
+	for (int i = 0; i < 10; i++) {
+		book2[i].setPosition(glm::vec3(24.0f, 8.8f + (-1.5f * i), 10.0f));
+		book2[i].drawOpaque();
+	}
 	clock.setPosition(glm::vec3(-13.0f, 8.8f, -14.0f));
 	clock.drawOpaque();
+
+	rectable.setPosition(glm::vec3(10.0f, -3.5f, -8.0f));
+	rectable.drawOpaque();
+
+	chair.setScale(glm::vec3(0.7f, 0.7f, 0.7f));
+	chair.setRotation(180.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+
+	chair.setPosition(glm::vec3(13.0f, -4.5f, -6.0f));
+	chair.drawOpaque();
+
+	chair.setPosition(glm::vec3(15.0f, -4.5f, -6.0f));
+	chair.drawOpaque();
+
+	chair.setPosition(glm::vec3(18.0f, -4.5f, -6.0f));
+	chair.drawOpaque();
+
+	counter.setParentModel(getModel());
+	counter.setPosition(glm::vec3(8.0f, 3.5f, 10.0f));
+	counter.drawOpaque();
 }
 
 void LibraryRoom::onImguiRender() {
-
+	ImGui::SliderFloat3(" LibraryRoom ", &m_Position.x, -200.0f, 200.0f);
 }

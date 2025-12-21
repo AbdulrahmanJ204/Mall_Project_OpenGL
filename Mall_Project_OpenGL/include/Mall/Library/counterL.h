@@ -1,13 +1,13 @@
-
+ 
 #pragma once
 #include "Object.h"
 #include "Box.h"
-class Book2 : public Object {
+class Counter : public Object {
 public:
-	Book2();
+	Counter();
 	void drawOpaque() override;
-	void setTex(const std::string& path);
+	void setTex();
 
 private:
-	Box book;
+	Box counter1,counter2;
 };

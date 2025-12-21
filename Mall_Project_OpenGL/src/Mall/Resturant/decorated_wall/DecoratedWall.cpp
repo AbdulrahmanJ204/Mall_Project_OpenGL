@@ -185,7 +185,7 @@ void DecoratedWall::drawOpaque()
 		secondoryPiller.drawOpaque();
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 7; i++)
 	{
 		separateorWall.setParentModel(getModel());
 		separateorWall.setPosition(glm::vec3(-19.0f,-0.74, 9.300 + (i*11)));
@@ -235,7 +235,7 @@ void DecoratedWall::drawOpaque()
 	for (int i = 0; i < 8; i++) {
 
 
-		/*if (i % 2) {
+		if (i % 2) {
 			distance += 5;
 		}
 		else {
@@ -275,7 +275,7 @@ void DecoratedWall::drawOpaque()
 		foods[j].setPosition(glm::vec3(-19.07f + 1.648f, foodsHeight[j], 0.8f + 0.9f + distance));
 		foods[j].setScale(foodsScale[j]);
 		foods[j].setRotation(foodsRotate[j], glm::vec3(1.0f, 0.0f, 0.0f));
-		foods[j].drawOpaque();*/
+		foods[j].drawOpaque();
 
 	}
 
@@ -291,11 +291,11 @@ void DecoratedWall::drawOpaque()
 			distance = (i / 2) * 4.5f;
 		}
 
-		/*foods[j].setParentModel(getModel());
+		foods[j].setParentModel(getModel());
 		foods[j].setPosition(glm::vec3(-1.6f, foodsHeight[j], 0.44f + distance));
 		foods[j].setScale(foodsScale[j]);
 		foods[j].setRotation(foodsRotate[j], glm::vec3(1.0f, 0.0f, 0.0f));
-		foods[j].drawOpaque();*/
+		foods[j].drawOpaque();
 	}
 
 

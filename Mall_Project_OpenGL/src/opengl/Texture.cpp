@@ -21,14 +21,14 @@ Texture::Texture(const std::string& filepath , bool mirrorX, bool mirrorY)
 	// send data to opengl
 	// check docs.gl 
 	// check learnopengl page 60 for more info.
-	GLCall(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_LocalBuffer));
+	GLCall(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_LocalBuffer));
 	//GLCall(glGenerateMipmap(GL_TEXTURE_2D));
 	Unbind();
 
 	if (m_LocalBuffer) // if it has data . free the memory (good practice)
 		stbi_image_free(m_LocalBuffer);
 	else {
-		spdlog::error("Failed to Load Texture");
+		spdlog::error("Failed to Load Texture :	" + filepath);
 	}
 }
 

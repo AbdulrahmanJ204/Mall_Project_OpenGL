@@ -1,10 +1,12 @@
 #include "RestaurantRoom.h"
 
-RestaurantRoom::RestaurantRoom() : Object(),
-window(), decoratedWall()
+RestaurantRoom::RestaurantRoom() : 
+	Object()
+
+//window(), decoratedWall()
 {
-	windowWidth = window.getWindowWidth();
-	setScale(glm::vec3(1.0f, 3.0f, 1.0f));
+	
+	//windowWidth = window.getWindowWidth();
 
 }
 
@@ -12,8 +14,8 @@ void RestaurantRoom::drawOpaque()
 {
 	/*for (int i = 0; i < floor(35 / windowWidth); i++)
 	{
-		window.setParentModel(getModel());
 		window.setPosition(glm::vec3(0.0f, 0.0f, windowWidth*i));
+		window.setParentModel(getModel());
 		window.setRotation(0, glm::vec3(0.0f, 1.0f, 0.0f));
 		window.drawOpaque();
 	}
@@ -36,7 +38,7 @@ void RestaurantRoom::drawOpaque()
 
 void RestaurantRoom::getTransparent()
 {
-	window.getTransparent();
+	//window.getTransparent();
 }
 
 void RestaurantRoom::onImguiRender()

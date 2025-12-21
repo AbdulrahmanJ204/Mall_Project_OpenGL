@@ -34,7 +34,7 @@ private:
 	SupermarketRoom supermarketRoom;
 	LibraryRoom libraryRoom;
 	CaffeeRoom caffeeRoom;
-	RestaurantRoom restaurant;
+	//RestaurantRoom restaurant;
 
 	ModelObject bahra, escalator;
 	MovingDoor doorMall;

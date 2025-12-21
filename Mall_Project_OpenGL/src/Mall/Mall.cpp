@@ -83,8 +83,8 @@ void Mall::drawOpaque()
 	electronicRoom.setPosition(glm::vec3(-59.8f, 0.12f, 10.01f));
 	electronicRoom.drawOpaque();
 	
-	restaurant.setPosition(glm::vec3(-35.8, 10.0f, -52.8));
-	restaurant.drawOpaque();
+	//restaurant.setPosition(glm::vec3(-40.8, 10.0f, -54.8));
+	//restaurant.drawOpaque();
 
 	supermarketRoom.setPosition(glm::vec3(43.98f, 0.12f, -59.99f));
 	supermarketRoom.drawOpaque();
@@ -196,7 +196,7 @@ void Mall::getTransparent()
 	doorMall.getTransparent();
 	worldplan.getTransparent();
 	electronicRoom.getTransparent();
-	restaurant.getTransparent();
+	//restaurant.getTransparent();
 	supermarketRoom.getTransparent();
 	//libraryRoom.getTransparent();
 	mall_wall3.getTransparent();

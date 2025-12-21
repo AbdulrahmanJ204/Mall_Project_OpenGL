@@ -20,6 +20,7 @@ public:
     PointLight(const glm::vec3& position,
         const LightColorProperties lightProp, float range) {
         this->position = position;
+        this->originalPosition = position;
         this->ambient = lightProp.ambient;
         this->diffuse = lightProp.diffuse;
         this->specular = lightProp.specular;
@@ -43,8 +44,9 @@ public:
         shader.SetUniform1f(uniformName + ".linear", linear);
         shader.SetUniform1f(uniformName + ".quadratic", quadratic);
     }
-
+    inline glm::vec3 getPosition() const { return originalPosition; }
+    inline glm::vec3 getModifiedPosition() const { return position; }
 private:
-    glm::vec3 position;
+    glm::vec3 position, originalPosition;
     float constant, linear, quadratic;
 };

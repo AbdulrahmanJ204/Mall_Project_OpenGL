@@ -1,5 +1,6 @@
 #include "RestaurantRoom.h"
 
+<<<<<<< HEAD
 RestaurantRoom::RestaurantRoom() : 
 	Object()
 
@@ -7,6 +8,13 @@ RestaurantRoom::RestaurantRoom() :
 {
 	
 	//windowWidth = window.getWindowWidth();
+=======
+RestaurantRoom::RestaurantRoom() : Object(),
+window(), decoratedWall()
+{
+	windowWidth = window.getWindowWidth();
+	setScale(glm::vec3(1.0f, 3.0f, 1.0f));
+>>>>>>> ecb8ae7b0bcd20c4e32f5f6ae0ba049f21c8a0f4
 
 }
 
@@ -14,8 +22,13 @@ void RestaurantRoom::drawOpaque()
 {
 	/*for (int i = 0; i < floor(35 / windowWidth); i++)
 	{
+<<<<<<< HEAD
 		window.setPosition(glm::vec3(0.0f, 0.0f, windowWidth*i));
 		window.setParentModel(getModel());
+=======
+		window.setParentModel(getModel());
+		window.setPosition(glm::vec3(0.0f, 0.0f, windowWidth*i));
+>>>>>>> ecb8ae7b0bcd20c4e32f5f6ae0ba049f21c8a0f4
 		window.setRotation(0, glm::vec3(0.0f, 1.0f, 0.0f));
 		window.drawOpaque();
 	}
@@ -38,7 +51,11 @@ void RestaurantRoom::drawOpaque()
 
 void RestaurantRoom::getTransparent()
 {
+<<<<<<< HEAD
 	//window.getTransparent();
+=======
+	window.getTransparent();
+>>>>>>> ecb8ae7b0bcd20c4e32f5f6ae0ba049f21c8a0f4
 }
 
 void RestaurantRoom::onImguiRender()

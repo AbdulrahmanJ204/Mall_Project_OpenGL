@@ -11,11 +11,7 @@ public:
 	void onImguiRender() override;
 	//void setTex(Box& box, string textPath);
 private:
-<<<<<<< HEAD
 	//RestaurantWindow window;
-=======
-	RestaurantWindow window;
->>>>>>> ecb8ae7b0bcd20c4e32f5f6ae0ba049f21c8a0f4
 	DecoratedWall decoratedWall;
 	float windowWidth;
 };

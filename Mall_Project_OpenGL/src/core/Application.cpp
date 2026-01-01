@@ -18,17 +18,16 @@ Application::~Application()
 }
 
 void Application::run() {
-
-
 	SetupBasics();
 	while (!window.shouldClose()) {
-
 		Clear();
 		UpdateDeltaTime();
 		processContinuousInput();
+		//NOTE Scene Draw
 		scene.draw();
 		glfwPollEvents();
-//		LoadImGui();
+		//NOTE: GUI Controller 
+		//LoadImGui();
 		window.swapBuffers();
 	}
 

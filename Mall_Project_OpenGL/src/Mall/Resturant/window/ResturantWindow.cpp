@@ -30,11 +30,7 @@ leftWall(leftWallWidth, leftWallHeight, leftWallDepth, "assets/shaders/vertexSh.
 	wallUnderWindow.setPosition(glm::vec3(0.0f, -(windowPillerHeight / 2) - (windowPillerDepth / 2) - (wallUnderWindowHeight / 2) - (windowSillHeight / 2), windowPillerHeight / 2));
 	rightWall.setPosition(glm::vec3(0.0f, -((wallUnderWindowHeight - wallAboveWindowHeight) / 2), -(rightWallDepth / 2)));
 	leftWall.setPosition(glm::vec3(0.0f, -((wallUnderWindowHeight - wallAboveWindowHeight) / 2),(windowPillerHeight)+(leftWallDepth/2)));
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> ecb8ae7b0bcd20c4e32f5f6ae0ba049f21c8a0f4
 }
 
 void RestaurantWindow::drawOpaque()

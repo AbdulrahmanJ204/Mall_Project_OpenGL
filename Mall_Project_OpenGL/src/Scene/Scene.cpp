@@ -16,7 +16,9 @@ Scene::Scene() :
 }
 void Scene::draw()
 {	
-	mall.drawOpaque(); 
+	//world.drawOpaque();
+	mall.drawOpaque();
+
 	//if (!m_GotTransparent) {
 	transparentObjects.clear();
 	mall.getTransparent();
@@ -65,7 +67,6 @@ void Scene::processDiscreteInput(int32_t key, int32_t scancode, int32_t action, 
 		glfwSetInputMode(Window::instancePtr->getWindow(), GLFW_CURSOR, mode == GLFW_CURSOR_DISABLED ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_DISABLED);
 		}
 	}
-
 }
 
 void Scene::onCursorPositionEvent(double x, double y)
@@ -118,12 +119,26 @@ void Scene::processContinuousInput(float& deltaTime)
 	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
 		getCamera().ProcessKeyboard(DOWN, deltaTime);
 	}
+	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
+		float rotateSpeed = 400.0f; // ÓÑÚÉ ÇáÏæÑÇä
+		float moveSpeed = 2.0f;     // ÓÑÚÉ ÇáÍÑßÉ ááÃãÇã
+
+		// 1. ÊÍÏíË åÏİ ÇáÏæÑÇä (ßãÇ İÚáÊ ÓÇÈŞÇğ)
+		//
+		//world.wheel.m_TargetRotationAngle += rotateSpeed * deltaTime;
+
+		// 2. ÊÍÏíË åÏİ ÇáãæŞÚ (áÌÚá ÇáÏæáÇÈ íÊŞÏã ááÃãÇã Úáì ãÍæÑ Z ãËáÇğ)
+		// äÒíÏ ŞíãÉ Z İí ÇáåÏİ
+		world.wheel.m_TargetPosition.z += moveSpeed * deltaTime;
+	}
+	
+
 }
 
 void Scene::onImguiRender()
 {
 	ImGui::SliderFloat("Camera Speed", &camera.MovementSpeed, 1, 100);
 	ImGui::InputFloat3("Camera Pos", &getCameraPosition().x);
-	mall.onImguiRender();
+	//world.onImguiRender();
 }
 

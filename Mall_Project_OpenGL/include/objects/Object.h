@@ -40,7 +40,7 @@ public:
 	glm::vec3 m_TargetScale;
 
 	// Speed of interpolation (units per second)
-	float m_MoveSpeed = 0.01f;
+	float m_MoveSpeed = 20.0f;
 	float m_RotateSpeed = 45.0f; // Degrees per second
 	float m_ScaleSpeed = 1.0f;
 

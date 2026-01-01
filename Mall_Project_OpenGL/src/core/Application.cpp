@@ -28,7 +28,7 @@ void Application::run() {
 		processContinuousInput();
 		scene.draw();
 		glfwPollEvents();
-//		LoadImGui();
+		LoadImGui();
 		window.swapBuffers();
 	}
 

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stylized Vintage Coffee Machine
+* source:	https://sketchfab.com/3d-models/stylized-vintage-coffee-machine-f04cee3f96c24f1ea30ddbff32ce7aa5
+* author:	jellystuff (https://sketchfab.com/jellystuff)
+
+Model License:
+* license type:	CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
+* requirements:	Author must be credited. Modified versions must have the same license. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stylized Vintage Coffee Machine" (https://sketchfab.com/3d-models/stylized-vintage-coffee-machine-f04cee3f96c24f1ea30ddbff32ce7aa5) by jellystuff (https://sketchfab.com/jellystuff) licensed under CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)

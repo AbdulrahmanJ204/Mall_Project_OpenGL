@@ -1,0 +1,11 @@
+Model Information:
+* title:	psx cashier stand
+* source:	https://sketchfab.com/3d-models/psx-cashier-stand-5ae8eb6f93474724bf827b7544123187
+* author:	zynxeror (https://sketchfab.com/zynxeror)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "psx cashier stand" (https://sketchfab.com/3d-models/psx-cashier-stand-5ae8eb6f93474724bf827b7544123187) by zynxeror (https://sketchfab.com/zynxeror) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Candle Holder
+* source:	https://sketchfab.com/3d-models/candle-holder-38c0f8b4df1b41e092e8cdc623b3b6ff
+* author:	Vanya Mazalevich (https://sketchfab.com/VanyaMazalevich)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Candle Holder" (https://sketchfab.com/3d-models/candle-holder-38c0f8b4df1b41e092e8cdc623b3b6ff) by Vanya Mazalevich (https://sketchfab.com/VanyaMazalevich) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pothos (House Plant)
+* source:	https://sketchfab.com/3d-models/pothos-house-plant-d4edb210b6774c70a499462f15f916cd
+* author:	stevencmutter (https://sketchfab.com/stevencmutter)
+
+Model License:
+* license type:	CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
+* requirements:	Author must be credited. Modified versions must have the same license. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pothos (House Plant)" (https://sketchfab.com/3d-models/pothos-house-plant-d4edb210b6774c70a499462f15f916cd) by stevencmutter (https://sketchfab.com/stevencmutter) licensed under CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)

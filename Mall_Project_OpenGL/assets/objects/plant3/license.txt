@@ -1,0 +1,11 @@
+Model Information:
+* title:	Potted House Plants
+* source:	https://sketchfab.com/3d-models/potted-house-plants-7627ebca36d34d7b8eec1fdd68facad3
+* author:	FacultyManBruce (https://sketchfab.com/facultymanbruce)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Potted House Plants" (https://sketchfab.com/3d-models/potted-house-plants-7627ebca36d34d7b8eec1fdd68facad3) by FacultyManBruce (https://sketchfab.com/facultymanbruce) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

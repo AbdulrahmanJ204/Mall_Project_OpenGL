@@ -1,0 +1,11 @@
+Model Information:
+* title:	Medieval Fountain
+* source:	https://sketchfab.com/3d-models/medieval-fountain-5af39864f97f49748364fbc4db3d207f
+* author:	reizibarrientos (https://sketchfab.com/reizibarrientos)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Medieval Fountain" (https://sketchfab.com/3d-models/medieval-fountain-5af39864f97f49748364fbc4db3d207f) by reizibarrientos (https://sketchfab.com/reizibarrientos) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

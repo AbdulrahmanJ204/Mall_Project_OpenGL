@@ -1,0 +1,11 @@
+Model Information:
+* title:	Leather High Bar Stool
+* source:	https://sketchfab.com/3d-models/leather-high-bar-stool-b117e9bb6647471cbba974430dfd3726
+* author:	Nosakhae (https://sketchfab.com/NosTeam)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Leather High Bar Stool" (https://sketchfab.com/3d-models/leather-high-bar-stool-b117e9bb6647471cbba974430dfd3726) by Nosakhae (https://sketchfab.com/NosTeam) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

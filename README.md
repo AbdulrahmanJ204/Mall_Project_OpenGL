@@ -1,47 +1,77 @@
-# 🌟 Mall Project OpenGL 🌟
-🔍 The Mall Project OpenGL is a comprehensive application that utilizes OpenGL for rendering 3D scenes. The project is designed to demonstrate the capabilities of OpenGL and provide a foundation for further development. It includes features such as scene rendering, input handling, and GUI management using ImGui. The application is built using C++ and utilizes various libraries, including GLFW, GLM, and spdlog.
+# 🛍️ 3D Shopping Mall Simulation
+### Computer Graphics Project | 3rd Year
+**Faculty of Information Technology Engineering**
 
-## 🚀 Features
-- **Scene Rendering**: The application can render 3D scenes using OpenGL, including drawing objects and managing the rendering pipeline.
-- **Input Handling**: The application can handle input events, such as keyboard and mouse input, and provide methods for toggling fullscreen mode and setting the window's size.
-- **GUI Management**: The application uses ImGui for GUI management, providing methods for rendering GUI elements, such as input fields, sliders, and buttons.
-- **Debugging**: The application includes debugging features, such as the ability to render GUI elements for debugging and user input.
+### 📺 Project Demo (Video)
+[![Watch the video](https://img.shields.io/badge/Facebook_Reel-Watch_Demo-blue?style=for-the-badge&logo=facebook)](https://www.facebook.com/reel/1133793144792847/?s=single_unit)
 
-## 🛠️ Tech Stack
-- **Frontend**: C++, OpenGL, GLFW, GLM, ImGui
-- **Backend**: C++
-- **Database**: None
-- **AI Tools**: None
-- **Build Tools**: CMake
-- **Libraries**: spdlog, glm, glfw, glad, imgui
+*انقر على الزر أعلاه لمشاهدة عرض المشروع على Facebook Reels.*
+## 📝 Project Overview
+This project is a realistic 3D simulation of a two-story modern shopping mall and its surrounding urban environment. Developed using **Modern OpenGL**, the project demonstrates advanced computer graphics techniques including lighting, texturing, camera movement, and 3D asset integration.
 
-## 📦 Installation
-### Prerequisites
-- C++ compiler (e.g., GCC)
-- CMake
-- GLFW
-- GLM
-- ImGui
-- spdlog
+The mall is designed to be life-like, featuring various commercial sectors and a detailed exterior environment including residential buildings and a public park.
 
-### Installation
-1. Clone the repository: `git clone https://github.com/your-repo/Mall_Project_OpenGL.git`
-2. Navigate to the project directory: `cd Mall_Project_OpenGL`
-3. Create a build directory: `mkdir build`
-4. Navigate to the build directory: `cd build`
-5. Run CMake: `cmake ..`
-6. Build the project: `cmake --build .`
+### 🏢 Mall Interior
+* **First Floor:** * **Electronics Store:** Featuring gadget displays.
+    * **Supermarket:** Fully stocked with aisles and cashier stations.
+    * **Restaurant:** Designed with dining areas.
+* **Second Floor:**
+    * **Bookstore (Library):** Organized shelving and reading zones.
+    * **Cafe:** A cozy social spot.
+    * **Furniture Gallery:** Displaying various home setups.
+    * **Clothing Store:** Mannequins and apparel displays.
 
-### Running locally
-1. Navigate to the build directory: `cd build`
-2. Run the application: `./Mall_Project_OpenGL`
+### 🏙️ Exterior Environment
+* **Surrounding Area:** Detailed residential buildings and public streets.
+* **Mall Garden:** A landscaped green zone for aesthetics.
+* **Faculty of IT Engineering:** A special 3D model of our faculty building located right across from the mall.
 
-## 💻 Usage
-1. Run the application: `./Mall_Project_OpenGL`
-2. Use the GUI elements to interact with the scene
-3. Use the input handling features to navigate the scene
+---
 
+## 🛠️ Technical Stack
+* **Graphics API:** Modern OpenGL (Core Profile)
+* **Language:** C++
+* **IDE:** Visual Studio 2022
+* **Key Libraries:** GLFW, GLEW/GLAD, GLM.
 
-## 💖 Thanks Message
-Thank you for using the Mall Project OpenGL! We hope you find it helpful.
-This is written by [readme.ai](https://readme-generator-phi.vercel.app/)
+---
+
+## 🌿 Repository Structure (Branches)
+The project is divided into branches to manage asset sizes and facilitate testing:
+
+* **`main`**: Contains only the core source code and dependencies. 
+    * *Visuals:* Scene appears black, only the **Skybox** is rendered.
+* **`with_textures`**: Includes the code plus all surface textures (Walls, floors, signs).
+* **`with_textures_and_models`**: The full project containing code, textures, and all high-poly 3D models.
+
+---
+
+## 📦 Assets & Models
+While the architectural structure was built programmatically, we integrated specific 3D models to enhance the scene:
+* **Nature:** Trees, plants, and a central fountain (Bahra).
+* **Supermarket Assets:** Shopping carts and cashier desks.
+* **Interactive Elements:** Furniture, chairs, and staircases.
+* **Populations:** Animated cartoon characters.
+
+---
+
+## 👥 Development Team (The Monsters)
+* **Abdulrahman Al-Jumaat**
+* **Abdullah Al-Kasm**
+* **Mohammad Aidi**
+* **Manar Ajaj Al-Kurdi**
+* **Mohammad Ali Al-Nuaimi**
+
+### 👨‍🏫 Under the Supervision of:
+* **Eng. Muhammad Sulaiman**
+* **Eng. Mustafa Yabrode**
+
+---
+
+## 🚀 Getting Started
+1. **Clone the full version:**
+   ```bash
+   git clone -b with_textures_and_models [repository-url]
+2.  **Open the project in Visual Studio 2022.**
+3.  **Ensure the solution configuration is set to x64.**
+4.  **Build and run (F5).**

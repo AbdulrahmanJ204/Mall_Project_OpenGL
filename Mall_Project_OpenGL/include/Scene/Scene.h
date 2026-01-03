@@ -2,9 +2,10 @@
 #include "core.h"
 #include "Camera.h"
 #include "Object.h"
-#include "Mall.h"
+#include "World.h"
 #include "Window.h"
 #include <set>
+#include <Mall/Mall.h>
 class Scene
 {
 public:
@@ -35,6 +36,7 @@ private:
 	
 	float lastX, lastY;
 	bool firstMouse;
+	World world;
 	Mall mall;
 	bool m_GotTransparent = false;
 	// Could be a skyBox also  here.

@@ -161,6 +161,7 @@
     <ClInclude Include="include\Mall\caffeElsaffah\Counter_seating\CaffeeCounter.h" />
     <ClInclude Include="include\Mall\caffeElsaffah\kanabePlusTable\KanabePlusWall.h" />
     <ClInclude Include="include\Mall\caffeElsaffah\kanabe\kanabeh.h" />
+    <ClInclude Include="include\Mall\Car\Wheel.h" />
     <ClInclude Include="include\Mall\drabzen.h" />
     <ClInclude Include="include\Mall\buildings.h" />
     <ClInclude Include="include\Mall\Electronic\electronic_room.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="include\Mall\Resturant\RestaurantRoom.h" />
     <ClInclude Include="include\Mall\Resturant\window\ResturantWindow.h" />
     <ClInclude Include="include\Mall\SkyBox.h" />
+    <ClInclude Include="include\Mall\World.h" />
     <ClInclude Include="include\objects\Cylinder.h" />
     <ClInclude Include="include\objects\Box.h" />
     <ClInclude Include="include\core.h" />
@@ -249,6 +251,7 @@
     <ClCompile Include="src\Mall\caffeElsaffah\kanabe\kanabeh.cpp" />
     <ClCompile Include="src\Mall\caffeElsaffah\table1\Tables.cpp" />
     <ClCompile Include="src\Mall\caffeElsaffah\wall\WallCooffe.cpp" />
+    <ClCompile Include="src\Mall\Car\Wheel.cpp" />
     <ClCompile Include="src\Mall\drabzen.cpp" />
     <ClCompile Include="src\Mall\buildings.cpp" />
     <ClCompile Include="src\Mall\Electronic\electronic_room.cpp" />
@@ -270,6 +273,7 @@
     <ClCompile Include="src\Mall\Resturant\decorated_wall\DecoratedWall.cpp" />
     <ClCompile Include="src\Mall\Resturant\RestaurantRoom.cpp" />
     <ClCompile Include="src\Mall\Resturant\window\ResturantWindow.cpp" />
+    <ClCompile Include="src\Mall\World.cpp" />
     <ClCompile Include="src\objects\Cylinder.cpp" />
     <ClCompile Include="src\Mall\Mall.cpp" />
     <ClCompile Include="src\objects\Box.cpp" />

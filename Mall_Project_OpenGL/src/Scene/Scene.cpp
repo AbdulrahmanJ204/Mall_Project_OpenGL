@@ -16,12 +16,21 @@ Scene::Scene() :
 }
 void Scene::draw()
 {	
-	mall.drawOpaque(); 
-	//if (!m_GotTransparent) {
+	// Draw World CPP
+	//world.drawOpaque();
+
+	// Draw Mall CPP
+	mall.drawOpaque();
+
 	transparentObjects.clear();
+
+	// Draw ransparent World CPP
+	//world.getTransparent();
+
+	// Draw ransparent Mall CPP
 	mall.getTransparent();
-		m_GotTransparent = true;
-	//}
+	m_GotTransparent = true;
+
 	drawTransparent();
 }
 
@@ -65,7 +74,6 @@ void Scene::processDiscreteInput(int32_t key, int32_t scancode, int32_t action, 
 		glfwSetInputMode(Window::instancePtr->getWindow(), GLFW_CURSOR, mode == GLFW_CURSOR_DISABLED ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_DISABLED);
 		}
 	}
-
 }
 
 void Scene::onCursorPositionEvent(double x, double y)
@@ -118,12 +126,14 @@ void Scene::processContinuousInput(float& deltaTime)
 	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
 		getCamera().ProcessKeyboard(DOWN, deltaTime);
 	}
+
 }
 
 void Scene::onImguiRender()
 {
 	ImGui::SliderFloat("Camera Speed", &camera.MovementSpeed, 1, 100);
 	ImGui::InputFloat3("Camera Pos", &getCameraPosition().x);
-	mall.onImguiRender();
+	// GUI World CPP
+	//world.onImguiRender();
 }
 

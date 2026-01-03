@@ -34,11 +34,7 @@ private:
 	SupermarketRoom supermarketRoom;
 	LibraryRoom libraryRoom;
 	CaffeeRoom caffeeRoom;
-<<<<<<< HEAD
 	//RestaurantRoom restaurant;
-=======
-	RestaurantRoom restaurant;
->>>>>>> ecb8ae7b0bcd20c4e32f5f6ae0ba049f21c8a0f4
 
 	ModelObject bahra, escalator;
 	MovingDoor doorMall;
